@@ -253,9 +253,9 @@ sudo -i                     #
     
       <category term="openwrt" scheme="http://yoursite.com/tags/openwrt/"/>
     
-      <category term="DDNS" scheme="http://yoursite.com/tags/DDNS/"/>
-    
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="DDNS" scheme="http://yoursite.com/tags/DDNS/"/>
     
   </entry>
   
