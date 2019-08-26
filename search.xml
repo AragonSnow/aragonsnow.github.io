@@ -178,9 +178,9 @@
             
             <tag> openwrt </tag>
             
-            <tag> python </tag>
-            
             <tag> DDNS </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
