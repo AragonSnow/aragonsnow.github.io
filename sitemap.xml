@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/404.html</loc>
+    
+    <lastmod>2019-08-26T21:41:22.994Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/</loc>
     
     <lastmod>2019-08-26T21:30:13.678Z</lastmod>
