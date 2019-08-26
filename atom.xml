@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-26T08:44:56.269Z</updated>
+  <updated>2019-08-26T11:11:49.202Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/08/26/OpenWrt-%E4%BD%BF%E7%94%A8PY%E8%84%9A%E6%9C%AC%E5%AE%9E%E7%8E%B0DDNS/"/>
     <id>http://yoursite.com/2019/08/26/OpenWrt-使用PY脚本实现DDNS/</id>
     <published>2019-08-26T07:57:08.000Z</published>
-    <updated>2019-08-26T08:44:56.269Z</updated>
+    <updated>2019-08-26T11:11:49.202Z</updated>
     
     <content type="html"><![CDATA[<p>虽然KoolShare OpenWrt 有自带的DDNS功能，但不能实现多域名解析和对IPv6 的DDNS有问题，在找了一圈后，发现NewFuture大佬的DDNS十分好用，遂有以下记录。<br>脚本链接：<br>自动更新域名解析到本机IP(支持dnspod,阿里DNS,CloudFlare,DNSCOM…)</p><h1 id="下载脚本"><a href="#下载脚本" class="headerlink" title="下载脚本"></a>下载脚本</h1><p><code>git clone https://github.com/NewFuture/DDNS.git</code></p><p>从GitHub上直接复制下来，简单方便，会在root路径下出现DDNS文件夹</p><h1 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h1><p><code>vi /root/DDNS/config.json</code></p><p>按“i”键开始输入，光标移动修改，下面以阿里DDNS为例:<br></p><p><font color="#660000" size="6">里面的注释信息请勿复制进脚本</font><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">      &quot;debug&quot;: &quot;false&quot;,            # 调试模式，解析时会输出更多信息</span><br><span class="line">      &quot;dns&quot;: &quot;alidns&quot;,             # 选择DNS服务提供商，&quot;dnspod 或 dnspod_com 或 alidns 或 dnscom 或 cloudflare&quot;均可</span><br><span class="line">      &quot;id&quot;: &quot;your ID&quot;,         # 从阿里云获取的Access Key ID</span><br><span class="line">      &quot;token&quot;: &quot;your Secret&quot;,  #从阿里云获取的Access Key Secret</span><br><span class="line">      &quot;index4&quot;: &quot;default&quot;,         # IPv4解析方式，一般使用Default即可满足要求，不成功则需要访问Git地址上设置别的值</span><br><span class="line">      &quot;index6&quot;: &quot;default&quot;,         # IPv6解析方式，一般使用Default即可满足要求，不成功则需要访问Git地址上设置别的值</span><br><span class="line">      &quot;ipv4&quot;: [&quot;your.domain.com&quot;,  # IPv4解析域名组</span><br><span class="line">              &quot;your.domain.com&quot;],</span><br><span class="line">      &quot;ipv6&quot;: [&quot;your.domain.com&quot;,  # IPv6解析域名组</span><br><span class="line">               &quot;your.domain.com&quot;],</span><br><span class="line">     &quot;proxy&quot;: null         # 不使用代理</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>键入“ESC” 退出编辑，输入”:wq”保存配置并退出。</p><h1 id="添加计划任务"><a href="#添加计划任务" class="headerlink" title="添加计划任务"></a>添加计划任务</h1><p>进入OpenWrt后台，找到 系统-计划任务，在右边文本框输入以下内容：</p><p><em>/5 </em> <em> </em> * /root/DDNS/run.py -c config.json<br>意思是每5分钟更新一次DDNS信息，如果重复不会覆盖。有需要可以修改5来增减解析间隔时间。</p><p>以上就是利用NewFuture大佬的DDNS脚本在OpenWrt上实现多域名解析的方法，希望对你有所帮助。</p>]]></content>
     
@@ -34,6 +34,12 @@
     
     </summary>
     
+    
+      <category term="openwrt" scheme="http://yoursite.com/tags/openwrt/"/>
+    
+      <category term="DDNS" scheme="http://yoursite.com/tags/DDNS/"/>
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
   </entry>
   
