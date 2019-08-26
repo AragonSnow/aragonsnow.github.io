@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/</loc>
+    
+    <lastmod>2019-08-26T21:30:13.678Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/08/26/ubuntu-apache2-wang-zhan-tian-jia-yong-hu-fang-wen-yan-zheng/</loc>
     
     <lastmod>2019-08-26T20:39:03.027Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://yoursite.com/2019/08/26/openwrt-tian-jia-zi-ding-ming-ling-yi-frpc-wei-li/</loc>
     
     <lastmod>2019-08-26T13:25:59.450Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/</loc>
-    
-    <lastmod>2019-08-26T13:20:27.615Z</lastmod>
     
   </url>
   
