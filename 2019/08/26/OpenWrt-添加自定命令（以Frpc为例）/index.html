@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Aragon&#39;s Blog</title>
+  <title>OpenWrt 添加自定命令（以Frpc为例） | Aragon&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Aragon&apos;s Blog">
-<meta name="keywords" content="Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aragon&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="OpenWrt 在使用过程中会出现需要添加自定义命令来提升效率，在一段时间摸索以后，我写了以下脚本来实现Frpc内网穿透的需求。其他Linux系统均可以借鉴，但是文件位置可能稍有不同。  1、创建shell脚本frpc2.sh```12- 2、以下为命令模板以供参考，可自行根据情况修改，键入“i”，进入编辑模式   #! /bin/sh # 此行需要根据情况修改，因为是生成shell脚本，所以此处">
+<meta name="keywords" content="opnwrt,自定义指令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenWrt 添加自定命令（以Frpc为例）">
+<meta property="og:url" content="http://yoursite.com/2019/08/26/OpenWrt-添加自定命令（以Frpc为例）/index.html">
 <meta property="og:site_name" content="Aragon&#39;s Blog">
-<meta property="og:description" content="Aragon&apos;s Blog">
+<meta property="og:description" content="OpenWrt 在使用过程中会出现需要添加自定义命令来提升效率，在一段时间摸索以后，我写了以下脚本来实现Frpc内网穿透的需求。其他Linux系统均可以借鉴，但是文件位置可能稍有不同。  1、创建shell脚本frpc2.sh```12- 2、以下为命令模板以供参考，可自行根据情况修改，键入“i”，进入编辑模式   #! /bin/sh # 此行需要根据情况修改，因为是生成shell脚本，所以此处">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-26T12:49:22.901Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aragon&#39;s Blog">
-<meta name="twitter:description" content="Aragon&apos;s Blog">
+<meta name="twitter:title" content="OpenWrt 添加自定命令（以Frpc为例）">
+<meta name="twitter:description" content="OpenWrt 在使用过程中会出现需要添加自定义命令来提升效率，在一段时间摸索以后，我写了以下脚本来实现Frpc内网穿透的需求。其他Linux系统均可以借鉴，但是文件位置可能稍有不同。  1、创建shell脚本frpc2.sh```12- 2、以下为命令模板以供参考，可自行根据情况修改，键入“i”，进入编辑模式   #! /bin/sh # 此行需要根据情况修改，因为是生成shell脚本，所以此处">
   
     <link rel="alternative" href="/atom.xml" title="Aragon&#39;s Blog" type="application/atom+xml">
   
@@ -152,78 +153,52 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-OpenWrt-添加自定命令（以Frpc为例）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/26/OpenWrt-添加开机启动任务/" class="archive-article-date">
-  	<time datetime="2019-08-26T12:50:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/26/OpenWrt-添加开机启动任务/">OpenWrt 添加开机启动任务</a>
+    <h1 class="article-title" itemprop="name">
+      OpenWrt 添加自定命令（以Frpc为例）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">openwrt</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">启动任务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/26/OpenWrt-添加自定命令（以Frpc为例）/" class="archive-article-date">
+        
+        <a href="/2019/08/26/OpenWrt-添加自定命令（以Frpc为例）/" class="archive-article-date">
   	<time datetime="2019-08-26T12:43:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/26/OpenWrt-添加自定命令（以Frpc为例）/">OpenWrt 添加自定命令（以Frpc为例）</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>OpenWrt 在使用过程中会出现需要添加自定义命令来提升效率，在一段时间摸索以后，我写了以下脚本来实现Frpc内网穿透的需求。<br>其他Linux系统均可以借鉴，但是文件位置可能稍有不同。</p>
+<ul>
+<li>1、创建shell脚本<figure class="highlight plain"><figcaption><span>frpc2.sh```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 2、以下为命令模板以供参考，可自行根据情况修改，键入“i”，进入编辑模式</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>#! /bin/sh # 此行需要根据情况修改，因为是生成shell脚本，所以此处用的是 /bin/sh<br>#</p>
+<h1 id="Copyright-C-2018-aragon"><a href="#Copyright-C-2018-aragon" class="headerlink" title="Copyright (C) 2018 aragon"></a>Copyright (C) 2018 aragon</h1><p>#</p>
+<h1 id="This-is-free-software-licensed-under-the-GNU-General-Public-License-v3"><a href="#This-is-free-software-licensed-under-the-GNU-General-Public-License-v3" class="headerlink" title="This is free software, licensed under the GNU General Public License v3."></a>This is free software, licensed under the GNU General Public License v3.</h1><h1 id="See-LICENSE-for-more-information"><a href="#See-LICENSE-for-more-information" class="headerlink" title="See /LICENSE for more information."></a>See /LICENSE for more information.</h1><p>fun_check() { # 检查当前进程状态<br>pid=<code>pidof frpc2</code> # 寻找进程中名含有frpc2的进程，可根据需要修改进程名<br>if [ -n “$pid” ];then<br>return 0 # 如果进程不存在则返回0<br>else<br>return 1 # 如果存在则返回1<br>fi<br>}</p>
+<p>fun_start() { # 运行frpc程序<br>if fun_check; then # 调用fun_check 函数，如果为真<br>echo “frpc2 已经在运行。。。” # 不启动程序并提示已经在运行<br>else # 如果为假，运行程序<br>cd /root/frpc2<br>./frpc2 -c frpc.ini &amp;<br>echo “frpc2 启动！！！”<br>fi<br>}</p>
+<p>fun_stop() { # 停止运行程序<br>if fun_check; then # 调用fun_check 函数，如果为真<br>killall frpc2 # killall 命令中止所有还含有frpc2的进程，可根据需要修改<br>echo “已停止frpc2。。。”<br>else # 返回为假则无操作并提示<br>echo “frpc2 并未运行。。。”<br>fi<br>}</p>
+<p>fun_restart() { # 重启程序，其实是先停止再启动<br>fun_stop<br>fun_start<br>}</p>
+<p>fun_status() { # 检查当前进程运行状态<br>if fun_check; then<br>echo “frpc2 已在运行”<br>else<br>echo “frp2 并未运行”<br>fi<br>}</p>
+<p>fun_config() { # 查看当前frpc配置文件<br>vi /root/frpc2/frpc.ini<br>}</p>
+<p>arg1=$1 # arg1 = 脚本命令后附带的命令内容。如输入 frpc2 start,则 arg1 = start<br>[ -z ${arg1} ] # 查看 当前输入的是什么命令<br>case “${arg1}” in<br>start|stop|restart|status|config) # 如果输入的命令符合则运行指定命令<br>fun_${arg1}<br>;;<br>*) # 如果输入命令不在有效范围则提示正确指令<br>echo “Usage: $SCRIPTNAME {start|stop|restart|status|config}”<br>RET_VAL=1<br>;;<br>esac #退出case语句<br>exit $RET_VAL #退出脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 3、按“ESC”退出编辑模式，并键入“:wq”保存脚本</span><br><span class="line"></span><br><span class="line">- 4、OpenWrt中输入</span><br></pre></td></tr></table></figure>
+<p>chmod +x /root/frpc2/frpc2.sh # 给脚本可执行权限<br>ln -s /root/frpc2/frpc2.sh /bin/frpc2 # 加入/bin 中，则可以直接使用 frpc2 start等来实现启动命令<br>ln -s /root/frpc2/frpc2.sh /etc/init.d/frpc2 # 加入/etc/init.d 中，则可以直接使用service frpc2 start等来实现启动命令<br><code>`</code></p>
+<p>以上就是OpenWrt 添加自定命令（以Frpc为例）的全部内容，如果要实现frpc实现开机自启，可以参考这篇文章。</p>
+<p><a href="https://wp.aragon.wang/archives/28 “OpenWrt添加开机启动任务”" target="_blank" rel="noopener">OpenWrt添加开机启动任务</a></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -239,306 +214,144 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/26/OpenWrt-添加自定命令（以Frpc为例）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/26/linux下使用crontab运行Python脚本的坑/" class="archive-article-date">
-  	<time datetime="2019-08-26T12:34:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/08/26/OpenWrt-添加开机启动任务/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          OpenWrt 添加开机启动任务
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/26/linux下使用crontab运行Python脚本的坑/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux下使用crontab运行Python脚本的坑</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/26/linux下使用crontab运行Python脚本的坑/">linux下使用crontab运行Python脚本的坑</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">crontab</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Copyright-C-2018-aragon"><span class="toc-number">1.</span> <span class="toc-text">Copyright (C) 2018 aragon</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#This-is-free-software-licensed-under-the-GNU-General-Public-License-v3"><span class="toc-number">2.</span> <span class="toc-text">This is free software, licensed under the GNU General Public License v3.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#See-LICENSE-for-more-information"><span class="toc-number">3.</span> <span class="toc-text">See /LICENSE for more information.</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/26/Ubuntu-Server-输入sudo-指令不使用密码/" class="archive-article-date">
-  	<time datetime="2019-08-26T12:31:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/26/Ubuntu-Server-输入sudo-指令不使用密码/">Ubuntu Server 输入sudo 指令不使用密码</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sudo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">不输入密码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/26/OpenWrt-挂载局域网SAMBA共享文件夹/" class="archive-article-date">
-  	<time datetime="2019-08-26T12:26:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/26/OpenWrt-挂载局域网SAMBA共享文件夹/">OpenWrt 挂载局域网SAMBA共享文件夹</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">openwrt</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">smb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/26/UBUNTU-Apache2-强制开启https访问的方法/" class="archive-article-date">
-  	<time datetime="2019-08-26T12:19:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/26/UBUNTU-Apache2-强制开启https访问的方法/">UBUNTU+Apache2 强制开启https访问的方法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/26/Ubuntu+apache2 网站添加用户访问验证/" class="archive-article-date">
-  	<time datetime="2019-08-26T12:14:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
-</a>
-        </div>
-    	 
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2019/08/26/OpenWrt-添加自定命令（以Frpc为例）/",
+  owner: 'aragonsonw',
+  repo: 'hexo_issues',
+  oauth: {
+    client_id: 'asd159874123@126.com',
+    client_secret: '123Qwe[]\\',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/26/Ubuntu+apache2 网站添加用户访问验证/">Ubuntu+apache2 网站添加用户访问验证</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">apache</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">验证</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/" class="archive-article-date">
-  	<time datetime="2019-08-26T12:00:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/">OpenWrt 设置静态路由实现跨网段访问</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">openwrt</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">跨网段访问</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/26/OpenWrt-使用PY脚本实现DDNS/" class="archive-article-date">
-  	<time datetime="2019-08-26T07:57:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/26/OpenWrt-使用PY脚本实现DDNS/">OpenWrt 使用PY脚本实现DDNS</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">openwrt</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">DDNS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -561,8 +374,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
