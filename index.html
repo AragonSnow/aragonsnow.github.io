@@ -271,21 +271,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>OpenWrt 在使用过程中会出现需要添加自定义命令来提升效率，在一段时间摸索以后，我写了以下脚本来实现Frpc内网穿透的需求。<br>其他Linux系统均可以借鉴，但是文件位置可能稍有不同。</p>
-<ul>
-<li>1、创建shell脚本<figure class="highlight plain"><figcaption><span>frpc2.sh```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 2、以下为命令模板以供参考，可自行根据情况修改，键入“i”，进入编辑模式</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>#! /bin/sh # 此行需要根据情况修改，因为是生成shell脚本，所以此处用的是 /bin/sh<br>#</p>
-<h1 id="Copyright-C-2018-aragon"><a href="#Copyright-C-2018-aragon" class="headerlink" title="Copyright (C) 2018 aragon"></a>Copyright (C) 2018 aragon</h1><p>#</p>
-<h1 id="This-is-free-software-licensed-under-the-GNU-General-Public-License-v3"><a href="#This-is-free-software-licensed-under-the-GNU-General-Public-License-v3" class="headerlink" title="This is free software, licensed under the GNU General Public License v3."></a>This is free software, licensed under the GNU General Public License v3.</h1><h1 id="See-LICENSE-for-more-information"><a href="#See-LICENSE-for-more-information" class="headerlink" title="See /LICENSE for more information."></a>See /LICENSE for more information.</h1><p>fun_check() { # 检查当前进程状态<br>pid=<code>pidof frpc2</code> # 寻找进程中名含有frpc2的进程，可根据需要修改进程名<br>if [ -n “$pid” ];then<br>return 0 # 如果进程不存在则返回0<br>else<br>return 1 # 如果存在则返回1<br>fi<br>}</p>
-<p>fun_start() { # 运行frpc程序<br>if fun_check; then # 调用fun_check 函数，如果为真<br>echo “frpc2 已经在运行。。。” # 不启动程序并提示已经在运行<br>else # 如果为假，运行程序<br>cd /root/frpc2<br>./frpc2 -c frpc.ini &amp;<br>echo “frpc2 启动！！！”<br>fi<br>}</p>
-<p>fun_stop() { # 停止运行程序<br>if fun_check; then # 调用fun_check 函数，如果为真<br>killall frpc2 # killall 命令中止所有还含有frpc2的进程，可根据需要修改<br>echo “已停止frpc2。。。”<br>else # 返回为假则无操作并提示<br>echo “frpc2 并未运行。。。”<br>fi<br>}</p>
-<p>fun_restart() { # 重启程序，其实是先停止再启动<br>fun_stop<br>fun_start<br>}</p>
-<p>fun_status() { # 检查当前进程运行状态<br>if fun_check; then<br>echo “frpc2 已在运行”<br>else<br>echo “frp2 并未运行”<br>fi<br>}</p>
-<p>fun_config() { # 查看当前frpc配置文件<br>vi /root/frpc2/frpc.ini<br>}</p>
-<p>arg1=$1 # arg1 = 脚本命令后附带的命令内容。如输入 frpc2 start,则 arg1 = start<br>[ -z ${arg1} ] # 查看 当前输入的是什么命令<br>case “${arg1}” in<br>start|stop|restart|status|config) # 如果输入的命令符合则运行指定命令<br>fun_${arg1}<br>;;<br>*) # 如果输入命令不在有效范围则提示正确指令<br>echo “Usage: $SCRIPTNAME {start|stop|restart|status|config}”<br>RET_VAL=1<br>;;<br>esac #退出case语句<br>exit $RET_VAL #退出脚本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 3、按“ESC”退出编辑模式，并键入“:wq”保存脚本</span><br><span class="line"></span><br><span class="line">- 4、OpenWrt中输入</span><br></pre></td></tr></table></figure>
-<p>chmod +x /root/frpc2/frpc2.sh # 给脚本可执行权限<br>ln -s /root/frpc2/frpc2.sh /bin/frpc2 # 加入/bin 中，则可以直接使用 frpc2 start等来实现启动命令<br>ln -s /root/frpc2/frpc2.sh /etc/init.d/frpc2 # 加入/etc/init.d 中，则可以直接使用service frpc2 start等来实现启动命令<br><code>`</code></p>
+<h1 id="1、创建shell脚本"><a href="#1、创建shell脚本" class="headerlink" title="1、创建shell脚本"></a>1、创建shell脚本</h1><p><code>vi frpc2.sh</code></p>
+<h1 id="2、以下为命令模板以供参考，可自行根据情况修改，键入“i”，进入编辑模式"><a href="#2、以下为命令模板以供参考，可自行根据情况修改，键入“i”，进入编辑模式" class="headerlink" title="2、以下为命令模板以供参考，可自行根据情况修改，键入“i”，进入编辑模式"></a>2、以下为命令模板以供参考，可自行根据情况修改，键入“i”，进入编辑模式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">#! /bin/sh # 此行需要根据情况修改，因为是生成shell脚本，所以此处用的是 /bin/sh</span><br><span class="line">#</span><br><span class="line"># Copyright (C) 2018 aragon </span><br><span class="line">#</span><br><span class="line"># This is free software, licensed under the GNU General Public License v3.</span><br><span class="line"># See /LICENSE for more information.</span><br><span class="line"></span><br><span class="line">fun_check() &#123; # 检查当前进程状态</span><br><span class="line">pid=`pidof frpc2` # 寻找进程中名含有frpc2的进程，可根据需要修改进程名</span><br><span class="line">if [ -n “$pid” ];then</span><br><span class="line">return 0 # 如果进程不存在则返回0</span><br><span class="line">else</span><br><span class="line">return 1 # 如果存在则返回1</span><br><span class="line">fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun_start() &#123; # 运行frpc程序</span><br><span class="line">if fun_check; then # 调用fun_check 函数，如果为真</span><br><span class="line">echo “frpc2 已经在运行。。。” # 不启动程序并提示已经在运行</span><br><span class="line">else # 如果为假，运行程序</span><br><span class="line">cd /root/frpc2</span><br><span class="line">./frpc2 -c frpc.ini &amp;</span><br><span class="line">echo “frpc2 启动！！！”</span><br><span class="line">fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun_stop() &#123; # 停止运行程序</span><br><span class="line">if fun_check; then # 调用fun_check 函数，如果为真</span><br><span class="line">killall frpc2 # killall 命令中止所有还含有frpc2的进程，可根据需要修改</span><br><span class="line">echo “已停止frpc2。。。”</span><br><span class="line">else # 返回为假则无操作并提示</span><br><span class="line">echo “frpc2 并未运行。。。”</span><br><span class="line">fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun_restart() &#123; # 重启程序，其实是先停止再启动</span><br><span class="line">fun_stop</span><br><span class="line">fun_start</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun_status() &#123; # 检查当前进程运行状态</span><br><span class="line">if fun_check; then</span><br><span class="line">echo “frpc2 已在运行”</span><br><span class="line">else</span><br><span class="line">echo “frp2 并未运行”</span><br><span class="line">fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun_config() &#123; # 查看当前frpc配置文件</span><br><span class="line">vi /root/frpc2/frpc.ini</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">arg1=$1 # arg1 = 脚本命令后附带的命令内容。如输入 frpc2 start,则 arg1 = start</span><br><span class="line">[ -z $&#123;arg1&#125; ] # 查看 当前输入的是什么命令</span><br><span class="line">case “$&#123;arg1&#125;” in</span><br><span class="line">start|stop|restart|status|config) # 如果输入的命令符合则运行指定命令</span><br><span class="line">fun_$&#123;arg1&#125;</span><br><span class="line">;;</span><br><span class="line">*) # 如果输入命令不在有效范围则提示正确指令</span><br><span class="line">echo “Usage: $SCRIPTNAME &#123;start|stop|restart|status|config&#125;”</span><br><span class="line">RET_VAL=1</span><br><span class="line">;;</span><br><span class="line">esac #退出case语句</span><br><span class="line">exit $RET_VAL #退出脚本</span><br></pre></td></tr></table></figure>
+<h1 id="3、按“ESC”退出编辑模式，并键入“-wq”保存脚本"><a href="#3、按“ESC”退出编辑模式，并键入“-wq”保存脚本" class="headerlink" title="3、按“ESC”退出编辑模式，并键入“:wq”保存脚本"></a>3、按“ESC”退出编辑模式，并键入“:wq”保存脚本</h1><h1 id="4、OpenWrt中输入"><a href="#4、OpenWrt中输入" class="headerlink" title="4、OpenWrt中输入"></a>4、OpenWrt中输入</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /root/frpc2/frpc2.sh # 给脚本可执行权限</span><br><span class="line">ln -s /root/frpc2/frpc2.sh /bin/frpc2 # 加入/bin 中，则可以直接使用 frpc2 start等来实现启动命令</span><br><span class="line">ln -s /root/frpc2/frpc2.sh /etc/init.d/frpc2 # 加入/etc/init.d 中，则可以直接使用service frpc2 start等来实现启动命令</span><br></pre></td></tr></table></figure>
 <p>以上就是OpenWrt 添加自定命令（以Frpc为例）的全部内容，如果要实现frpc实现开机自启，可以参考这篇文章。</p>
 <p><a href="https://wp.aragon.wang/archives/28 “OpenWrt添加开机启动任务”" target="_blank" rel="noopener">OpenWrt添加开机启动任务</a></p>
 
@@ -550,10 +538,12 @@
 <h1 id="操作指令"><a href="#操作指令" class="headerlink" title="操作指令"></a>操作指令</h1><p>首先安装相关套件cifsmount<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">opkg update         # 更新软件列表</span><br><span class="line">opkg install cifsmount          # 安装cifsmount</span><br></pre></td></tr></table></figure></p>
 <p>没有报错即为成功</p>
 <h1 id="挂载文件夹"><a href="#挂载文件夹" class="headerlink" title="挂载文件夹"></a>挂载文件夹</h1><p>此处挂载局域网192.168.1.40的share文件夹到 OpenWrt中的/root/shar文件夹</p>
-<figure class="highlight plain"><figcaption><span>//192.168.1.40/share</span><a href="/root/share">-o user</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">因为OpenWrt的mount命令版本比较低，此处的 vers=1.0是必须的,sec=ntlm也是必须的加密选项，不过需要根据网络不同配置不同的加密选项</span><br><span class="line"># 取消挂载</span><br><span class="line">如果想取消挂载，仅需要取消取消挂载点就可以了</span><br><span class="line">```umount /root/share</span><br></pre></td></tr></table></figure>
+<p><code>mount.cifs //192.168.1.40/share /root/share -o user=your_name,pass=your_password,vers=1.0,sec=ntlm</code></p>
+<p>因为OpenWrt的mount命令版本比较低，此处的 vers=1.0是必须的,sec=ntlm也是必须的加密选项，不过需要根据网络不同配置不同的加密选项</p>
+<h1 id="取消挂载"><a href="#取消挂载" class="headerlink" title="取消挂载"></a>取消挂载</h1><p>如果想取消挂载，仅需要取消取消挂载点就可以了<br><code>umount /root/share</code></p>
 <h1 id="期间碰到的坑："><a href="#期间碰到的坑：" class="headerlink" title="期间碰到的坑："></a>期间碰到的坑：</h1><p><code>mount error(22): Invalid argument
 Refer to the mount.cifs(8) manual page (e.g. man mount.cifs)</code></p>
-<p>意思为参数错误，原因是后面的 user=your_name,pass=your_password 后面没有添加 vers=1.0,sec=ntlm</p>
+<p>意思为参数错误，原因是后面的 <code>user=your_name,pass=your_password</code> 后面没有添加 <code>vers=1.0,sec=ntlm</code></p>
 
       
 
@@ -709,7 +699,8 @@ Refer to the mount.cifs(8) manual page (e.g. man mount.cifs)</code></p>
 <p>确认 AllowOverride all 这行是这样就可以了,保存后输入以下命令</p>
 <p><code>sudo service apache2 restart</code><br>命令作用：重启apache2</p>
 <h1 id="4-修改-htaccess-文件"><a href="#4-修改-htaccess-文件" class="headerlink" title="4. 修改.htaccess 文件"></a>4. 修改.htaccess 文件</h1><p>在.htaccess 文件的最后加入如下内容：</p>
-<p>AuthType Basic<br>AuthName “Restricted Content”<br>AuthUserFile /var/www/html/网站根目录/.htpasswd<br>Require valid-user<br>保存后退出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AuthType Basic</span><br><span class="line">AuthName &quot;Restricted Content&quot;</span><br><span class="line">AuthUserFile /var/www/html/网站根目录/.htpasswd</span><br><span class="line">Require valid-user</span><br></pre></td></tr></table></figure>
+<p>保存后退出</p>
 <h1 id="5-验证"><a href="#5-验证" class="headerlink" title="5. 验证"></a>5. 验证</h1><p>直接访问网站，会弹出验证验证信息：<br><img src="https://wp.aragon.wang/wp-content/uploads/2018/11/password_prompt.png" alt><br>如果验证错误会出现如下信息：<br><img src="https://wp.aragon.wang/wp-content/uploads/2018/11/unauthorized_error.png" alt></p>
 <p>以上就是apache2 添加用户验证的方法，希望对你有帮助。</p>
 
@@ -1041,6 +1032,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">smb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">DDNS</a>
               </li>
              
@@ -1049,15 +1044,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">smb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">启动任务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">跨网段访问</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1066,6 +1053,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">自定义指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">跨网段访问</a>
               </li>
              
               <li class="article-tag-list-item">

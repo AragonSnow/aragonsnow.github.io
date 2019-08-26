@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Aragon&#39;s Blog">
 <meta property="og:description" content="OpenWrt 添加启动任务的方式有别于其他的linux系统，在尝试过程中踩了不少坑，所以整理在此处。正常Linux系统一般修改rc.local即可在开机时自动运行代码，即 vi /etc/rc.local 然后输入开机要启动的命令即可，但OpenWrt不同，其操作流程为：  1 、进入启动任务的文件夹  cd /etc/rc.d  2、创建启动文件，前面要标注启动顺序  vi S99Test">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-26T12:55:17.253Z">
+<meta property="og:updated_time" content="2019-08-26T13:20:27.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenWrt 添加开机启动任务">
 <meta name="twitter:description" content="OpenWrt 添加启动任务的方式有别于其他的linux系统，在尝试过程中踩了不少坑，所以整理在此处。正常Linux系统一般修改rc.local即可在开机时自动运行代码，即 vi /etc/rc.local 然后输入开机要启动的命令即可，但OpenWrt不同，其操作流程为：  1 、进入启动任务的文件夹  cd /etc/rc.d  2、创建启动文件，前面要标注启动顺序  vi S99Test">
@@ -338,7 +338,7 @@ var gitment = new Gitment({
   repo: 'hexo_issues',
   oauth: {
     client_id: 'asd159874123@126.com',
-    client_secret: '123Qwe[]\\',
+    client_secret: '123Qwe[]\',
   },
 })
 gitment.render('gitment-ctn')
@@ -440,6 +440,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">smb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">DDNS</a>
               </li>
              
@@ -448,15 +452,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">smb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">启动任务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">跨网段访问</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -465,6 +461,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">自定义指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">跨网段访问</a>
               </li>
              
               <li class="article-tag-list-item">

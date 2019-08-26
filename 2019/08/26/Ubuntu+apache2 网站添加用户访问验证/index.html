@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://wp.aragon.wang/wp-content/uploads/2018/11/password_prompt.png">
 <meta property="og:image" content="https://wp.aragon.wang/wp-content/uploads/2018/11/unauthorized_error.png">
-<meta property="og:updated_time" content="2019-08-26T12:18:15.116Z">
+<meta property="og:updated_time" content="2019-08-26T13:30:23.777Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu+apache2 网站添加用户访问验证">
 <meta name="twitter:description" content="在一些比较特殊的网站需要添加用户验证的功能，下面是使用.htaccess文件的方法实现用户验证 1. 安装apache-utils12sudo apt-get updatesudo apt-get install apache2-utils 2. 生成 .htpasswd 文件推荐在网站根目录下生成.htpasswd 文件保存密码12touch /var/www/html/网站根目录/.htpas">
@@ -184,7 +184,8 @@
 <p>确认 AllowOverride all 这行是这样就可以了,保存后输入以下命令</p>
 <p><code>sudo service apache2 restart</code><br>命令作用：重启apache2</p>
 <h1 id="4-修改-htaccess-文件"><a href="#4-修改-htaccess-文件" class="headerlink" title="4. 修改.htaccess 文件"></a>4. 修改.htaccess 文件</h1><p>在.htaccess 文件的最后加入如下内容：</p>
-<p>AuthType Basic<br>AuthName “Restricted Content”<br>AuthUserFile /var/www/html/网站根目录/.htpasswd<br>Require valid-user<br>保存后退出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AuthType Basic</span><br><span class="line">AuthName &quot;Restricted Content&quot;</span><br><span class="line">AuthUserFile /var/www/html/网站根目录/.htpasswd</span><br><span class="line">Require valid-user</span><br></pre></td></tr></table></figure>
+<p>保存后退出</p>
 <h1 id="5-验证"><a href="#5-验证" class="headerlink" title="5. 验证"></a>5. 验证</h1><p>直接访问网站，会弹出验证验证信息：<br><img src="https://wp.aragon.wang/wp-content/uploads/2018/11/password_prompt.png" alt><br>如果验证错误会出现如下信息：<br><img src="https://wp.aragon.wang/wp-content/uploads/2018/11/unauthorized_error.png" alt></p>
 <p>以上就是apache2 添加用户验证的方法，希望对你有帮助。</p>
 
@@ -342,7 +343,7 @@ var gitment = new Gitment({
   repo: 'hexo_issues',
   oauth: {
     client_id: 'asd159874123@126.com',
-    client_secret: '123Qwe[]\\',
+    client_secret: '123Qwe[]\',
   },
 })
 gitment.render('gitment-ctn')
@@ -444,6 +445,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">smb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">DDNS</a>
               </li>
              
@@ -452,15 +457,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">smb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">启动任务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">跨网段访问</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,6 +466,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">自定义指令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">跨网段访问</a>
               </li>
              
               <li class="article-tag-list-item">
