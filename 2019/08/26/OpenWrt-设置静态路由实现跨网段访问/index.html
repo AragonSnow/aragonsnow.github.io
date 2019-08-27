@@ -21,20 +21,21 @@
     
     
     <meta name="keywords" content="openwrt,跨网段访问">
-    <meta name="description" content="原因由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。 如图，正常情况下，路由器B作为nat,所以下面的设备可以访问路由器A上的资源，而路由A下面的设备不能访问路由B下面的设">
+    <meta name="description" content="原因由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。">
 <meta name="keywords" content="openwrt,跨网段访问">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenWrt 设置静态路由实现跨网段访问">
 <meta property="og:url" content="https://aragonsnow.github.io/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/index.html">
 <meta property="og:site_name" content="Aragon&#39;s Blog">
-<meta property="og:description" content="原因由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。 如图，正常情况下，路由器B作为nat,所以下面的设备可以访问路由器A上的资源，而路由A下面的设备不能访问路由B下面的设">
+<meta property="og:description" content="原因由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://aragonsnow.github.io/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/设置静态路由.png">
-<meta property="og:updated_time" content="2019-08-27T14:55:50.585Z">
+<meta property="og:image" content="https://i.loli.net/2019/08/27/HAS36vCtZWXyTGm.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/27/qI7fFx3TR9X2kBA.png">
+<meta property="og:updated_time" content="2019-08-27T15:44:56.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenWrt 设置静态路由实现跨网段访问">
-<meta name="twitter:description" content="原因由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。 如图，正常情况下，路由器B作为nat,所以下面的设备可以访问路由器A上的资源，而路由A下面的设备不能访问路由B下面的设">
-<meta name="twitter:image" content="https://aragonsnow.github.io/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/设置静态路由.png">
+<meta name="twitter:description" content="原因由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。">
+<meta name="twitter:image" content="https://i.loli.net/2019/08/27/HAS36vCtZWXyTGm.png">
     
         <link rel="alternate" type="application/atom+xml" title="Aragon&#39;s Blog" href="/atom.xml">
     
@@ -184,16 +185,20 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。<br></p>
-<p>如图，正常情况下，路由器B作为nat,所以下面的设备可以访问路由器A上的资源，而路由A下面的设备不能访问路由B下面的设备，要怎么办呢？</p>
+            <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。<br></p><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/08/27/HAS36vCtZWXyTGm.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure><br>如图，正常情况下，路由器B作为nat,所以下面的设备可以访问路由器A上的资源，而路由A下面的设备不能访问路由B下面的设备，要怎么办呢？<p></p>
 <p>解决方法<br>很简单，在路由A设置一个静态路由即可实现。设置方法如下：<br></p><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="设置静态路由.png" alt="" title="">
+                    <img src="https://i.loli.net/2019/08/27/qI7fFx3TR9X2kBA.png" alt="image.png" title="">
                 </div>
-                <div class="image-caption"></div>
-            </figure><p></p>
-<p>这样就可以很方便的让路由A访问路由下的资源，且路由A扑街后也不影响路由B下的设备状态。</p>
+                <div class="image-caption">image.png</div>
+            </figure><br>这样就可以很方便的让路由A访问路由下的资源，且路由A扑街后也不影响路由B下的设备状态。<p></p>
 <p><font size="6" color="red">路由B一定要开启相应的防火墙规则</font><br></p>
 <p><font size="6" color="red">路由B一定要开启相应的防火墙规则</font><br></p>
 <p><font size="6" color="red">路由B一定要开启相应的防火墙规则</font><br></p>
@@ -223,7 +228,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-27T14:55:50.585Z" itemprop="dateUpdated">2019-08-27 22:55:50</time>
+    最后更新时间：<time datetime="2019-08-27T15:44:56.950Z" itemprop="dateUpdated">2019-08-27 23:44:56</time>
 </span><br>
 
 
