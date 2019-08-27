@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hexo.aragon.wang/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/</loc>
+    
+    <lastmod>2019-08-27T11:11:14.830Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-wang-zhan-tian-jia-yong-hu-fang-wen-yan-zheng/</loc>
+    
+    <lastmod>2019-08-27T11:05:40.447Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hexo.aragon.wang/categories/index.html</loc>
     
     <lastmod>2019-08-27T05:32:04.501Z</lastmod>
@@ -44,13 +58,6 @@
   </url>
   
   <url>
-    <loc>https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-wang-zhan-tian-jia-yong-hu-fang-wen-yan-zheng/</loc>
-    
-    <lastmod>2019-08-26T20:39:03.027Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hexo.aragon.wang/friends/index.html</loc>
     
     <lastmod>2019-08-26T15:35:31.124Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/</loc>
     
     <lastmod>2019-08-26T12:25:35.015Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hexo.aragon.wang/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/</loc>
-    
-    <lastmod>2019-08-26T12:10:23.961Z</lastmod>
     
   </url>
   
