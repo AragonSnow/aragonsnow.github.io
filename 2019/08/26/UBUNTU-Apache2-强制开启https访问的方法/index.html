@@ -14,25 +14,25 @@
     
     
     
-    <title>Ubuntu Server 输入sudo 指令不使用密码 | Aragon&#39;s Blog | Mark Something</title>
+    <title>UBUNTU+Apache2 强制开启https访问的方法 | Aragon&#39;s Blog | Mark Something</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="ubuntu,sudo,不输入密码">
-    <meta name="description" content="sudo 指令在使用过程中需要反复输入密码，显得很麻烦，自然要取消这恼人的设定啊，哈哈哈 sudo cp /etc/sudoers .      # 备份默认配置到当前文件夹 sudo -i                     # 切换到root用户 visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudoers,不过使用vim编辑会">
-<meta name="keywords" content="ubuntu,sudo,不输入密码">
+    <meta name="keywords" content>
+    <meta name="description" content="在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现： 1. 使能 .htaccess 文件sudo vi /etc/apache2/apache2.conf 找到以下内容 &amp;lt;Directory /var/www/&amp;gt;         Options Indexes FollowSy">
+<meta name="keywords" content="Blog">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu Server 输入sudo 指令不使用密码">
-<meta property="og:url" content="https://hexo.aragon.wang/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/index.html">
+<meta property="og:title" content="UBUNTU+Apache2 强制开启https访问的方法">
+<meta property="og:url" content="https://hexo.aragon.wang/2019/08/26/UBUNTU-Apache2-强制开启https访问的方法/index.html">
 <meta property="og:site_name" content="Aragon&#39;s Blog">
-<meta property="og:description" content="sudo 指令在使用过程中需要反复输入密码，显得很麻烦，自然要取消这恼人的设定啊，哈哈哈 sudo cp /etc/sudoers .      # 备份默认配置到当前文件夹 sudo -i                     # 切换到root用户 visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudoers,不过使用vim编辑会">
+<meta property="og:description" content="在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现： 1. 使能 .htaccess 文件sudo vi /etc/apache2/apache2.conf 找到以下内容 &amp;lt;Directory /var/www/&amp;gt;         Options Indexes FollowSy">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-26T12:42:00.903Z">
+<meta property="og:updated_time" content="2019-08-26T12:25:35.015Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu Server 输入sudo 指令不使用密码">
-<meta name="twitter:description" content="sudo 指令在使用过程中需要反复输入密码，显得很麻烦，自然要取消这恼人的设定啊，哈哈哈 sudo cp /etc/sudoers .      # 备份默认配置到当前文件夹 sudo -i                     # 切换到root用户 visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudoers,不过使用vim编辑会">
+<meta name="twitter:title" content="UBUNTU+Apache2 强制开启https访问的方法">
+<meta name="twitter:description" content="在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现： 1. 使能 .htaccess 文件sudo vi /etc/apache2/apache2.conf 找到以下内容 &amp;lt;Directory /var/www/&amp;gt;         Options Indexes FollowSy">
     
         <link rel="alternate" type="application/atom+xml" title="Aragon&#39;s Blog" href="/atom.xml">
     
@@ -113,7 +113,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Ubuntu Server 输入sudo 指令不使用密码</div>
+        <div class="flex-col header-title ellipsis">UBUNTU+Apache2 强制开启https访问的方法</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -135,10 +135,10 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Ubuntu Server 输入sudo 指令不使用密码</h1>
+        <h1 class="title">UBUNTU+Apache2 强制开启https访问的方法</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-08-26T12:31:10.000Z" itemprop="datePublished" class="page-time">
+                <time datetime="2019-08-26T12:19:02.000Z" itemprop="datePublished" class="page-time">
   2019-08-26
 </time>
 
@@ -155,14 +155,21 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-使能-htaccess-文件"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 使能 .htaccess 文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-修改-htaccess-文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 修改.htaccess 文件</span></a></li></ol>
+        </nav>
+    </aside>
 
-<article id="post-Ubuntu-Server-输入sudo-指令不使用密码"
+
+<article id="post-UBUNTU-Apache2-强制开启https访问的方法"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Ubuntu Server 输入sudo 指令不使用密码</h1>
+        <h1 class="post-card-title">UBUNTU+Apache2 强制开启https访问的方法</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-08-26 20:31:10" datetime="2019-08-26T12:31:10.000Z"  itemprop="datePublished">2019-08-26</time>
+            <time class="post-time" title="2019-08-26 20:19:02" datetime="2019-08-26T12:19:02.000Z"  itemprop="datePublished">2019-08-26</time>
 
             
 
@@ -175,19 +182,24 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>sudo 指令在使用过程中需要反复输入密码，显得很麻烦，自然要取消这恼人的设定啊，哈哈哈</p>
-<pre><code>sudo cp /etc/sudoers .      # 备份默认配置到当前文件夹
-sudo -i                     # 切换到root用户
-visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudoers,不过使用vim编辑会提示不能保存只读文件
-</code></pre><p>接下来就时修改配置，找到 </p>
-<p><code>root　　ALL=(ALL:ALL) ALL</code></p>
-<p>在下边添加类似的一行,Your_Name是你要免密登陆的用户名</p>
-<p><code>Your_Name = ALL=(ALL:ALL) NOPASSWD: ALL</code></p>
-<p>接着将</p>
-<p><code>%sudo ALL=(ALL:ALL) ALL</code> </p>
-<p>修改为</p>
-<p><code>%sudo ALL=(ALL:ALL) NOPASSWD: ALL</code></p>
-<p>保存后退出重新登陆，使用 sudo ls测试就会发现不需要输入密码了。</p>
+            <p>在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现：</p>
+<h1 id="1-使能-htaccess-文件"><a href="#1-使能-htaccess-文件" class="headerlink" title="1. 使能 .htaccess 文件"></a>1. 使能 .htaccess 文件</h1><p><code>sudo vi /etc/apache2/apache2.conf</code></p>
+<p>找到以下内容</p>
+<pre><code>&lt;Directory /var/www/&gt;
+        Options Indexes FollowSymLinks
+        AllowOverride all
+        Require all granted
+&lt;/Directory&gt;
+</code></pre><p>确认 AllowOverride all 这行是这样就可以了,保存后输入以下命令</p>
+<pre><code>sudo a2enmod rewrite 
+sudo a2enmod headers 
+sudo service apache2 restart
+</code></pre><p>命令作用：打开重定位功能并重启apache2</p>
+<h1 id="2-修改-htaccess-文件"><a href="#2-修改-htaccess-文件" class="headerlink" title="2. 修改.htaccess 文件"></a>2. 修改.htaccess 文件</h1><p>输入<br><code>sudo vi /var/www/html/你的网站根目录/.htaccess</code></p>
+<p>找到以下内容<br>RewriteEngine On<br>在下面输入如下内容：</p>
+<pre><code>RewriteCond  %{HTTPS} !=on                          # 重定位规则：如果不是HTTPS
+RewriteRule  ^(.*) https://%{SERVER_NAME}$1 [L,R]   # 执行操作：跳转使用https访问
+</code></pre><p>如上就是强制HTTPS访问的方法了，希望对你有帮助。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -214,7 +226,7 @@ visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudo
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-26T12:42:00.903Z" itemprop="dateUpdated">2019-08-26 20:42:00</time>
+    最后更新时间：<time datetime="2019-08-26T12:25:35.015Z" itemprop="dateUpdated">2019-08-26 20:25:35</time>
 </span><br>
 
 
@@ -234,8 +246,6 @@ visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudo
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sudo/">sudo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/不输入密码/">不输入密码</a></li></ul>
-
 
             
 <div class="page-share-wrap">
@@ -244,7 +254,7 @@ visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudo
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/&title=《Ubuntu Server 输入sudo 指令不使用密码》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/UBUNTU-Apache2-强制开启https访问的方法/&title=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -254,22 +264,22 @@ visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudo
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/&title=《Ubuntu Server 输入sudo 指令不使用密码》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/UBUNTU-Apache2-强制开启https访问的方法/&title=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/UBUNTU-Apache2-强制开启https访问的方法/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu Server 输入sudo 指令不使用密码》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/&via=https://hexo.aragon.wang" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/UBUNTU-Apache2-强制开启https访问的方法/&via=https://hexo.aragon.wang" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/UBUNTU-Apache2-强制开启https访问的方法/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -292,18 +302,18 @@ visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudo
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/" id="post-prev" class="post-nav-link">
+      <a href="/2019/08/26/OpenWrt-挂载局域网SAMBA共享文件夹/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">linux下使用crontab运行Python脚本的坑</h4>
+        <h4 class="title">OpenWrt 挂载局域网SAMBA共享文件夹</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/" id="post-next" class="post-nav-link">
+      <a href="/2019/08/26/Ubuntu+apache2 网站添加用户访问验证/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">OpenWrt 挂载局域网SAMBA共享文件夹</h4>
+        <h4 class="title">Ubuntu+apache2 网站添加用户访问验证</h4>
       </a>
     </div>
   
@@ -401,7 +411,7 @@ visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudo
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/&title=《Ubuntu Server 输入sudo 指令不使用密码》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/UBUNTU-Apache2-强制开启https访问的方法/&title=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -411,22 +421,22 @@ visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudo
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/&title=《Ubuntu Server 输入sudo 指令不使用密码》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/UBUNTU-Apache2-强制开启https访问的方法/&title=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/UBUNTU-Apache2-强制开启https访问的方法/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu Server 输入sudo 指令不使用密码》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/&via=https://hexo.aragon.wang" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/UBUNTU-Apache2-强制开启https访问的方法/&via=https://hexo.aragon.wang" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/UBUNTU-Apache2-强制开启https访问的方法/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -437,7 +447,7 @@ visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudo
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADLklEQVR42u3aQW7jQAwEwPz/014g59jp5sgLiymdAseSpibActmcr6/4enxfrz9/PLnOn/b63mdPu+DCxsbGvgn78fJKFvrs+8nnz96SfDN//g/rx8bGxl7HnpWTvKicLzpfZ1QysbGxsf8k+xyZdwT5e7GxsbGx3xHxJBsxK0In92JjY2PvZuchTrsReUqfFKf8k8uyNGxsbOyPZ7eD3k/++Y3zbWxsbOyPZD/Kqw2VXn+el672kNAvCmxsbOxF7Jxx1Tfz7Zi1MfnAABsbG3sHuy1XJwci8yanbTOKkQA2Njb2OnbeHsyymrx0nYwrhkeLsLGxsVew8/Jw7XLfV9iKLA0bGxt7BTsZ5Z6Urlkgld81rNjY2NjYi9hJ45G3KG303753NoooFoqNjY19Q3YyAMi/M4vv27ckJS1aITY2NvYK9uvgph3unv8F8uOYR2NpbGxs7HXsvM1oI/i8/CSwWUF9WsCwsbGxF7FPStGswchHDifN0tOfsbGxsVezk3g9aS3ysnRVu1KMe7GxsbEXsWdxUl7kZgd32sambXiwsbGxd7PPx7d58NQ2LcPGI0/UsLGxsW/Obse6edFqg6HZRtR/HmxsbOwV7FmROD/i8xVfbUsTbRw2Njb2InZbNmbR0lVPaEtmVLexsbGxb86+tjz8n+fk4VTUe2FjY2MvYudbkI8E8jbmJDxKwD80IdjY2NiL2O1t7aGZ5BBP8tsWH022sbGxsdex25fNFnHVb4d3YWNjYy9inwxZT0L/2Sbmxz1nrRQ2Njb2HdmzUGm29DaQag9oJlv/w0klbGxs7Juz23/62+inffL7BsPRkAAbGxv7huw2uD85dtki21JXDIyxsbGx17GLG+JAp43y24HEUTuEjY2NvY6dXyeF7aq1tSXzlzgJGxsb++bsk6HvbCl5uZpFXbMjntjY2Nh3Z+dFq20q8v//tyOBk/diY2Njb2UnkVOLP9mONvaqDxthY2Nj/0l2vjWzWGq2nmRbsbGxsbHbcCcfzZ6PhNuSiY2Njb2V3ZacvJFo4/sWkP95hlkaNjY29sez20HvbJzQlrGT57d3YWNjY9+W/Q92+AdKyQNyEAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACt0lEQVR42u3awW7DIBAE0Pz/T7fXHmJnZoEklZ5PVUIxj0o2nd3HI75+Lq5kzN+R+QzJ+G0XHh4e3qalX93m/pOrbxPGPel+zOUd8fDw8I7xrhaRLz2/5f0n7XpeWPDw8PC+hhdNXZ51k5F4eHh4/5cXHWfLxbXHbjw8PLzP8pIwIl/ELNJdiXc3ZC14eHh43dM7Ov5+z89H6nt4eHh4y1X1vBg2CyaSMHflwsPDwzvBm0UD+QP6/rGeYPINvRyJh4eHt5WX3/J+iXmTwayVKkE+mRMPDw/vMG9XW1VemmqLZ3VJDA8PD+8Ar32U5w/lPH5dB0T1PTw8PLwDvLwMn79C2prUrCC3VAbDw8PDK3l50LBS9EoijFkY8eJ1goeHh3eM174MkoUmEW0e9Q5fFXh4eHgf4rWfnIge8jnx8PDwTvNa5EorQD5bvjVFlQ8PDw9vEy95GcyaA1Z+K9/QF0g8PDy8Y7zieHo7Mg958+hh9geo82M8PDy8BV5bvsqjiraZoF3Dk9/Fw8PDO8CbHYjbYlUbSbQvhiKxxsPDw9vEWymArRy+Z21eeaCMh4eHd47Xxgdt5Jo3DeTRQ9R0hYeHh3eA1wYE+Y3XZ57NiYeHh/ce3oyRl7vyO+ZXdOjHw8PDO8Bry115QSs/auebkocReHh4eKd5CSCJEla2o4UV0S0eHh7eW3j5t3lcO5th1nqFh4eH9x5eXitrY4JZsb+u1+W5CB4eHt4yrA1P86N2e8qdtVtdfouHh4d3gDd7xiZBRtteMNvWvL0ADw8Pby+vnXpXcSvfiPzFMPwPAA8PD2/ES6LVtpy/jpmFKXh4eHjfxltpgVppQRiGvHh4eHhfw8tD1bZK1TYlbD5S4+Hh4cW8vMy/HrMmDV5t/BH1lOHh4eFt4q2fS/NFtxHwZgYeHh7eKu8X/HpK33HuFCkAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 

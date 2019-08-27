@@ -14,25 +14,25 @@
     
     
     
-    <title>OpenWrt 挂载局域网SAMBA共享文件夹 | Aragon&#39;s Blog | Mark Something</title>
+    <title>Ubuntu Server 输入sudo 指令不使用密码 | Aragon&#39;s Blog | Mark Something</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="openwrt,smb">
-    <meta name="description" content="OpenWrt在挂载局域网共享文件夹可以有效减少磁盘空间占用，实现无限扩容的可能，在操作中踩了不少坑，所以记录下来： 操作指令首先安装相关套件cifsmount opkg update         # 更新软件列表 opkg install cifsmount          # 安装cifsmount 没有报错即为成功 挂载文件夹此处挂载局域网192.168.1.40的share文件夹到">
-<meta name="keywords" content="openwrt,smb">
+    <meta name="keywords" content="ubuntu,sudo,不输入密码">
+    <meta name="description" content="sudo 指令在使用过程中需要反复输入密码，显得很麻烦，自然要取消这恼人的设定啊，哈哈哈 sudo cp /etc/sudoers .      # 备份默认配置到当前文件夹 sudo -i                     # 切换到root用户 visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudoers,不过使用vim编辑会">
+<meta name="keywords" content="ubuntu,sudo,不输入密码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenWrt 挂载局域网SAMBA共享文件夹">
-<meta property="og:url" content="https://hexo.aragon.wang/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/index.html">
+<meta property="og:title" content="Ubuntu Server 输入sudo 指令不使用密码">
+<meta property="og:url" content="https://hexo.aragon.wang/2019/08/26/Ubuntu-Server-输入sudo-指令不使用密码/index.html">
 <meta property="og:site_name" content="Aragon&#39;s Blog">
-<meta property="og:description" content="OpenWrt在挂载局域网共享文件夹可以有效减少磁盘空间占用，实现无限扩容的可能，在操作中踩了不少坑，所以记录下来： 操作指令首先安装相关套件cifsmount opkg update         # 更新软件列表 opkg install cifsmount          # 安装cifsmount 没有报错即为成功 挂载文件夹此处挂载局域网192.168.1.40的share文件夹到">
+<meta property="og:description" content="sudo 指令在使用过程中需要反复输入密码，显得很麻烦，自然要取消这恼人的设定啊，哈哈哈 sudo cp /etc/sudoers .      # 备份默认配置到当前文件夹 sudo -i                     # 切换到root用户 visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudoers,不过使用vim编辑会">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-27T03:02:28.346Z">
+<meta property="og:updated_time" content="2019-08-26T12:42:00.903Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OpenWrt 挂载局域网SAMBA共享文件夹">
-<meta name="twitter:description" content="OpenWrt在挂载局域网共享文件夹可以有效减少磁盘空间占用，实现无限扩容的可能，在操作中踩了不少坑，所以记录下来： 操作指令首先安装相关套件cifsmount opkg update         # 更新软件列表 opkg install cifsmount          # 安装cifsmount 没有报错即为成功 挂载文件夹此处挂载局域网192.168.1.40的share文件夹到">
+<meta name="twitter:title" content="Ubuntu Server 输入sudo 指令不使用密码">
+<meta name="twitter:description" content="sudo 指令在使用过程中需要反复输入密码，显得很麻烦，自然要取消这恼人的设定啊，哈哈哈 sudo cp /etc/sudoers .      # 备份默认配置到当前文件夹 sudo -i                     # 切换到root用户 visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudoers,不过使用vim编辑会">
     
         <link rel="alternate" type="application/atom+xml" title="Aragon&#39;s Blog" href="/atom.xml">
     
@@ -113,7 +113,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">OpenWrt 挂载局域网SAMBA共享文件夹</div>
+        <div class="flex-col header-title ellipsis">Ubuntu Server 输入sudo 指令不使用密码</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -135,10 +135,10 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">OpenWrt 挂载局域网SAMBA共享文件夹</h1>
+        <h1 class="title">Ubuntu Server 输入sudo 指令不使用密码</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-08-26T12:26:33.000Z" itemprop="datePublished" class="page-time">
+                <time datetime="2019-08-26T12:31:10.000Z" itemprop="datePublished" class="page-time">
   2019-08-26
 </time>
 
@@ -155,21 +155,14 @@
 
 <div class="container body-wrap">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#操作指令"><span class="post-toc-number">1.</span> <span class="post-toc-text">操作指令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#挂载文件夹"><span class="post-toc-number">2.</span> <span class="post-toc-text">挂载文件夹</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#取消挂载"><span class="post-toc-number">3.</span> <span class="post-toc-text">取消挂载</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#期间碰到的坑："><span class="post-toc-number">4.</span> <span class="post-toc-text">期间碰到的坑：</span></a></li></ol>
-        </nav>
-    </aside>
 
-
-<article id="post-OpenWrt-挂载局域网SAMBA共享文件夹"
+<article id="post-Ubuntu-Server-输入sudo-指令不使用密码"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">OpenWrt 挂载局域网SAMBA共享文件夹</h1>
+        <h1 class="post-card-title">Ubuntu Server 输入sudo 指令不使用密码</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-08-26 20:26:33" datetime="2019-08-26T12:26:33.000Z"  itemprop="datePublished">2019-08-26</time>
+            <time class="post-time" title="2019-08-26 20:31:10" datetime="2019-08-26T12:31:10.000Z"  itemprop="datePublished">2019-08-26</time>
 
             
 
@@ -182,18 +175,19 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>OpenWrt在挂载局域网共享文件夹可以有效减少磁盘空间占用，实现无限扩容的可能，在操作中踩了不少坑，所以记录下来：</p>
-<h1 id="操作指令"><a href="#操作指令" class="headerlink" title="操作指令"></a>操作指令</h1><p>首先安装相关套件cifsmount</p>
-<pre><code>opkg update         # 更新软件列表
-opkg install cifsmount          # 安装cifsmount
-</code></pre><p>没有报错即为成功</p>
-<h1 id="挂载文件夹"><a href="#挂载文件夹" class="headerlink" title="挂载文件夹"></a>挂载文件夹</h1><p>此处挂载局域网192.168.1.40的share文件夹到 OpenWrt中的/root/shar文件夹</p>
-<p><code>mount.cifs //192.168.1.40/share /root/share -o user=your_name,pass=your_password,vers=1.0,sec=ntlm</code></p>
-<p>因为OpenWrt的mount命令版本比较低，此处的 vers=1.0是必须的,sec=ntlm也是必须的加密选项，不过需要根据网络不同配置不同的加密选项</p>
-<h1 id="取消挂载"><a href="#取消挂载" class="headerlink" title="取消挂载"></a>取消挂载</h1><p>如果想取消挂载，仅需要取消取消挂载点就可以了<br><code>umount /root/share</code></p>
-<h1 id="期间碰到的坑："><a href="#期间碰到的坑：" class="headerlink" title="期间碰到的坑："></a>期间碰到的坑：</h1><p><code>mount error(22): Invalid argument
-Refer to the mount.cifs(8) manual page (e.g. man mount.cifs)</code></p>
-<p>意思为参数错误，原因是后面的 <code>user=your_name,pass=your_password</code> 后面没有添加 <code>vers=1.0,sec=ntlm</code></p>
+            <p>sudo 指令在使用过程中需要反复输入密码，显得很麻烦，自然要取消这恼人的设定啊，哈哈哈</p>
+<pre><code>sudo cp /etc/sudoers .      # 备份默认配置到当前文件夹
+sudo -i                     # 切换到root用户
+visudo                      # 编辑sudo 配置文件，也可以用vi /etc/sudoers,不过使用vim编辑会提示不能保存只读文件
+</code></pre><p>接下来就时修改配置，找到 </p>
+<p><code>root　　ALL=(ALL:ALL) ALL</code></p>
+<p>在下边添加类似的一行,Your_Name是你要免密登陆的用户名</p>
+<p><code>Your_Name = ALL=(ALL:ALL) NOPASSWD: ALL</code></p>
+<p>接着将</p>
+<p><code>%sudo ALL=(ALL:ALL) ALL</code> </p>
+<p>修改为</p>
+<p><code>%sudo ALL=(ALL:ALL) NOPASSWD: ALL</code></p>
+<p>保存后退出重新登陆，使用 sudo ls测试就会发现不需要输入密码了。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -220,7 +214,7 @@ Refer to the mount.cifs(8) manual page (e.g. man mount.cifs)</code></p>
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-27T03:02:28.346Z" itemprop="dateUpdated">2019-08-27 11:02:28</time>
+    最后更新时间：<time datetime="2019-08-26T12:42:00.903Z" itemprop="dateUpdated">2019-08-26 20:42:00</time>
 </span><br>
 
 
@@ -240,7 +234,7 @@ Refer to the mount.cifs(8) manual page (e.g. man mount.cifs)</code></p>
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openwrt/">openwrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/smb/">smb</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sudo/">sudo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/不输入密码/">不输入密码</a></li></ul>
 
 
             
@@ -250,7 +244,7 @@ Refer to the mount.cifs(8) manual page (e.g. man mount.cifs)</code></p>
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/&title=《OpenWrt 挂载局域网SAMBA共享文件夹》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/Ubuntu-Server-输入sudo-指令不使用密码/&title=《Ubuntu Server 输入sudo 指令不使用密码》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -260,22 +254,22 @@ Refer to the mount.cifs(8) manual page (e.g. man mount.cifs)</code></p>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/&title=《OpenWrt 挂载局域网SAMBA共享文件夹》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/Ubuntu-Server-输入sudo-指令不使用密码/&title=《Ubuntu Server 输入sudo 指令不使用密码》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/Ubuntu-Server-输入sudo-指令不使用密码/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OpenWrt 挂载局域网SAMBA共享文件夹》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/&via=https://hexo.aragon.wang" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu Server 输入sudo 指令不使用密码》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/Ubuntu-Server-输入sudo-指令不使用密码/&via=https://hexo.aragon.wang" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/Ubuntu-Server-输入sudo-指令不使用密码/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -298,18 +292,18 @@ Refer to the mount.cifs(8) manual page (e.g. man mount.cifs)</code></p>
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/" id="post-prev" class="post-nav-link">
+      <a href="/2019/08/26/linux下使用crontab运行Python脚本的坑/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Ubuntu Server 输入sudo 指令不使用密码</h4>
+        <h4 class="title">linux下使用crontab运行Python脚本的坑</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/" id="post-next" class="post-nav-link">
+      <a href="/2019/08/26/OpenWrt-挂载局域网SAMBA共享文件夹/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">UBUNTU+Apache2 强制开启https访问的方法</h4>
+        <h4 class="title">OpenWrt 挂载局域网SAMBA共享文件夹</h4>
       </a>
     </div>
   
@@ -407,7 +401,7 @@ Refer to the mount.cifs(8) manual page (e.g. man mount.cifs)</code></p>
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/&title=《OpenWrt 挂载局域网SAMBA共享文件夹》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/Ubuntu-Server-输入sudo-指令不使用密码/&title=《Ubuntu Server 输入sudo 指令不使用密码》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -417,22 +411,22 @@ Refer to the mount.cifs(8) manual page (e.g. man mount.cifs)</code></p>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/&title=《OpenWrt 挂载局域网SAMBA共享文件夹》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/Ubuntu-Server-输入sudo-指令不使用密码/&title=《Ubuntu Server 输入sudo 指令不使用密码》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/Ubuntu-Server-输入sudo-指令不使用密码/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OpenWrt 挂载局域网SAMBA共享文件夹》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/&via=https://hexo.aragon.wang" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu Server 输入sudo 指令不使用密码》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/Ubuntu-Server-输入sudo-指令不使用密码/&via=https://hexo.aragon.wang" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/Ubuntu-Server-输入sudo-指令不使用密码/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -443,7 +437,7 @@ Refer to the mount.cifs(8) manual page (e.g. man mount.cifs)</code></p>
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADLUlEQVR42u3a0W7qQAwEUP7/p7mvla5IZ2wqkeXkqaKQ7Fmkuh7v4xFfzx/Xz1f+/+2r91zf+fqe+arefGFjY2PfhP28vK4fcL3oZIktr/0CXt4fGxsb+zh2W1qSx7TIGSApmdjY2NjYm8ZjVn72xQwbGxsbe1bAokcG7cosVMLGxsb+ZnZbZpIBwHVxShqP688mr78hS8PGxsb+eHY+Ff38n/9kvo2NjY39wexnebUD3dndWl6twMbGxj6I3R6RbP+5bzclj41mK8HGxsb+TvYsfM/bg7yA5ZsbfRYbGxv7IHY+sp0dmkkO5eSj4lnRKmYj2NjY2LdlzwpYPmSdNQwbcPspbGxs7Luzk3aiLVezFmK2EfnQAhsbG/s89ubWbT2cxf2zMCsqXdjY2Ng3Z28Ox2yiqPYpeZiVbAQ2Njb2qez9X/j8Du221rDrbcLGxsY+jp0gn/GVxDrtsct8hVGohI2NjX00e3bYpd2C9wZM7egXGxsb+1R2O3Zti9CwbYgjqqIpwsbGxj6InbcNs+Ixa2Dy6KrdCGxsbOxT2W2T8Civd21W3tjMNg4bGxv77uy8jM026JfIvmxdhnFS/p1gY2Nj34Q9OxyTLLSN/vej4qKwYWNjYx/EzkOZdw0S2sNA+2KJjY2N/T3sWR/TRj+ziCrfptl6sLGxse/LnsU6Sfg+2+8WMIuusLGxsU9itwVpE0Ll78lL5qYdwsbGxj6J3cbuyYPzwUAbRbXrwcbGxj6b3f5bvzko08ZAbeEsLNjY2NgHsfPlbsKgdtGbMXMeP2FjY2OfxM6Xmwc9yTGaqE8qB8/F5mJjY2Mfys7j+FlM3xae/IupNxEbGxv7OHZSkNqjM5uClx8GmhU5bGxs7DPYz/LKS04eSM147ZCgnmxjY2Nj34TdLigZHrTtwSz6b9uYIR4bGxv7JuzNgDZ/ZVaWkq3JC+1w0IuNjY19E/ZsEZvitxkSz1qLlydPsbGxsb+MnZfATbT03qOWL4/sYGNjY2OXJSdZ6KbVKcoeNjY29nHspAi1xx/bkfDfRVGr8QA2Njb2x7PrOKYc8e4XlHwBdQHDxsbGPoH9D7QbFhFpsyrAAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACq0lEQVR42u3aQW5bMQwFQN//0inQbSr7kRR/UmC0Mmz5W6MAEkPy9YrH19/x/fVp5mnO17fx/lun+ZcHHh4eXmvpp3EivV9Ksk2TbU3WjIeHh7fNu/vo9z+ZzzxtXLJmPDw8vN/ASxadHP29awYPDw/vf+TlwfFkfvU1Hh4e3k/x7obIeVicvPNQrgUPDw8v5s3Tqc+/fqi+h4eHh1esqucJiDxAn6QYyuvEw8PDW+BV06/VctQtZB52R8vFw8PDu8SrPm6jIaC6niiZi4eHh7fAyw/uvF2g2mpQbauqgvHw8PBu8fKDu9dulZfKqgF6FMTj4eHhLfDmKYb80K8W1arX0od7Dw8PD+8Sr9piNW97Sj6tltCOn+Lh4eGt8eYH+uQamBfAyqUvPDw8vAGvl7qtblP+tCSxm6d68fDw8DZ41QL8JASftAJcy6/g4eHhXeLlh361VJZjJmH0cSYeHh7eGm+vbF9tPsjD8ah9AQ8PD2+Zlxz6eRErR/ZSIdF8PDw8vDXeJDFRJeVNV694HH8LDw8P73He3SaqXktBHnC/el/Dw8PDG/Cq10Avadvbjh4bDw8Pb4+XNwTkzQSThGzvgvnH0/Dw8PDWeNWLIW8jeB+aV7cs/wN86IzAw8PDG/DypGoeHPcW1AMX5uDh4eEt8PLy/yTgzpMR1ScUymZ4eHh4Y15+DcyTufOgudz4hYeHh7fGuxUKT95fGXh4eHhrsL0rYe93P6SY8fDw8BZ41TO22iBV3YLexl24YPDw8PCKvPxQnpSpJmmLagoDDw8P7xleUjnKWwSSC+ZWWIyHh4f3+3l5wjcvVhUKWtX/EvDw8PB+lDdJK1Qvlfz9D+U0PDw8vDVer+iVAHLYvLQ2yrXg4eHhXe1l6gW1vdRwnqhNNhoPDw/vKu8PBQKSl2EzK+sAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 

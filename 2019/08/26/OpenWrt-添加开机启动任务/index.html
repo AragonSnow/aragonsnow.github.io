@@ -14,28 +14,25 @@
     
     
     
-    <title>OpenWrt 设置静态路由实现跨网段访问 | Aragon&#39;s Blog | Mark Something</title>
+    <title>OpenWrt 添加开机启动任务 | Aragon&#39;s Blog | Mark Something</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="openwrt,跨网段访问">
-    <meta name="description" content="原因由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。">
-<meta name="keywords" content="openwrt,跨网段访问">
+    <meta name="keywords" content="openwrt,启动任务">
+    <meta name="description" content="OpenWrt 添加启动任务的方式有别于其他的linux系统，在尝试过程中踩了不少坑，所以整理在此处。正常Linux系统一般修改rc.local即可在开机时自动运行代码，即 vi /etc/rc.local 然后输入开机要启动的命令即可，但OpenWrt不同，其操作流程为：  1 、进入启动任务的文件夹  cd /etc/rc.d  2、创建启动文件，前面要标注启动顺序  vi S99Test">
+<meta name="keywords" content="openwrt,启动任务">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenWrt 设置静态路由实现跨网段访问">
-<meta property="og:url" content="https://hexo.aragon.wang/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/index.html">
+<meta property="og:title" content="OpenWrt 添加开机启动任务">
+<meta property="og:url" content="https://hexo.aragon.wang/2019/08/26/OpenWrt-添加开机启动任务/index.html">
 <meta property="og:site_name" content="Aragon&#39;s Blog">
-<meta property="og:description" content="原因由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。">
+<meta property="og:description" content="OpenWrt 添加启动任务的方式有别于其他的linux系统，在尝试过程中踩了不少坑，所以整理在此处。正常Linux系统一般修改rc.local即可在开机时自动运行代码，即 vi /etc/rc.local 然后输入开机要启动的命令即可，但OpenWrt不同，其操作流程为：  1 、进入启动任务的文件夹  cd /etc/rc.d  2、创建启动文件，前面要标注启动顺序  vi S99Test">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://hexo.aragon.wang/.wang//1.png">
-<meta property="og:image" content="https://hexo.aragon.wang/.wang//设置静态路由.png">
-<meta property="og:updated_time" content="2019-08-27T14:07:52.965Z">
+<meta property="og:updated_time" content="2019-08-26T21:30:13.678Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OpenWrt 设置静态路由实现跨网段访问">
-<meta name="twitter:description" content="原因由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。">
-<meta name="twitter:image" content="https://hexo.aragon.wang/.wang//1.png">
+<meta name="twitter:title" content="OpenWrt 添加开机启动任务">
+<meta name="twitter:description" content="OpenWrt 添加启动任务的方式有别于其他的linux系统，在尝试过程中踩了不少坑，所以整理在此处。正常Linux系统一般修改rc.local即可在开机时自动运行代码，即 vi /etc/rc.local 然后输入开机要启动的命令即可，但OpenWrt不同，其操作流程为：  1 、进入启动任务的文件夹  cd /etc/rc.d  2、创建启动文件，前面要标注启动顺序  vi S99Test">
     
         <link rel="alternate" type="application/atom+xml" title="Aragon&#39;s Blog" href="/atom.xml">
     
@@ -116,7 +113,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">OpenWrt 设置静态路由实现跨网段访问</div>
+        <div class="flex-col header-title ellipsis">OpenWrt 添加开机启动任务</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -138,10 +135,10 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">OpenWrt 设置静态路由实现跨网段访问</h1>
+        <h1 class="title">OpenWrt 添加开机启动任务</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-08-26T12:00:36.000Z" itemprop="datePublished" class="page-time">
+                <time datetime="2019-08-26T12:50:10.000Z" itemprop="datePublished" class="page-time">
   2019-08-26
 </time>
 
@@ -158,21 +155,14 @@
 
 <div class="container body-wrap">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原因"><span class="post-toc-number">1.</span> <span class="post-toc-text">原因</span></a></li></ol>
-        </nav>
-    </aside>
 
-
-<article id="post-OpenWrt-设置静态路由实现跨网段访问"
+<article id="post-OpenWrt-添加开机启动任务"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">OpenWrt 设置静态路由实现跨网段访问</h1>
+        <h1 class="post-card-title">OpenWrt 添加开机启动任务</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-08-26 20:00:36" datetime="2019-08-26T12:00:36.000Z"  itemprop="datePublished">2019-08-26</time>
+            <time class="post-time" title="2019-08-26 20:50:10" datetime="2019-08-26T12:50:10.000Z"  itemprop="datePublished">2019-08-26</time>
 
             
 
@@ -185,25 +175,39 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。<br></p><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/.wang//1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><p></p>
-<p>如图，正常情况下，路由器B作为nat,所以下面的设备可以访问路由器A上的资源，而路由A下面的设备不能访问路由B下面的设备，要怎么办呢？</p>
-<p>解决方法<br>很简单，在路由A设置一个静态路由即可实现。设置方法如下：<br></p><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/.wang//设置静态路由.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><p></p>
-<p>这样就可以很方便的让路由A访问路由下的资源，且路由A扑街后也不影响路由B下的设备状态。</p>
-<p><font size="6" color="red">路由B一定要开启相应的防火墙规则</font><br></p>
-<p><font size="6" color="red">路由B一定要开启相应的防火墙规则</font><br></p>
-<p><font size="6" color="red">路由B一定要开启相应的防火墙规则</font><br></p>
+            <p>OpenWrt 添加启动任务的方式有别于其他的linux系统，在尝试过程中踩了不少坑，所以整理在此处。<br>正常Linux系统一般修改rc.local即可在开机时自动运行代码，即</p>
+<p><code>vi /etc/rc.local</code></p>
+<p>然后输入开机要启动的命令即可，但OpenWrt不同，其操作流程为：</p>
+<ul>
+<li>1 、进入启动任务的文件夹</li>
+</ul>
+<p><code>cd /etc/rc.d</code></p>
+<ul>
+<li>2、创建启动文件，前面要标注启动顺序</li>
+</ul>
+<p><code>vi S99Test</code></p>
+<ul>
+<li>3、键入“i”进入编辑模式输入内容</li>
+</ul>
+<pre><code> #!/bin/sh /etc/rc.common # 使用shell命令必须要有
+START=95 # 表示启动顺序排95，数字越大，启动越慢，可自行调整
+STOP=15 # 表示停止任务排15
+
+
+# 加启动任务
+start(){
+    #此处输入你要运行的命令，需要先验证命令是否可以正常运行
+}
+
+# 添加停止任务，如没必要可以不添加
+stop(){
+    #此处输入你要运行的命令，需要先验证命令是否可以正常运行
+}
+
+</code></pre><ul>
+<li>4、按“ESC”退出编辑模式。键入“:wq”来保存内容并退出，此时在luci管理界-系统-启动项里面就能看到你刚添加的任务，可以输入reboot命令检验是否实现</li>
+</ul>
+<p>以上就是OpenWrt添加启动任务的方法</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -230,7 +234,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-27T14:07:52.965Z" itemprop="dateUpdated">2019-08-27 22:07:52</time>
+    最后更新时间：<time datetime="2019-08-26T21:30:13.678Z" itemprop="dateUpdated">2019-08-27 05:30:13</time>
 </span><br>
 
 
@@ -250,7 +254,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openwrt/">openwrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/跨网段访问/">跨网段访问</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openwrt/">openwrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/启动任务/">启动任务</a></li></ul>
 
 
             
@@ -260,7 +264,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/&title=《OpenWrt 设置静态路由实现跨网段访问》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-添加开机启动任务/&title=《OpenWrt 添加开机启动任务》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -270,22 +274,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/&title=《OpenWrt 设置静态路由实现跨网段访问》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-添加开机启动任务/&title=《OpenWrt 添加开机启动任务》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/OpenWrt-添加开机启动任务/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OpenWrt 设置静态路由实现跨网段访问》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/&via=https://hexo.aragon.wang" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OpenWrt 添加开机启动任务》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/OpenWrt-添加开机启动任务/&via=https://hexo.aragon.wang" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-添加开机启动任务/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -305,21 +309,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/08/26/ubuntu-apache2-wang-zhan-tian-jia-yong-hu-fang-wen-yan-zheng/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Ubuntu+apache2 网站添加用户访问验证</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/08/26/openwrt-shi-yong-py-jiao-ben-shi-xian-ddns/" id="post-next" class="post-nav-link">
+      <a href="/2019/08/26/OpenWrt-添加自定命令（以Frpc为例）/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">OpenWrt 使用PY脚本实现DDNS</h4>
+        <h4 class="title">OpenWrt 添加自定命令（以Frpc为例）</h4>
       </a>
     </div>
   
@@ -417,7 +414,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/&title=《OpenWrt 设置静态路由实现跨网段访问》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-添加开机启动任务/&title=《OpenWrt 添加开机启动任务》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -427,22 +424,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/&title=《OpenWrt 设置静态路由实现跨网段访问》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-添加开机启动任务/&title=《OpenWrt 添加开机启动任务》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/OpenWrt-添加开机启动任务/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OpenWrt 设置静态路由实现跨网段访问》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/&via=https://hexo.aragon.wang" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OpenWrt 添加开机启动任务》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/OpenWrt-添加开机启动任务/&via=https://hexo.aragon.wang" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-添加开机启动任务/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -453,7 +450,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADIUlEQVR42u3aQXLbQAwEQP//08oDUlRmADolrponlU0tt8EDBGB/fuLrdXH9/d+r7yZ/v1rz6rnv17/hwsbGxn4IO3lAAnv/3eTze8D7oLTBwsbGxj6PnTymvSdPP7M7Z/vExsbGxp4xEkBeQVylPWxsbGzsTQLbBCgPWbICNjY29ney88ZQm2baAUPS0vqvvTRsbGzsj2fPCoDP/Pwr821sbGzsD2a/yuv3jvu0IV4psLGxsQ9i5wmg3e4mEPc2ni6PBGFjY2MfxN4UAEU7viTtq6toHWxsbOwj2LMhbvKYTaM/WXk2KsDGxsY+j50/YJZm9qRkP3nZg42NjX0eu01g+4SxaQbNRr83lCLY2NjYH8xOftAngdiUK+3Qd7Y+NjY29qns2U/8PKW17af8aE6uuCxFsLGxsR/OzouK91ts78kD1wY3Cig2Njb2oew25cxGvHcdzWlLpuLL2NjY2A9kzxpMOXh/Z95Iiu7BxsbGPprdJrP2aE5SwLSpq0602NjY2Iey82ZQW3jkpcX+UE70IrGxsbEPYt8Fztv0LWyW2KLRNTY2NvbR7CQcs0IiafHPWlp1ywkbGxv7IPY+IeUr5IGbHdzJ94aNjY19BrtdqN3cJhztykWpg42NjX0QOx+gtqPffOg7Gx7M0iE2Njb2eez85357RGY2+m1T5rCphI2NjX0oe3YgZpZs2i79zXdiY2NjH8RuB7r5kHiTDttxctu0wsbGxj6JnbeQrh6WN4za0exsABw1v7CxsbEPYucbnRUt+fC4Rc5eVf1+sLGxsR/FnrWW2r9sgrsZWlxWYNjY2NjHsfNA5InnriHBXa0ubGxs7G9gz8qMvNnUHuhJhgS5CxsbG/sk9qu8WtjmSM1dY4bhZBsbGxv7Iez82qerWZHT7iFPhNjY2Ngnsduk1RYG+wTZDo+jvWFjY2Mfx96fadk3j/JyZdZU+segFxsbG/tr2JsDN5sxc/tibk5g2NjY2AexN+XK5gDQLBFehgAbGxv7OPZdjZu8aIk2V6bAIh1iY2NjH8TO00Dbvm+P3eRPT4qNWSsKGxsb+1HsP3THAl0wUpogAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqElEQVR42u3aQXKDMAwF0Nz/0uk2nQ7wJdmUzDxWnRQSPS8sI+n1iq/3x/X5SXL/0VN//3v07NGdyy48PDy8QejnYeXBnS/BebjVeC6WAA8PD28b7+hnevdMNvTzVJHHg4eHh/ccXrJNV4/dqw70eHh4eN/Fm2/r+VN4eHh4T+AlL/9zTFK0zamLay14eHh4G7pIz/l7S38PDw8Pb9xVz5tPk3ZXXsAtR4uHh4e3gdcrDVQHqvIRgSo+Wko8PDy8pbxVwfU296TQUG2//bofDw8Pbxvv/Nac1AsiKfI2G2l4eHh4m3nVDb3X9MpbWXmp4vATPDw8vM28HX2lXlFj0pBr1o/x8PDwFo0UzEevCrXkcdmivFh4eHh4LV4eVvWInKeE6kZfiBAPDw9vM69XeK0e06vlhtF34uHh4d3Cm7zRV9tjyahBNalEkxF4eHh4Y15eAuiVD/KW1fywjoeHh3cnr4fJk8qkHJxH8qpmGDw8PLwWr3poTjbxPIgkVVTZeHh4ePfzeqFMBgV6z14sBx4eHt4G3tpyQ3VR5ikhehnAw8PD28CrNvWrja4kiN6RvZBm8PDw8G7k9UYBksb/ZOBgQcUaDw8Pb8CbfHUvAVS/YRIbHh4e3j5e7zCdbPFzcO9X8PDw8P6LVx0CyMsN1aGr5sgXHh4e3i28vMCaHNPzbX0yLoCHh4d3P28+XDVphvXSVSEUPDw8vEW8d/GabP3V8ax83OrwWTw8PLwNvMkeW/2ipKGVFx1GGDw8PLwxr1cqnVDzEkY1MVw0wPDw8PCW8vIfy8ehqmXi3gJdLDEeHh7eI3n5uECeSHqjYHh4eHjfwpu00xJktWyBh4eHdw8vHzbNN/r8oDxpv118joeHh7eBV33hTzbuPLX0xljnY2F4eHh4Ld4Puu/FOn0rFxcAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 

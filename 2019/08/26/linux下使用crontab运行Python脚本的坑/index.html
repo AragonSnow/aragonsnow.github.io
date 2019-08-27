@@ -14,25 +14,25 @@
     
     
     
-    <title>UBUNTU+Apache2 强制开启https访问的方法 | Aragon&#39;s Blog | Mark Something</title>
+    <title>linux下使用crontab运行Python脚本的坑 | Aragon&#39;s Blog | Mark Something</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content>
-    <meta name="description" content="在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现： 1. 使能 .htaccess 文件sudo vi /etc/apache2/apache2.conf 找到以下内容 &amp;lt;Directory /var/www/&amp;gt;         Options Indexes FollowSy">
-<meta name="keywords" content="Blog">
+    <meta name="keywords" content="python,crontab">
+    <meta name="description" content="在使用Python脚本实现DDNS功能时发现并没有定时运行,在指令后面添加 &amp;gt;/dev/null 2&amp;amp;&amp;gt;1指令，发现如下报错 00-18-01 Traceback (most recent call last):   File &quot;/home/c2/DDNS/run.py&quot;, line 21, in &amp;lt;module&amp;gt;     import requests Impor">
+<meta name="keywords" content="python,crontab">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UBUNTU+Apache2 强制开启https访问的方法">
-<meta property="og:url" content="https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/index.html">
+<meta property="og:title" content="linux下使用crontab运行Python脚本的坑">
+<meta property="og:url" content="https://hexo.aragon.wang/2019/08/26/linux下使用crontab运行Python脚本的坑/index.html">
 <meta property="og:site_name" content="Aragon&#39;s Blog">
-<meta property="og:description" content="在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现： 1. 使能 .htaccess 文件sudo vi /etc/apache2/apache2.conf 找到以下内容 &amp;lt;Directory /var/www/&amp;gt;         Options Indexes FollowSy">
+<meta property="og:description" content="在使用Python脚本实现DDNS功能时发现并没有定时运行,在指令后面添加 &amp;gt;/dev/null 2&amp;amp;&amp;gt;1指令，发现如下报错 00-18-01 Traceback (most recent call last):   File &quot;/home/c2/DDNS/run.py&quot;, line 21, in &amp;lt;module&amp;gt;     import requests Impor">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-26T12:25:35.015Z">
+<meta property="og:updated_time" content="2019-08-27T04:04:25.216Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UBUNTU+Apache2 强制开启https访问的方法">
-<meta name="twitter:description" content="在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现： 1. 使能 .htaccess 文件sudo vi /etc/apache2/apache2.conf 找到以下内容 &amp;lt;Directory /var/www/&amp;gt;         Options Indexes FollowSy">
+<meta name="twitter:title" content="linux下使用crontab运行Python脚本的坑">
+<meta name="twitter:description" content="在使用Python脚本实现DDNS功能时发现并没有定时运行,在指令后面添加 &amp;gt;/dev/null 2&amp;amp;&amp;gt;1指令，发现如下报错 00-18-01 Traceback (most recent call last):   File &quot;/home/c2/DDNS/run.py&quot;, line 21, in &amp;lt;module&amp;gt;     import requests Impor">
     
         <link rel="alternate" type="application/atom+xml" title="Aragon&#39;s Blog" href="/atom.xml">
     
@@ -113,7 +113,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">UBUNTU+Apache2 强制开启https访问的方法</div>
+        <div class="flex-col header-title ellipsis">linux下使用crontab运行Python脚本的坑</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -135,10 +135,10 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">UBUNTU+Apache2 强制开启https访问的方法</h1>
+        <h1 class="title">linux下使用crontab运行Python脚本的坑</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-08-26T12:19:02.000Z" itemprop="datePublished" class="page-time">
+                <time datetime="2019-08-26T12:34:10.000Z" itemprop="datePublished" class="page-time">
   2019-08-26
 </time>
 
@@ -155,21 +155,14 @@
 
 <div class="container body-wrap">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-使能-htaccess-文件"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 使能 .htaccess 文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-修改-htaccess-文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 修改.htaccess 文件</span></a></li></ol>
-        </nav>
-    </aside>
 
-
-<article id="post-UBUNTU-Apache2-强制开启https访问的方法"
+<article id="post-linux下使用crontab运行Python脚本的坑"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">UBUNTU+Apache2 强制开启https访问的方法</h1>
+        <h1 class="post-card-title">linux下使用crontab运行Python脚本的坑</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-08-26 20:19:02" datetime="2019-08-26T12:19:02.000Z"  itemprop="datePublished">2019-08-26</time>
+            <time class="post-time" title="2019-08-26 20:34:10" datetime="2019-08-26T12:34:10.000Z"  itemprop="datePublished">2019-08-26</time>
 
             
 
@@ -182,24 +175,21 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现：</p>
-<h1 id="1-使能-htaccess-文件"><a href="#1-使能-htaccess-文件" class="headerlink" title="1. 使能 .htaccess 文件"></a>1. 使能 .htaccess 文件</h1><p><code>sudo vi /etc/apache2/apache2.conf</code></p>
-<p>找到以下内容</p>
-<pre><code>&lt;Directory /var/www/&gt;
-        Options Indexes FollowSymLinks
-        AllowOverride all
-        Require all granted
-&lt;/Directory&gt;
-</code></pre><p>确认 AllowOverride all 这行是这样就可以了,保存后输入以下命令</p>
-<pre><code>sudo a2enmod rewrite 
-sudo a2enmod headers 
-sudo service apache2 restart
-</code></pre><p>命令作用：打开重定位功能并重启apache2</p>
-<h1 id="2-修改-htaccess-文件"><a href="#2-修改-htaccess-文件" class="headerlink" title="2. 修改.htaccess 文件"></a>2. 修改.htaccess 文件</h1><p>输入<br><code>sudo vi /var/www/html/你的网站根目录/.htaccess</code></p>
-<p>找到以下内容<br>RewriteEngine On<br>在下面输入如下内容：</p>
-<pre><code>RewriteCond  %{HTTPS} !=on                          # 重定位规则：如果不是HTTPS
-RewriteRule  ^(.*) https://%{SERVER_NAME}$1 [L,R]   # 执行操作：跳转使用https访问
-</code></pre><p>如上就是强制HTTPS访问的方法了，希望对你有帮助。</p>
+            <p>在使用Python脚本实现DDNS功能时发现并没有定时运行,在指令后面添加 <code>&gt;/dev/null 2&amp;&gt;1</code><br>指令，发现如下报错</p>
+<pre><code>00-18-01
+Traceback (most recent call last):
+  File "/home/c2/DDNS/run.py", line 21, in &lt;module&gt;
+    import requests
+ImportError: No module named requests
+</code></pre><p>脚本单独运行是正常的，但是已使用Crontab后运行异常，再一番Google后发现，是Crontab不能正确加载Python的环境变量导致，需要做如下修改：</p>
+<ul>
+<li>1 直接执行Python所在路径，路径可以使用whereis python 指令来获取，所以我的指令是:<pre><code>/usr/bin/python3.6 #此处必须指定使用的python版本，不然报错
+`
+</code></pre></li>
+<li>2 使用绝对路径</li>
+</ul>
+<p><code>/usr/bin/python3.6 /path/to/your/py/run.py</code><br>包括脚本需要指定的参数包含路径的，都必须使用绝对路径</p>
+<p>以上就是我在使用crontab实现计划任务时的遇到的问题和解决方法，希望能对你有所帮助</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -226,7 +216,7 @@ RewriteRule  ^(.*) https://%{SERVER_NAME}$1 [L,R]   # 执行操作：跳转使�
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-26T12:25:35.015Z" itemprop="dateUpdated">2019-08-26 20:25:35</time>
+    最后更新时间：<time datetime="2019-08-27T04:04:25.216Z" itemprop="dateUpdated">2019-08-27 12:04:25</time>
 </span><br>
 
 
@@ -246,6 +236,8 @@ RewriteRule  ^(.*) https://%{SERVER_NAME}$1 [L,R]   # 执行操作：跳转使�
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crontab/">crontab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -254,7 +246,7 @@ RewriteRule  ^(.*) https://%{SERVER_NAME}$1 [L,R]   # 执行操作：跳转使�
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/&title=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/linux下使用crontab运行Python脚本的坑/&title=《linux下使用crontab运行Python脚本的坑》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -264,22 +256,22 @@ RewriteRule  ^(.*) https://%{SERVER_NAME}$1 [L,R]   # 执行操作：跳转使�
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/&title=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/linux下使用crontab运行Python脚本的坑/&title=《linux下使用crontab运行Python脚本的坑》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/linux下使用crontab运行Python脚本的坑/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/&via=https://hexo.aragon.wang" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux下使用crontab运行Python脚本的坑》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/linux下使用crontab运行Python脚本的坑/&via=https://hexo.aragon.wang" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/linux下使用crontab运行Python脚本的坑/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -302,18 +294,18 @@ RewriteRule  ^(.*) https://%{SERVER_NAME}$1 [L,R]   # 执行操作：跳转使�
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/" id="post-prev" class="post-nav-link">
+      <a href="/2019/08/26/OpenWrt-添加自定命令（以Frpc为例）/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">OpenWrt 挂载局域网SAMBA共享文件夹</h4>
+        <h4 class="title">OpenWrt 添加自定命令（以Frpc为例）</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/08/26/ubuntu-apache2-wang-zhan-tian-jia-yong-hu-fang-wen-yan-zheng/" id="post-next" class="post-nav-link">
+      <a href="/2019/08/26/Ubuntu-Server-输入sudo-指令不使用密码/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Ubuntu+apache2 网站添加用户访问验证</h4>
+        <h4 class="title">Ubuntu Server 输入sudo 指令不使用密码</h4>
       </a>
     </div>
   
@@ -411,7 +403,7 @@ RewriteRule  ^(.*) https://%{SERVER_NAME}$1 [L,R]   # 执行操作：跳转使�
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/&title=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/linux下使用crontab运行Python脚本的坑/&title=《linux下使用crontab运行Python脚本的坑》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -421,22 +413,22 @@ RewriteRule  ^(.*) https://%{SERVER_NAME}$1 [L,R]   # 执行操作：跳转使�
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/&title=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/linux下使用crontab运行Python脚本的坑/&title=《linux下使用crontab运行Python脚本的坑》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/linux下使用crontab运行Python脚本的坑/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/&via=https://hexo.aragon.wang" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux下使用crontab运行Python脚本的坑》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/linux下使用crontab运行Python脚本的坑/&via=https://hexo.aragon.wang" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/linux下使用crontab运行Python脚本的坑/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -447,7 +439,7 @@ RewriteRule  ^(.*) https://%{SERVER_NAME}$1 [L,R]   # 执行操作：跳转使�
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADP0lEQVR42u3ay2rrUAwF0P7/T/fCHRVK4r2lFOKT5VFojaN1PFD0+PqKr+//18/PP6/fdz6/5/cz2295/pyXXdjY2Ng3YX8/vZIQ28Oa3Z8cSmLBxsbGPpW9CSIJJfmuNqUlUT38OzY2NvZHsmcFQ5L82lInfxnY2NjY2EnyyBtASeraJzlsbGzsz2QnP/Hzr5w1j5LklP/lZb00bGxs7Ldnzwa97/n5z+fb2NjY2G/GnhUYswZQXoTkLarv0YWNjY19Ertdx5kNA5KUMysb8uLkaza1wMbGxn579mzgmgTXhl6/q/LJ2NjY2J/A3qxazo7jeQHTjiuKxSBsbGzsg9h5Y+hVazT5Me2XLC9eAzY2NvZx7Nmv9DZd5YeVgPPR78V4ABsbG/todhvibFtmtpSTJ92LIQE2Njb2QezZeLVNaZvRcjvSKGYj2NjY2LdlJ2Pd4id+TE2SaDIwyBPwwzSGjY2NfVt2uwQ5axJtljVnvIsYsLGxsQ9i5y34doln2OgJRhFtQRKt7GBjY2Pflr0vPGaH0hYq7QrRxQADGxsb+yB2vi7TFiFtObEZRWwOHRsbG/vu7H1ASaqYJZs2iRbPwcbGxj6I3T6oTSd522iTlr5mFzY2NvZB7Nkod3ZMsxbSfsXn4piwsbGxb8tOhqltImlbTrPh7mzoi42NjX02uw10v7iTt7Hy1xOtB2FjY2MfxH7VQ9sWz2xVqD2UYlkHGxsb+7bsvwh91kjKl35mHf46D2NjY2MfwR7+xC9bVG1imy3xFAkMGxsb+7bsHJMPXDcDg7zVlRchD6ci2NjY2Eew8/QzC7EdFc/WgKIkh42NjX0Qe9bubxtJeWOoLYE2EWJjY2OfwW7bRvkAOA8oL2leNjDGxsbGPo79qrWYTZtpVpbk18MKDBsbG/sIdn7locwaPW3rKkmcF7UXNjY29s3ZbQLI/9u2gTbpqn0B2NjY2OexZ2Pd2dB3s6wzuwcbGxv7c9htIylPUZt7NqXFxegaGxsb+yPZmzIgbzm14OSYsLGxsbGT1cw8oBlydufDVIeNjY19HHuTVNrP7QFtloQuEhg2Njb2EezZoHdWYLQj3vZpmxiwsbGxb8j+B5yXWNxFIpx5AAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACpElEQVR42u3aQW7CQAwFUO5/6VbqqlKV5tseExYvKwQU5k2lePj26xVfXz/X78e9Z+af+dq48PDw8FpLv7ryj/77V/l7qn+VrBkPDw9vm5cUg6uPTt7/f3nIty9fMx4eHt4n8JJb87x45EdwPDw8vM/nJcfc3jG6V5zw8PDwnuUlYcTZJU5eXcla8PDw8GJerwH27OP1/h4eHh5eq6ue33Z7oW3+anOdeHh4eAu8arSaB7i9heYRSaFg4OHh4R3l9YZKNyLg3lDCzQ8APDw8vAVetZnUa0ElmKT85MFuub+Hh4eHV+RVf/D3DtmTgjH5Rjw8PLyzvPyoWh0pmA9O5YMLNwEuHh4e3gIvX3r5C1qbWN3iy1fx8PDwFnjVaCAPKfJn8k0ZbRMeHh7eAi8PJvLwonfrnyPx8PDw9nh5ayoZGti79Sebi4eHh/csr1BD4pCiGtT2Hl9mLXh4eHiHeGfLQF4kzrbZbg7ZeHh4eMu8BFZtbk1i3HzYCw8PD+89vPxDJwfcwxlzHDrj4eHhbfN6i54chaulpRpb4OHh4W3zqjFr9eq1wUblCg8PD2+B12ti5S2x6kjWPAg+0KPDw8PDKy6i2gDr7Wgvli3/A/Dw8PAWeEkokAQNSQHojV71Rhzw8PDwnuX1At9kCzZGEAondDw8PLwBrzr8VF1o/pmTGOLynXh4eHhrvCSi7R2g55Hu6MLDw8NbgPVihUm4MP/eaCwMDw8Pb4E3Lx7VELYXZ1S/Fw8PD2+bd7Z9NZmAmhSGm9YXHh4e3gKveivPD9yT43g1cyhPeOHh4eG9nZdHAJMWV7Id0a8BPDw8vLfzqqFqNeZIAEnhwcPDw3sPrxcERGNPcTHIny+UJTw8PLwFXu/2nTDmAW6+Tc3OHh4eHl6N9w32PXOoN+WjTAAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

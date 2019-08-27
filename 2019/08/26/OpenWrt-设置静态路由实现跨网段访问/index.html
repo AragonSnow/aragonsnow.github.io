@@ -14,25 +14,27 @@
     
     
     
-    <title>linux下使用crontab运行Python脚本的坑 | Aragon&#39;s Blog | Mark Something</title>
+    <title>OpenWrt 设置静态路由实现跨网段访问 | Aragon&#39;s Blog | Mark Something</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="python,crontab">
-    <meta name="description" content="在使用Python脚本实现DDNS功能时发现并没有定时运行,在指令后面添加 &amp;gt;/dev/null 2&amp;amp;&amp;gt;1指令，发现如下报错 00-18-01 Traceback (most recent call last):   File &quot;/home/c2/DDNS/run.py&quot;, line 21, in &amp;lt;module&amp;gt;     import requests Impor">
-<meta name="keywords" content="python,crontab">
+    <meta name="keywords" content="openwrt,跨网段访问">
+    <meta name="description" content="原因由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。 如图，正常情况下，路由器B作为nat,所以下面的设备可以访问路由器A上的资源，而路由A下面的设备不能访问路由B下面的设">
+<meta name="keywords" content="openwrt,跨网段访问">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux下使用crontab运行Python脚本的坑">
-<meta property="og:url" content="https://hexo.aragon.wang/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/index.html">
+<meta property="og:title" content="OpenWrt 设置静态路由实现跨网段访问">
+<meta property="og:url" content="https://hexo.aragon.wang/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/index.html">
 <meta property="og:site_name" content="Aragon&#39;s Blog">
-<meta property="og:description" content="在使用Python脚本实现DDNS功能时发现并没有定时运行,在指令后面添加 &amp;gt;/dev/null 2&amp;amp;&amp;gt;1指令，发现如下报错 00-18-01 Traceback (most recent call last):   File &quot;/home/c2/DDNS/run.py&quot;, line 21, in &amp;lt;module&amp;gt;     import requests Impor">
+<meta property="og:description" content="原因由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。 如图，正常情况下，路由器B作为nat,所以下面的设备可以访问路由器A上的资源，而路由A下面的设备不能访问路由B下面的设">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-27T04:04:25.216Z">
+<meta property="og:image" content="https://hexo.aragon.wang/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/OpenWrt-设置静态路由实现跨网段访问/设置静态路由.png">
+<meta property="og:updated_time" content="2019-08-27T14:43:54.560Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux下使用crontab运行Python脚本的坑">
-<meta name="twitter:description" content="在使用Python脚本实现DDNS功能时发现并没有定时运行,在指令后面添加 &amp;gt;/dev/null 2&amp;amp;&amp;gt;1指令，发现如下报错 00-18-01 Traceback (most recent call last):   File &quot;/home/c2/DDNS/run.py&quot;, line 21, in &amp;lt;module&amp;gt;     import requests Impor">
+<meta name="twitter:title" content="OpenWrt 设置静态路由实现跨网段访问">
+<meta name="twitter:description" content="原因由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。 如图，正常情况下，路由器B作为nat,所以下面的设备可以访问路由器A上的资源，而路由A下面的设备不能访问路由B下面的设">
+<meta name="twitter:image" content="https://hexo.aragon.wang/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/OpenWrt-设置静态路由实现跨网段访问/设置静态路由.png">
     
         <link rel="alternate" type="application/atom+xml" title="Aragon&#39;s Blog" href="/atom.xml">
     
@@ -113,7 +115,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">linux下使用crontab运行Python脚本的坑</div>
+        <div class="flex-col header-title ellipsis">OpenWrt 设置静态路由实现跨网段访问</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -135,10 +137,10 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">linux下使用crontab运行Python脚本的坑</h1>
+        <h1 class="title">OpenWrt 设置静态路由实现跨网段访问</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-08-26T12:34:10.000Z" itemprop="datePublished" class="page-time">
+                <time datetime="2019-08-26T12:00:36.000Z" itemprop="datePublished" class="page-time">
   2019-08-26
 </time>
 
@@ -155,14 +157,21 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原因"><span class="post-toc-number">1.</span> <span class="post-toc-text">原因</span></a></li></ol>
+        </nav>
+    </aside>
 
-<article id="post-linux下使用crontab运行Python脚本的坑"
+
+<article id="post-OpenWrt-设置静态路由实现跨网段访问"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">linux下使用crontab运行Python脚本的坑</h1>
+        <h1 class="post-card-title">OpenWrt 设置静态路由实现跨网段访问</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-08-26 20:34:10" datetime="2019-08-26T12:34:10.000Z"  itemprop="datePublished">2019-08-26</time>
+            <time class="post-time" title="2019-08-26 20:00:36" datetime="2019-08-26T12:00:36.000Z"  itemprop="datePublished">2019-08-26</time>
 
             
 
@@ -175,21 +184,19 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>在使用Python脚本实现DDNS功能时发现并没有定时运行,在指令后面添加 <code>&gt;/dev/null 2&amp;&gt;1</code><br>指令，发现如下报错</p>
-<pre><code>00-18-01
-Traceback (most recent call last):
-  File "/home/c2/DDNS/run.py", line 21, in &lt;module&gt;
-    import requests
-ImportError: No module named requests
-</code></pre><p>脚本单独运行是正常的，但是已使用Crontab后运行异常，再一番Google后发现，是Crontab不能正确加载Python的环境变量导致，需要做如下修改：</p>
-<ul>
-<li>1 直接执行Python所在路径，路径可以使用whereis python 指令来获取，所以我的指令是:<pre><code>/usr/bin/python3.6 #此处必须指定使用的python版本，不然报错
-`
-</code></pre></li>
-<li>2 使用绝对路径</li>
-</ul>
-<p><code>/usr/bin/python3.6 /path/to/your/py/run.py</code><br>包括脚本需要指定的参数包含路径的，都必须使用绝对路径</p>
-<p>以上就是我在使用crontab实现计划任务时的遇到的问题和解决方法，希望能对你有所帮助</p>
+            <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻烦，所以使用无线路由nat是最好的方法。<br></p>
+<p>如图，正常情况下，路由器B作为nat,所以下面的设备可以访问路由器A上的资源，而路由A下面的设备不能访问路由B下面的设备，要怎么办呢？</p>
+<p>解决方法<br>很简单，在路由A设置一个静态路由即可实现。设置方法如下：<br></p><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="OpenWrt-设置静态路由实现跨网段访问/设置静态路由.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><p></p>
+<p>这样就可以很方便的让路由A访问路由下的资源，且路由A扑街后也不影响路由B下的设备状态。</p>
+<p><font size="6" color="red">路由B一定要开启相应的防火墙规则</font><br></p>
+<p><font size="6" color="red">路由B一定要开启相应的防火墙规则</font><br></p>
+<p><font size="6" color="red">路由B一定要开启相应的防火墙规则</font><br></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -216,7 +223,7 @@ ImportError: No module named requests
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-27T04:04:25.216Z" itemprop="dateUpdated">2019-08-27 12:04:25</time>
+    最后更新时间：<time datetime="2019-08-27T14:43:54.560Z" itemprop="dateUpdated">2019-08-27 22:43:54</time>
 </span><br>
 
 
@@ -236,7 +243,7 @@ ImportError: No module named requests
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crontab/">crontab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openwrt/">openwrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/跨网段访问/">跨网段访问</a></li></ul>
 
 
             
@@ -246,7 +253,7 @@ ImportError: No module named requests
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/&title=《linux下使用crontab运行Python脚本的坑》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/&title=《OpenWrt 设置静态路由实现跨网段访问》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -256,22 +263,22 @@ ImportError: No module named requests
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/&title=《linux下使用crontab运行Python脚本的坑》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/&title=《OpenWrt 设置静态路由实现跨网段访问》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux下使用crontab运行Python脚本的坑》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/&via=https://hexo.aragon.wang" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OpenWrt 设置静态路由实现跨网段访问》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/&via=https://hexo.aragon.wang" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -294,18 +301,18 @@ ImportError: No module named requests
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/08/26/openwrt-tian-jia-zi-ding-ming-ling-yi-frpc-wei-li/" id="post-prev" class="post-nav-link">
+      <a href="/2019/08/26/Ubuntu+apache2 网站添加用户访问验证/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">OpenWrt 添加自定命令（以Frpc为例）</h4>
+        <h4 class="title">Ubuntu+apache2 网站添加用户访问验证</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/" id="post-next" class="post-nav-link">
+      <a href="/2019/08/26/OpenWrt-使用PY脚本实现DDNS/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Ubuntu Server 输入sudo 指令不使用密码</h4>
+        <h4 class="title">OpenWrt 使用PY脚本实现DDNS</h4>
       </a>
     </div>
   
@@ -403,7 +410,7 @@ ImportError: No module named requests
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/&title=《linux下使用crontab运行Python脚本的坑》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/&title=《OpenWrt 设置静态路由实现跨网段访问》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -413,22 +420,22 @@ ImportError: No module named requests
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/&title=《linux下使用crontab运行Python脚本的坑》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/&title=《OpenWrt 设置静态路由实现跨网段访问》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux下使用crontab运行Python脚本的坑》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/&via=https://hexo.aragon.wang" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OpenWrt 设置静态路由实现跨网段访问》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/&via=https://hexo.aragon.wang" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-设置静态路由实现跨网段访问/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -439,7 +446,7 @@ ImportError: No module named requests
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADKUlEQVR42u3awW4iQQwE0Pz/T7NSblEEVNmzUqZ5c0KBYfo1B8eu/vqKr8f39fsvz/6e3NVe+VMuu7CxsbFvwk4elrx+9u7rz7RryJ/4euOwsbGxz2O/Llo5O6kUyQYl776+640RGxsb+yPZ+YPbhqTd9PZnwMbGxsbO24lkLHVV24ONjY2NPRvozEb5146EZuvExsbGPpXdBr1/+fV/zLexsbGx/yR7f3QmP8STtyJtYFCvHxsbG/sg9uvlzmpBvgWzgjSLDYpfCRsbG/tW7Fl5SB5ZD+sXwUC+xT/qNjY2NvYR7BaQx73tRrRlr21vsLGxsU9lz74iDxLaDZo1Kvm9w5QYGxsb+4bsq5qE/fGa/HuKLcDGxsY+iL2JY9sFtSHuJpbIyyo2Njb2eew23N2Uls0BnbzQRik3NjY29m3Zj/hqh035GGhziqY9svO0A8PGxsa+LXtWfq46BDkrRUl7E92LjY2NfRA7H9bPGoDNQtsgOd9KbGxs7E9gJwduEky7fbMmJ18hNjY29nnsfflpR07JQpNR1KaVwsbGxj6b3Y7727FOAm6LX5FpY2NjYx/H3kStm6M/+SGbPBgYHt/BxsbGvi17fwTnsb7yQVUbOT/dGmxsbOyD2Pl4aDa+mTUYs+NBdWyMjY2NfRB79uA26N1sUN5y5CUNGxsb+wz2agoVU2ef2aznDR4bGxv7IPY+ANjEBpui2I6csLGxsc9m54P+q47gbIZZ+VZGUTE2Njb2EeykJUhKVFvkZu1N2+S8KV3Y2NjYR7Dzf+LbQf+s5WiPV66ei42NjX0QexYAt0tvW4g8o16VMWxsbOwj2O0IadZOzI7atGsothUbGxv7UPYspm1f5y1EW0SHqQg2Njb2DdmP8mpjgM2WzQ7lRM/FxsbGPojdFoB2oW1xaodT7bgKGxsb+1R2fuAyGcTPooX2gGY7unp6+BIbGxv7IHYbzSYh6347NuOkN5/HxsbGxi4HN22Z3CQe0Q+AjY2N/ZHsGTLfglkkMJyiYWNjYx/HTkpLPrhpMVcFxkWMgY2NjX0QexP0tsP9zXfm0cUmxsDGxsa+FfsfjfqDBi7+DRgAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuUlEQVR42u3aQW7jQAwEwPz/09lrgKzkblLj+FA6BVlbmpoFxEmTX1/x9f3juvr97+vqu1d3y+/58IWHh4e3WHq7xOQ++WZd3ef3E4stwMPDwzvGu3pM/plkiW35SX5+sR48PDy8D+AlJeT+zkl5yNl4eHh4n8+b/WvObosEHh4e3l/x8td9C7g/Xs/CiyNZCx4eHt6BLtLn/Hykv4eHh4e37qrnL9z7spE0zNqmWrRaPDw8vAO8WTQwOyI/FU+0EQYeHh7es7z7JbZxbd7iSqjJJr7YCDw8PLwDvLbptfl8Euy2I7B1VIGHh4f3EK89/j67r+2zVqMDeHh4eI/y2ld50uzfhBo1oz1f4+Hh4S14eatpNlLQhhT3xebIZBkeHh5eyXuqzT87NCejCbMyhoeHh3eCNzv4zkas2ghj32bDw8PDO8HbV5XZYEE+tjXblGh0AA8PD2/E27Tt86W0WWsb1+Lh4eG9k7ePUDdlox0sONIAw8PDwyt53/HVMmYH4jzsiLYDDw8P7wBvFoluWv6z1tc9uLgnHh4e3gHePmbdt//zpw9DEDw8PLwFbxY3zErIrHjk/zMvBlXx8PDwHuJtGLODctv+zw/ceHh4eO/hJQ2qZw/Z+1KRbA0eHh7eOV5yMG0fPPtWu7mPpdR4eHh4I1679Pbdux+6Wq0KDw8P7xivvUUbAc8KQB5wXK4WDw8P7xhv0/LPx6HyoLaIGPaLxsPDwyth+dUGFnkh2Q8Q/OfpeHh4eAd4s3fsrJGWLzqPa4+UEDw8PLyAN7t18q37I3Ibyw7LBh4eHt4xXhsrzNr/jx2C9zEuHh4e3ht57W/aWGF2iH8xR4aHh4f3p7y2DGw+mR/l664dHh4e3pqXN73aRlQ+cJAPfhUDB3h4eHgHeLM/+PNQNQ9/N8OsD/T38PDw8F7z/gGR+D+k8ZOpGQAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

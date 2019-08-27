@@ -14,25 +14,25 @@
     
     
     
-    <title>OpenWrt 添加开机启动任务 | Aragon&#39;s Blog | Mark Something</title>
+    <title>OpenWrt 挂载局域网SAMBA共享文件夹 | Aragon&#39;s Blog | Mark Something</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="openwrt,启动任务">
-    <meta name="description" content="OpenWrt 添加启动任务的方式有别于其他的linux系统，在尝试过程中踩了不少坑，所以整理在此处。正常Linux系统一般修改rc.local即可在开机时自动运行代码，即 vi /etc/rc.local 然后输入开机要启动的命令即可，但OpenWrt不同，其操作流程为：  1 、进入启动任务的文件夹  cd /etc/rc.d  2、创建启动文件，前面要标注启动顺序  vi S99Test">
-<meta name="keywords" content="openwrt,启动任务">
+    <meta name="keywords" content="openwrt,smb">
+    <meta name="description" content="OpenWrt在挂载局域网共享文件夹可以有效减少磁盘空间占用，实现无限扩容的可能，在操作中踩了不少坑，所以记录下来： 操作指令首先安装相关套件cifsmount opkg update         # 更新软件列表 opkg install cifsmount          # 安装cifsmount 没有报错即为成功 挂载文件夹此处挂载局域网192.168.1.40的share文件夹到">
+<meta name="keywords" content="openwrt,smb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenWrt 添加开机启动任务">
-<meta property="og:url" content="https://hexo.aragon.wang/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/index.html">
+<meta property="og:title" content="OpenWrt 挂载局域网SAMBA共享文件夹">
+<meta property="og:url" content="https://hexo.aragon.wang/2019/08/26/OpenWrt-挂载局域网SAMBA共享文件夹/index.html">
 <meta property="og:site_name" content="Aragon&#39;s Blog">
-<meta property="og:description" content="OpenWrt 添加启动任务的方式有别于其他的linux系统，在尝试过程中踩了不少坑，所以整理在此处。正常Linux系统一般修改rc.local即可在开机时自动运行代码，即 vi /etc/rc.local 然后输入开机要启动的命令即可，但OpenWrt不同，其操作流程为：  1 、进入启动任务的文件夹  cd /etc/rc.d  2、创建启动文件，前面要标注启动顺序  vi S99Test">
+<meta property="og:description" content="OpenWrt在挂载局域网共享文件夹可以有效减少磁盘空间占用，实现无限扩容的可能，在操作中踩了不少坑，所以记录下来： 操作指令首先安装相关套件cifsmount opkg update         # 更新软件列表 opkg install cifsmount          # 安装cifsmount 没有报错即为成功 挂载文件夹此处挂载局域网192.168.1.40的share文件夹到">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-26T21:30:13.678Z">
+<meta property="og:updated_time" content="2019-08-27T03:02:28.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OpenWrt 添加开机启动任务">
-<meta name="twitter:description" content="OpenWrt 添加启动任务的方式有别于其他的linux系统，在尝试过程中踩了不少坑，所以整理在此处。正常Linux系统一般修改rc.local即可在开机时自动运行代码，即 vi /etc/rc.local 然后输入开机要启动的命令即可，但OpenWrt不同，其操作流程为：  1 、进入启动任务的文件夹  cd /etc/rc.d  2、创建启动文件，前面要标注启动顺序  vi S99Test">
+<meta name="twitter:title" content="OpenWrt 挂载局域网SAMBA共享文件夹">
+<meta name="twitter:description" content="OpenWrt在挂载局域网共享文件夹可以有效减少磁盘空间占用，实现无限扩容的可能，在操作中踩了不少坑，所以记录下来： 操作指令首先安装相关套件cifsmount opkg update         # 更新软件列表 opkg install cifsmount          # 安装cifsmount 没有报错即为成功 挂载文件夹此处挂载局域网192.168.1.40的share文件夹到">
     
         <link rel="alternate" type="application/atom+xml" title="Aragon&#39;s Blog" href="/atom.xml">
     
@@ -113,7 +113,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">OpenWrt 添加开机启动任务</div>
+        <div class="flex-col header-title ellipsis">OpenWrt 挂载局域网SAMBA共享文件夹</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -135,10 +135,10 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">OpenWrt 添加开机启动任务</h1>
+        <h1 class="title">OpenWrt 挂载局域网SAMBA共享文件夹</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-08-26T12:50:10.000Z" itemprop="datePublished" class="page-time">
+                <time datetime="2019-08-26T12:26:33.000Z" itemprop="datePublished" class="page-time">
   2019-08-26
 </time>
 
@@ -155,14 +155,21 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#操作指令"><span class="post-toc-number">1.</span> <span class="post-toc-text">操作指令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#挂载文件夹"><span class="post-toc-number">2.</span> <span class="post-toc-text">挂载文件夹</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#取消挂载"><span class="post-toc-number">3.</span> <span class="post-toc-text">取消挂载</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#期间碰到的坑："><span class="post-toc-number">4.</span> <span class="post-toc-text">期间碰到的坑：</span></a></li></ol>
+        </nav>
+    </aside>
 
-<article id="post-OpenWrt-添加开机启动任务"
+
+<article id="post-OpenWrt-挂载局域网SAMBA共享文件夹"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">OpenWrt 添加开机启动任务</h1>
+        <h1 class="post-card-title">OpenWrt 挂载局域网SAMBA共享文件夹</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-08-26 20:50:10" datetime="2019-08-26T12:50:10.000Z"  itemprop="datePublished">2019-08-26</time>
+            <time class="post-time" title="2019-08-26 20:26:33" datetime="2019-08-26T12:26:33.000Z"  itemprop="datePublished">2019-08-26</time>
 
             
 
@@ -175,39 +182,18 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>OpenWrt 添加启动任务的方式有别于其他的linux系统，在尝试过程中踩了不少坑，所以整理在此处。<br>正常Linux系统一般修改rc.local即可在开机时自动运行代码，即</p>
-<p><code>vi /etc/rc.local</code></p>
-<p>然后输入开机要启动的命令即可，但OpenWrt不同，其操作流程为：</p>
-<ul>
-<li>1 、进入启动任务的文件夹</li>
-</ul>
-<p><code>cd /etc/rc.d</code></p>
-<ul>
-<li>2、创建启动文件，前面要标注启动顺序</li>
-</ul>
-<p><code>vi S99Test</code></p>
-<ul>
-<li>3、键入“i”进入编辑模式输入内容</li>
-</ul>
-<pre><code> #!/bin/sh /etc/rc.common # 使用shell命令必须要有
-START=95 # 表示启动顺序排95，数字越大，启动越慢，可自行调整
-STOP=15 # 表示停止任务排15
-
-
-# 加启动任务
-start(){
-    #此处输入你要运行的命令，需要先验证命令是否可以正常运行
-}
-
-# 添加停止任务，如没必要可以不添加
-stop(){
-    #此处输入你要运行的命令，需要先验证命令是否可以正常运行
-}
-
-</code></pre><ul>
-<li>4、按“ESC”退出编辑模式。键入“:wq”来保存内容并退出，此时在luci管理界-系统-启动项里面就能看到你刚添加的任务，可以输入reboot命令检验是否实现</li>
-</ul>
-<p>以上就是OpenWrt添加启动任务的方法</p>
+            <p>OpenWrt在挂载局域网共享文件夹可以有效减少磁盘空间占用，实现无限扩容的可能，在操作中踩了不少坑，所以记录下来：</p>
+<h1 id="操作指令"><a href="#操作指令" class="headerlink" title="操作指令"></a>操作指令</h1><p>首先安装相关套件cifsmount</p>
+<pre><code>opkg update         # 更新软件列表
+opkg install cifsmount          # 安装cifsmount
+</code></pre><p>没有报错即为成功</p>
+<h1 id="挂载文件夹"><a href="#挂载文件夹" class="headerlink" title="挂载文件夹"></a>挂载文件夹</h1><p>此处挂载局域网192.168.1.40的share文件夹到 OpenWrt中的/root/shar文件夹</p>
+<p><code>mount.cifs //192.168.1.40/share /root/share -o user=your_name,pass=your_password,vers=1.0,sec=ntlm</code></p>
+<p>因为OpenWrt的mount命令版本比较低，此处的 vers=1.0是必须的,sec=ntlm也是必须的加密选项，不过需要根据网络不同配置不同的加密选项</p>
+<h1 id="取消挂载"><a href="#取消挂载" class="headerlink" title="取消挂载"></a>取消挂载</h1><p>如果想取消挂载，仅需要取消取消挂载点就可以了<br><code>umount /root/share</code></p>
+<h1 id="期间碰到的坑："><a href="#期间碰到的坑：" class="headerlink" title="期间碰到的坑："></a>期间碰到的坑：</h1><p><code>mount error(22): Invalid argument
+Refer to the mount.cifs(8) manual page (e.g. man mount.cifs)</code></p>
+<p>意思为参数错误，原因是后面的 <code>user=your_name,pass=your_password</code> 后面没有添加 <code>vers=1.0,sec=ntlm</code></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -234,7 +220,7 @@ stop(){
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-26T21:30:13.678Z" itemprop="dateUpdated">2019-08-27 05:30:13</time>
+    最后更新时间：<time datetime="2019-08-27T03:02:28.346Z" itemprop="dateUpdated">2019-08-27 11:02:28</time>
 </span><br>
 
 
@@ -254,7 +240,7 @@ stop(){
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openwrt/">openwrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/启动任务/">启动任务</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openwrt/">openwrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/smb/">smb</a></li></ul>
 
 
             
@@ -264,7 +250,7 @@ stop(){
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/&title=《OpenWrt 添加开机启动任务》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-挂载局域网SAMBA共享文件夹/&title=《OpenWrt 挂载局域网SAMBA共享文件夹》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -274,22 +260,22 @@ stop(){
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/&title=《OpenWrt 添加开机启动任务》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-挂载局域网SAMBA共享文件夹/&title=《OpenWrt 挂载局域网SAMBA共享文件夹》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/OpenWrt-挂载局域网SAMBA共享文件夹/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OpenWrt 添加开机启动任务》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/&via=https://hexo.aragon.wang" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OpenWrt 挂载局域网SAMBA共享文件夹》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/OpenWrt-挂载局域网SAMBA共享文件夹/&via=https://hexo.aragon.wang" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-挂载局域网SAMBA共享文件夹/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -309,14 +295,21 @@ stop(){
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/08/26/Ubuntu-Server-输入sudo-指令不使用密码/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Ubuntu Server 输入sudo 指令不使用密码</h4>
+      </a>
+    </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/08/26/openwrt-tian-jia-zi-ding-ming-ling-yi-frpc-wei-li/" id="post-next" class="post-nav-link">
+      <a href="/2019/08/26/UBUNTU-Apache2-强制开启https访问的方法/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">OpenWrt 添加自定命令（以Frpc为例）</h4>
+        <h4 class="title">UBUNTU+Apache2 强制开启https访问的方法</h4>
       </a>
     </div>
   
@@ -414,7 +407,7 @@ stop(){
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/&title=《OpenWrt 添加开机启动任务》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-挂载局域网SAMBA共享文件夹/&title=《OpenWrt 挂载局域网SAMBA共享文件夹》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -424,22 +417,22 @@ stop(){
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/&title=《OpenWrt 添加开机启动任务》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-挂载局域网SAMBA共享文件夹/&title=《OpenWrt 挂载局域网SAMBA共享文件夹》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/OpenWrt-挂载局域网SAMBA共享文件夹/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OpenWrt 添加开机启动任务》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/&via=https://hexo.aragon.wang" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OpenWrt 挂载局域网SAMBA共享文件夹》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/OpenWrt-挂载局域网SAMBA共享文件夹/&via=https://hexo.aragon.wang" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/OpenWrt-挂载局域网SAMBA共享文件夹/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -450,7 +443,7 @@ stop(){
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrUlEQVR42u3aQY6DMAwF0N7/0h1pViN1oN92Aiweq6pCaR4LnH779Yqv9+/1+fnvN5/3fN55fv/5nUf3LLjw8PDwWls/upKfyVc4f0CT/Rw+Ajw8PLxtvGoxSApAXhKS0pLvBw8PD+85vPPCkH+uHpqrR3A8PDy8J/N6B+Xqmnh4eHjP5PWihORIPVnz0qwFDw8PL+ZNGmB3fb6ov4eHh4dX7KpPXr55xJB839whHh4e3gZeL67NI9084MjZeZMMDw8PbwfvHFAlTWLZZBwhb7zh4eHh7eb1mlvVdfLwN39AX47jeHh4eBfyJq/v6os+f91XixMeHh7ebl7S5p8ErNVGVzX4OAxw8fDw8JbyesMB5Zx4MKo1CiPw8PDwNvPyoavqo1nVKutFvXh4eHi7edVgohfOTtbMCw8eHh7ePl61QVV9fa8KPpqPDA8PD28DL3/hTuKG6ujVpIVW+E+Ah4eHV+TNB616YUR+7K7yooqHh4eHN+Dlh91eOyovD72DePJo8PDw8NbykuB1VQAxP3DnowN4eHh4V/ImDbC8zZ+3yjbm03h4eHhLedVFX4Nr46/j4eHhbeNNItqkoVU9ZOfxcRRG4OHh4S3l5cfTSTRQ2EorjIjGrfDw8PAW8aqkyahWNXSoxhx4eHh41/Cq4Wm16TWPPPL1v6yMh4eHt4jXG7daVSTyaCPZz5f/Cnh4eHiLeL1mVa8MVEcH9jXS8PDw8Ca8d/GajB3Mo4pyaIKHh4e3gbejqkwGBfKmWm/sAA8PD28Vrzo6UI1xk/ZVL6TAw8PDu5eXv+In5WRHIBsNDeDh4eHdyuuNkE7aYznmcLIMDw8P7ybeHJ9vvbfm6EiNh4eHV+RVw4hqScjHTOf3/1MY8PDw8JbyJg2w/NCcbDd/xKviEjw8PLwi7wfRCtpPEIhFtgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACu0lEQVR42u3aQW7jQAwEQP//07vXAFnb3eSMkwXKJ0NQJJUCDOnmPB7x58+Xz9cj+d/m1/x+/rPjxz54eHh4i0f//nl2zjNA8goSxusXmjwzHh4e3m3e6wU9LwnRLeN7bc7Bw8PD+z28fXOcFJvX5+Dh4eH9X7w2LGiDjLylxsPDw/tZXh4E7JvsthFPwpEDWQseHh5ezGuHWL/h+5X5Hh4eHt56qp4v07Nwdl8A3jwtHh4e3gVevuDO2u79NZPQ5E0sgoeHh3eUl4yjktvPNlfl5WR2BA8PD+8Gr41cN+Uhb6lb6iqewMPDwzvEy5fgun9/eZd2u0BbcvDw8PDO8pJLtwt3G0PMVvji/4aHh4e35s02Qu23ZLUt+2w8hoeHh3eDlwQQbdPcRhh51NuGv3h4eHg3eO0SnwS+s2KzH5hFLTUeHh7eIV770ElDvHmsWav9jyvg4eHhXeDNhlV5tJpcZ/+y8PDw8D7JS9rfzffNFVb5St7d4+Hh4S14+VAqDymSmLhtl4stBXh4eHgXeLPNUrOi0rL3gQUeHh7eDd5sYJ+Uk3bDwalChYeHh3eb13ae7aXzQdpsS0Hx/Hh4eHiHeO3tZ6Oy/JptyFv/VsDDw8M7xGsX33bc1YbC7UjsTa3Dw8PDO8objuTLjVOzeyWlJSoPeHh4eBd4bSybj77a40mbXm8swMPDw/sIbxZMbGpRHgrXZQwPDw/vGi9ZyvNtUvmynryaWc6Ah4eHd4M3G+Qn7Xg+Hmvb6+L6eHh4eBd47YJbJMFBhNG20e2WAjw8PLx7vNmmqLYkJMfbIrQagOHh4eGteZsNBDPYaqx1NsbFw8PDu8ybBRb5sG2zQeGRn4qHh4f3QV7+S39WGPJXE5UTPDw8vGu8zeaqPIo9FRkXBQMPDw/vAm/Tl86a5rYpnxUtPDw8vAu8v/TKfYKxAtfGAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
