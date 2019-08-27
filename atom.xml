@@ -5,9 +5,9 @@
   <subtitle>Mark Something</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://hexo.aragon.wang/"/>
   <updated>2019-08-26T21:30:13.678Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://hexo.aragon.wang/</id>
   
   <author>
     <name>AragonSnow</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>OpenWrt 添加开机启动任务</title>
-    <link href="http://yoursite.com/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/"/>
-    <id>http://yoursite.com/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/</id>
+    <link href="https://hexo.aragon.wang/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/"/>
+    <id>https://hexo.aragon.wang/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/</id>
     <published>2019-08-26T12:50:10.000Z</published>
     <updated>2019-08-26T21:30:13.678Z</updated>
     
@@ -37,16 +37,16 @@
     </summary>
     
     
-      <category term="openwrt" scheme="http://yoursite.com/tags/openwrt/"/>
+      <category term="openwrt" scheme="https://hexo.aragon.wang/tags/openwrt/"/>
     
-      <category term="启动任务" scheme="http://yoursite.com/tags/%E5%90%AF%E5%8A%A8%E4%BB%BB%E5%8A%A1/"/>
+      <category term="启动任务" scheme="https://hexo.aragon.wang/tags/%E5%90%AF%E5%8A%A8%E4%BB%BB%E5%8A%A1/"/>
     
   </entry>
   
   <entry>
     <title>OpenWrt 添加自定命令（以Frpc为例）</title>
-    <link href="http://yoursite.com/2019/08/26/openwrt-tian-jia-zi-ding-ming-ling-yi-frpc-wei-li/"/>
-    <id>http://yoursite.com/2019/08/26/openwrt-tian-jia-zi-ding-ming-ling-yi-frpc-wei-li/</id>
+    <link href="https://hexo.aragon.wang/2019/08/26/openwrt-tian-jia-zi-ding-ming-ling-yi-frpc-wei-li/"/>
+    <id>https://hexo.aragon.wang/2019/08/26/openwrt-tian-jia-zi-ding-ming-ling-yi-frpc-wei-li/</id>
     <published>2019-08-26T12:43:21.000Z</published>
     <updated>2019-08-26T13:25:59.450Z</updated>
     
@@ -64,18 +64,18 @@
     </summary>
     
     
-      <category term="opnwrt" scheme="http://yoursite.com/tags/opnwrt/"/>
+      <category term="opnwrt" scheme="https://hexo.aragon.wang/tags/opnwrt/"/>
     
-      <category term="自定义指令" scheme="http://yoursite.com/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/"/>
+      <category term="自定义指令" scheme="https://hexo.aragon.wang/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/"/>
     
   </entry>
   
   <entry>
     <title>linux下使用crontab运行Python脚本的坑</title>
-    <link href="http://yoursite.com/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/"/>
-    <id>http://yoursite.com/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/</id>
+    <link href="https://hexo.aragon.wang/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/"/>
+    <id>https://hexo.aragon.wang/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/</id>
     <published>2019-08-26T12:34:10.000Z</published>
-    <updated>2019-08-26T12:41:56.243Z</updated>
+    <updated>2019-08-27T04:04:25.216Z</updated>
     
     <summary type="html">
     
@@ -92,16 +92,16 @@ Traceback (most recent
     </summary>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+      <category term="python" scheme="https://hexo.aragon.wang/tags/python/"/>
     
-      <category term="crontab" scheme="http://yoursite.com/tags/crontab/"/>
+      <category term="crontab" scheme="https://hexo.aragon.wang/tags/crontab/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu Server 输入sudo 指令不使用密码</title>
-    <link href="http://yoursite.com/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/"/>
-    <id>http://yoursite.com/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/</id>
+    <link href="https://hexo.aragon.wang/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/"/>
+    <id>https://hexo.aragon.wang/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/</id>
     <published>2019-08-26T12:31:10.000Z</published>
     <updated>2019-08-26T12:42:00.903Z</updated>
     
@@ -120,20 +120,20 @@ sudo -i                     #
     </summary>
     
     
-      <category term="ubuntu" scheme="http://yoursite.com/tags/ubuntu/"/>
+      <category term="ubuntu" scheme="https://hexo.aragon.wang/tags/ubuntu/"/>
     
-      <category term="sudo" scheme="http://yoursite.com/tags/sudo/"/>
+      <category term="sudo" scheme="https://hexo.aragon.wang/tags/sudo/"/>
     
-      <category term="不输入密码" scheme="http://yoursite.com/tags/%E4%B8%8D%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81/"/>
+      <category term="不输入密码" scheme="https://hexo.aragon.wang/tags/%E4%B8%8D%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81/"/>
     
   </entry>
   
   <entry>
     <title>OpenWrt 挂载局域网SAMBA共享文件夹</title>
-    <link href="http://yoursite.com/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/"/>
-    <id>http://yoursite.com/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/</id>
+    <link href="https://hexo.aragon.wang/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/"/>
+    <id>https://hexo.aragon.wang/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/</id>
     <published>2019-08-26T12:26:33.000Z</published>
-    <updated>2019-08-26T13:28:44.160Z</updated>
+    <updated>2019-08-27T03:02:28.346Z</updated>
     
     <summary type="html">
     
@@ -149,16 +149,16 @@ sudo -i                     #
     </summary>
     
     
-      <category term="openwrt" scheme="http://yoursite.com/tags/openwrt/"/>
+      <category term="openwrt" scheme="https://hexo.aragon.wang/tags/openwrt/"/>
     
-      <category term="smb" scheme="http://yoursite.com/tags/smb/"/>
+      <category term="smb" scheme="https://hexo.aragon.wang/tags/smb/"/>
     
   </entry>
   
   <entry>
     <title>UBUNTU+Apache2 强制开启https访问的方法</title>
-    <link href="http://yoursite.com/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/"/>
-    <id>http://yoursite.com/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/</id>
+    <link href="https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/"/>
+    <id>https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/</id>
     <published>2019-08-26T12:19:02.000Z</published>
     <updated>2019-08-26T12:25:35.015Z</updated>
     
@@ -180,8 +180,8 @@ sudo -i                     #
   
   <entry>
     <title>Ubuntu+apache2 网站添加用户访问验证</title>
-    <link href="http://yoursite.com/2019/08/26/ubuntu-apache2-wang-zhan-tian-jia-yong-hu-fang-wen-yan-zheng/"/>
-    <id>http://yoursite.com/2019/08/26/ubuntu-apache2-wang-zhan-tian-jia-yong-hu-fang-wen-yan-zheng/</id>
+    <link href="https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-wang-zhan-tian-jia-yong-hu-fang-wen-yan-zheng/"/>
+    <id>https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-wang-zhan-tian-jia-yong-hu-fang-wen-yan-zheng/</id>
     <published>2019-08-26T12:14:08.000Z</published>
     <updated>2019-08-26T20:39:03.027Z</updated>
     
@@ -199,16 +199,16 @@ sudo -i                     #
     </summary>
     
     
-      <category term="apache" scheme="http://yoursite.com/tags/apache/"/>
+      <category term="apache" scheme="https://hexo.aragon.wang/tags/apache/"/>
     
-      <category term="验证" scheme="http://yoursite.com/tags/%E9%AA%8C%E8%AF%81/"/>
+      <category term="验证" scheme="https://hexo.aragon.wang/tags/%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   
   <entry>
     <title>OpenWrt 设置静态路由实现跨网段访问</title>
-    <link href="http://yoursite.com/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/"/>
-    <id>http://yoursite.com/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/</id>
+    <link href="https://hexo.aragon.wang/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/"/>
+    <id>https://hexo.aragon.wang/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/</id>
     <published>2019-08-26T12:00:36.000Z</published>
     <updated>2019-08-26T12:10:23.961Z</updated>
     
@@ -225,16 +225,16 @@ sudo -i                     #
     </summary>
     
     
-      <category term="openwrt" scheme="http://yoursite.com/tags/openwrt/"/>
+      <category term="openwrt" scheme="https://hexo.aragon.wang/tags/openwrt/"/>
     
-      <category term="跨网段访问" scheme="http://yoursite.com/tags/%E8%B7%A8%E7%BD%91%E6%AE%B5%E8%AE%BF%E9%97%AE/"/>
+      <category term="跨网段访问" scheme="https://hexo.aragon.wang/tags/%E8%B7%A8%E7%BD%91%E6%AE%B5%E8%AE%BF%E9%97%AE/"/>
     
   </entry>
   
   <entry>
     <title>OpenWrt 使用PY脚本实现DDNS</title>
-    <link href="http://yoursite.com/2019/08/26/openwrt-shi-yong-py-jiao-ben-shi-xian-ddns/"/>
-    <id>http://yoursite.com/2019/08/26/openwrt-shi-yong-py-jiao-ben-shi-xian-ddns/</id>
+    <link href="https://hexo.aragon.wang/2019/08/26/openwrt-shi-yong-py-jiao-ben-shi-xian-ddns/"/>
+    <id>https://hexo.aragon.wang/2019/08/26/openwrt-shi-yong-py-jiao-ben-shi-xian-ddns/</id>
     <published>2019-08-26T07:57:08.000Z</published>
     <updated>2019-08-26T11:11:49.202Z</updated>
     
@@ -251,11 +251,11 @@ sudo -i                     #
     </summary>
     
     
-      <category term="openwrt" scheme="http://yoursite.com/tags/openwrt/"/>
+      <category term="openwrt" scheme="https://hexo.aragon.wang/tags/openwrt/"/>
     
-      <category term="DDNS" scheme="http://yoursite.com/tags/DDNS/"/>
+      <category term="DDNS" scheme="https://hexo.aragon.wang/tags/DDNS/"/>
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+      <category term="python" scheme="https://hexo.aragon.wang/tags/python/"/>
     
   </entry>
   

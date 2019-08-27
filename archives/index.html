@@ -1,943 +1,581 @@
-<!DOCTYPE HTML>
-<html lang="zh-CN">
-
-
+<!DOCTYPE html>
+<html>
 <head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
     <meta charset="utf-8">
-    <meta name="keywords" content="归档, Blog">
-    <meta name="description" content="归档 | Aragon&#39;s Blog">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>归档 | Aragon&#39;s Blog</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    
+    
+    
+    <title>Archives | Aragon&#39;s Blog | Mark Something</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Blog">
+    <meta name="description" content="Aragon&apos;s Blog">
+<meta name="keywords" content="Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aragon&#39;s Blog">
+<meta property="og:url" content="https://hexo.aragon.wang/archives/index.html">
+<meta property="og:site_name" content="Aragon&#39;s Blog">
+<meta property="og:description" content="Aragon&apos;s Blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Aragon&#39;s Blog">
+<meta name="twitter:description" content="Aragon&apos;s Blog">
+    
+        <link rel="alternate" type="application/atom+xml" title="Aragon&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <style type="text/css">
-        
-    </style>
+    <!-- custom head -->
+    
 
-    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
-
 <body>
+    <div id="loading" class="active"></div>
 
-<header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">Aragon's Blog</span>
-                </a>
-            </div>
-            
-
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
-<ul class="right">
-    
-    <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">
-            
-            <i class="fa fa-home"></i>
-            
-            <span>首页</span>
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars3.githubusercontent.com/u/22835918?s=400&v=4">
         </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">
-            
-            <i class="fa fa-tags"></i>
-            
-            <span>标签</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/categories" class="waves-effect waves-light">
-            
-            <i class="fa fa-bookmark"></i>
-            
-            <span>分类</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">
-            
-            <i class="fa fa-archive"></i>
-            
-            <span>归档</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">
-            
-            <i class="fa fa-user-circle-o"></i>
-            
-            <span>关于</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/friends" class="waves-effect waves-light">
-            
-            <i class="fa fa-address-book"></i>
-            
-            <span>友情链接</span>
-        </a>
-    </li>
-    
-    <li>
-        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
-        </a>
-    </li>
-</ul>
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
+        <hgroup class="introduce">
+          <h5 class="nickname">AragonSnow</h5>
+          <a href="mailto:asd159874123@gmail.com" title="asd159874123@gmail.com" class="mail">asd159874123@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
         
-        <div class="logo-name">Aragon's Blog</div>
-        <div class="logo-desc">
-            
-            Aragon&#39;s Blog
-            
+            <li class="waves-block waves-effect active">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/AragonSnow/aragonsnow.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Archives</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
         </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header archives-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Archives</h1>
+        <h5 class="subtitle">
+            
+        </h5>
     </div>
 
     
 
-    <ul class="menu-list mobile-menu-list">
-        
-        <li>
-            <a href="/" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-home"></i>
-                
-                首页
-            </a>
-        </li>
-        
-        <li>
-            <a href="/tags" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-tags"></i>
-                
-                标签
-            </a>
-        </li>
-        
-        <li>
-            <a href="/categories" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-bookmark"></i>
-                
-                分类
-            </a>
-        </li>
-        
-        <li>
-            <a href="/archives" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-archive"></i>
-                
-                归档
-            </a>
-        </li>
-        
-        <li>
-            <a href="/about" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-user-circle-o"></i>
-                
-                关于
-            </a>
-        </li>
-        
-        <li>
-            <a href="/friends" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-address-book"></i>
-                
-                友情链接
-            </a>
-        </li>
-        
-        
-    </ul>
-</div>
-
-        </div>
-
-        
-    </nav>
 
 </header>
 
-<div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                    Mark Something
-                
-            </div>
-
-            <div class="description center-align">
-                
-                    Aragon&#39;s Blog
-                
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-// 每天切换 banner 图.  Switch banner image every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
-</script>
-    </div>
-</div>
-
-<main class="content">
-
-    
-    <div class="container archive-calendar">
-    <div class="card">
-        <div id="post-calendar" class="card-content"></div>
-    </div>
-</div>
-
-<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-    let myChart = echarts.init(document.getElementById('post-calendar'));
-
-    
-
-    let option = {
-        title: {
-            top: 0,
-            text: '文章日历',
-            left: 'center',
-            textStyle: {
-                color: '#3C4858'
-            }
-        },
-        tooltip: {
-            padding: 10,
-            backgroundColor: '#555',
-            borderColor: '#777',
-            borderWidth: 1,
-            formatter: function (obj) {
-                var value = obj.value;
-                return '<div style="font-size: 14px;">' + value[0] + '：' + value[1] + '</div>';
-            }
-        },
-        visualMap: {
-            show: true,
-            showLabel: true,
-            categories: [0, 1, 2, 3, 4],
-            calculable: true,
-            inRange: {
-                symbol: 'rect',
-                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
-            },
-            itemWidth: 12,
-            itemHeight: 12,
-            orient: 'horizontal',
-            left: 'center',
-            bottom: 0
-        },
-        calendar: [{
-            left: 'center',
-            range: ["2018-08-27", "2019-08-27"],
-            cellSize: [13, 13],
-            splitLine: {
-                show: false
-            },
-            itemStyle: {
-                borderColor: '#fff',
-                borderWidth: 2
-            },
-            yearLabel: {
-                show: false
-            },
-            monthLabel: {
-                nameMap: 'cn',
-                fontSize: 11
-            },
-            dayLabel: {
-                formatter: '{start}  1st',
-                nameMap: 'cn',
-                fontSize: 11
-            }
-        }],
-        series: [{
-            type: 'heatmap',
-            coordinateSystem: 'calendar',
-            calendarIndex: 0,
-            data: [["2018-08-27", 0], ["2018-08-28", 0], ["2018-08-29", 0], ["2018-08-30", 0], ["2018-08-31", 0], ["2018-09-01", 0], ["2018-09-02", 0], ["2018-09-03", 0], ["2018-09-04", 0], ["2018-09-05", 0], ["2018-09-06", 0], ["2018-09-07", 0], ["2018-09-08", 0], ["2018-09-09", 0], ["2018-09-10", 0], ["2018-09-11", 0], ["2018-09-12", 0], ["2018-09-13", 0], ["2018-09-14", 0], ["2018-09-15", 0], ["2018-09-16", 0], ["2018-09-17", 0], ["2018-09-18", 0], ["2018-09-19", 0], ["2018-09-20", 0], ["2018-09-21", 0], ["2018-09-22", 0], ["2018-09-23", 0], ["2018-09-24", 0], ["2018-09-25", 0], ["2018-09-26", 0], ["2018-09-27", 0], ["2018-09-28", 0], ["2018-09-29", 0], ["2018-09-30", 0], ["2018-10-01", 0], ["2018-10-02", 0], ["2018-10-03", 0], ["2018-10-04", 0], ["2018-10-05", 0], ["2018-10-06", 0], ["2018-10-07", 0], ["2018-10-08", 0], ["2018-10-09", 0], ["2018-10-10", 0], ["2018-10-11", 0], ["2018-10-12", 0], ["2018-10-13", 0], ["2018-10-14", 0], ["2018-10-15", 0], ["2018-10-16", 0], ["2018-10-17", 0], ["2018-10-18", 0], ["2018-10-19", 0], ["2018-10-20", 0], ["2018-10-21", 0], ["2018-10-22", 0], ["2018-10-23", 0], ["2018-10-24", 0], ["2018-10-25", 0], ["2018-10-26", 0], ["2018-10-27", 0], ["2018-10-28", 0], ["2018-10-29", 0], ["2018-10-30", 0], ["2018-10-31", 0], ["2018-11-01", 0], ["2018-11-02", 0], ["2018-11-03", 0], ["2018-11-04", 0], ["2018-11-05", 0], ["2018-11-06", 0], ["2018-11-07", 0], ["2018-11-08", 0], ["2018-11-09", 0], ["2018-11-10", 0], ["2018-11-11", 0], ["2018-11-12", 0], ["2018-11-13", 0], ["2018-11-14", 0], ["2018-11-15", 0], ["2018-11-16", 0], ["2018-11-17", 0], ["2018-11-18", 0], ["2018-11-19", 0], ["2018-11-20", 0], ["2018-11-21", 0], ["2018-11-22", 0], ["2018-11-23", 0], ["2018-11-24", 0], ["2018-11-25", 0], ["2018-11-26", 0], ["2018-11-27", 0], ["2018-11-28", 0], ["2018-11-29", 0], ["2018-11-30", 0], ["2018-12-01", 0], ["2018-12-02", 0], ["2018-12-03", 0], ["2018-12-04", 0], ["2018-12-05", 0], ["2018-12-06", 0], ["2018-12-07", 0], ["2018-12-08", 0], ["2018-12-09", 0], ["2018-12-10", 0], ["2018-12-11", 0], ["2018-12-12", 0], ["2018-12-13", 0], ["2018-12-14", 0], ["2018-12-15", 0], ["2018-12-16", 0], ["2018-12-17", 0], ["2018-12-18", 0], ["2018-12-19", 0], ["2018-12-20", 0], ["2018-12-21", 0], ["2018-12-22", 0], ["2018-12-23", 0], ["2018-12-24", 0], ["2018-12-25", 0], ["2018-12-26", 0], ["2018-12-27", 0], ["2018-12-28", 0], ["2018-12-29", 0], ["2018-12-30", 0], ["2018-12-31", 0], ["2019-01-01", 0], ["2019-01-02", 0], ["2019-01-03", 0], ["2019-01-04", 0], ["2019-01-05", 0], ["2019-01-06", 0], ["2019-01-07", 0], ["2019-01-08", 0], ["2019-01-09", 0], ["2019-01-10", 0], ["2019-01-11", 0], ["2019-01-12", 0], ["2019-01-13", 0], ["2019-01-14", 0], ["2019-01-15", 0], ["2019-01-16", 0], ["2019-01-17", 0], ["2019-01-18", 0], ["2019-01-19", 0], ["2019-01-20", 0], ["2019-01-21", 0], ["2019-01-22", 0], ["2019-01-23", 0], ["2019-01-24", 0], ["2019-01-25", 0], ["2019-01-26", 0], ["2019-01-27", 0], ["2019-01-28", 0], ["2019-01-29", 0], ["2019-01-30", 0], ["2019-01-31", 0], ["2019-02-01", 0], ["2019-02-02", 0], ["2019-02-03", 0], ["2019-02-04", 0], ["2019-02-05", 0], ["2019-02-06", 0], ["2019-02-07", 0], ["2019-02-08", 0], ["2019-02-09", 0], ["2019-02-10", 0], ["2019-02-11", 0], ["2019-02-12", 0], ["2019-02-13", 0], ["2019-02-14", 0], ["2019-02-15", 0], ["2019-02-16", 0], ["2019-02-17", 0], ["2019-02-18", 0], ["2019-02-19", 0], ["2019-02-20", 0], ["2019-02-21", 0], ["2019-02-22", 0], ["2019-02-23", 0], ["2019-02-24", 0], ["2019-02-25", 0], ["2019-02-26", 0], ["2019-02-27", 0], ["2019-02-28", 0], ["2019-03-01", 0], ["2019-03-02", 0], ["2019-03-03", 0], ["2019-03-04", 0], ["2019-03-05", 0], ["2019-03-06", 0], ["2019-03-07", 0], ["2019-03-08", 0], ["2019-03-09", 0], ["2019-03-10", 0], ["2019-03-11", 0], ["2019-03-12", 0], ["2019-03-13", 0], ["2019-03-14", 0], ["2019-03-15", 0], ["2019-03-16", 0], ["2019-03-17", 0], ["2019-03-18", 0], ["2019-03-19", 0], ["2019-03-20", 0], ["2019-03-21", 0], ["2019-03-22", 0], ["2019-03-23", 0], ["2019-03-24", 0], ["2019-03-25", 0], ["2019-03-26", 0], ["2019-03-27", 0], ["2019-03-28", 0], ["2019-03-29", 0], ["2019-03-30", 0], ["2019-03-31", 0], ["2019-04-01", 0], ["2019-04-02", 0], ["2019-04-03", 0], ["2019-04-04", 0], ["2019-04-05", 0], ["2019-04-06", 0], ["2019-04-07", 0], ["2019-04-08", 0], ["2019-04-09", 0], ["2019-04-10", 0], ["2019-04-11", 0], ["2019-04-12", 0], ["2019-04-13", 0], ["2019-04-14", 0], ["2019-04-15", 0], ["2019-04-16", 0], ["2019-04-17", 0], ["2019-04-18", 0], ["2019-04-19", 0], ["2019-04-20", 0], ["2019-04-21", 0], ["2019-04-22", 0], ["2019-04-23", 0], ["2019-04-24", 0], ["2019-04-25", 0], ["2019-04-26", 0], ["2019-04-27", 0], ["2019-04-28", 0], ["2019-04-29", 0], ["2019-04-30", 0], ["2019-05-01", 0], ["2019-05-02", 0], ["2019-05-03", 0], ["2019-05-04", 0], ["2019-05-05", 0], ["2019-05-06", 0], ["2019-05-07", 0], ["2019-05-08", 0], ["2019-05-09", 0], ["2019-05-10", 0], ["2019-05-11", 0], ["2019-05-12", 0], ["2019-05-13", 0], ["2019-05-14", 0], ["2019-05-15", 0], ["2019-05-16", 0], ["2019-05-17", 0], ["2019-05-18", 0], ["2019-05-19", 0], ["2019-05-20", 0], ["2019-05-21", 0], ["2019-05-22", 0], ["2019-05-23", 0], ["2019-05-24", 0], ["2019-05-25", 0], ["2019-05-26", 0], ["2019-05-27", 0], ["2019-05-28", 0], ["2019-05-29", 0], ["2019-05-30", 0], ["2019-05-31", 0], ["2019-06-01", 0], ["2019-06-02", 0], ["2019-06-03", 0], ["2019-06-04", 0], ["2019-06-05", 0], ["2019-06-06", 0], ["2019-06-07", 0], ["2019-06-08", 0], ["2019-06-09", 0], ["2019-06-10", 0], ["2019-06-11", 0], ["2019-06-12", 0], ["2019-06-13", 0], ["2019-06-14", 0], ["2019-06-15", 0], ["2019-06-16", 0], ["2019-06-17", 0], ["2019-06-18", 0], ["2019-06-19", 0], ["2019-06-20", 0], ["2019-06-21", 0], ["2019-06-22", 0], ["2019-06-23", 0], ["2019-06-24", 0], ["2019-06-25", 0], ["2019-06-26", 0], ["2019-06-27", 0], ["2019-06-28", 0], ["2019-06-29", 0], ["2019-06-30", 0], ["2019-07-01", 0], ["2019-07-02", 0], ["2019-07-03", 0], ["2019-07-04", 0], ["2019-07-05", 0], ["2019-07-06", 0], ["2019-07-07", 0], ["2019-07-08", 0], ["2019-07-09", 0], ["2019-07-10", 0], ["2019-07-11", 0], ["2019-07-12", 0], ["2019-07-13", 0], ["2019-07-14", 0], ["2019-07-15", 0], ["2019-07-16", 0], ["2019-07-17", 0], ["2019-07-18", 0], ["2019-07-19", 0], ["2019-07-20", 0], ["2019-07-21", 0], ["2019-07-22", 0], ["2019-07-23", 0], ["2019-07-24", 0], ["2019-07-25", 0], ["2019-07-26", 0], ["2019-07-27", 0], ["2019-07-28", 0], ["2019-07-29", 0], ["2019-07-30", 0], ["2019-07-31", 0], ["2019-08-01", 0], ["2019-08-02", 0], ["2019-08-03", 0], ["2019-08-04", 0], ["2019-08-05", 0], ["2019-08-06", 0], ["2019-08-07", 0], ["2019-08-08", 0], ["2019-08-09", 0], ["2019-08-10", 0], ["2019-08-11", 0], ["2019-08-12", 0], ["2019-08-13", 0], ["2019-08-14", 0], ["2019-08-15", 0], ["2019-08-16", 0], ["2019-08-17", 0], ["2019-08-18", 0], ["2019-08-19", 0], ["2019-08-20", 0], ["2019-08-21", 0], ["2019-08-22", 0], ["2019-08-23", 0], ["2019-08-24", 0], ["2019-08-25", 0], ["2019-08-26", 9], ["2019-08-27", 0]]
-        }]
-
-    };
-
-    myChart.setOption(option);
-</script>
+<div class="container body-wrap fade">
     
 
     
+            
+            <h3 class="archive-separator">八月, 2019</h3>
+            <div class="waterfall">
+    
 
-    <div id="cd-timeline" class="container">
+        <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2019-08-26 20:50:10" datetime="2019-08-26T12:50:10.000Z"  itemprop="datePublished">2019-08-26</time>
+
+      
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/">OpenWrt 添加开机启动任务</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
         
-        <div class="cd-timeline-block">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openwrt/">openwrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/启动任务/">启动任务</a></li></ul>
 
-            
-            
-            
-            <div class="cd-timeline-img year" data-aos="zoom-in-up">
-                <a href="/archives/2019">2019</a>
-            </div>
-            
+    </div>
+    
+  </article>
+</div>
 
-            
-            
-            
-            <div class="cd-timeline-img month" data-aos="zoom-in-up">
-                <a href="/archives/2019/08">08</a>
-            </div>
-            
+    
 
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>26</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2019/08/26/openwrt-tian-jia-kai-ji-qi-dong-ren-wu/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="OpenWrt 添加开机启动任务">
-                                
-                                <span class="card-title">OpenWrt 添加开机启动任务</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    OpenWrt 添加启动任务的方式有别于其他的linux系统，在尝试过程中踩了不少坑，所以整理在此处。正常Linux系统一般修改rc.local即可在开机时自动运行代码，即
-vi /etc/rc.local
-然后输入开机要启动的命令即可，但
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-26
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-user fa-fw"></i>
-                                    AragonSnow
-                                    
-                                </span>
-                            </div>
-                        </div>
+        <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2019-08-26 20:43:21" datetime="2019-08-26T12:43:21.000Z"  itemprop="datePublished">2019-08-26</time>
 
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/openwrt/"><span class="chip bg-color">openwrt</span></a>
-                            
-                            <a href="/tags/启动任务/"><span class="chip bg-color">启动任务</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
+      
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/26/openwrt-tian-jia-zi-ding-ming-ling-yi-frpc-wei-li/">OpenWrt 添加自定命令（以Frpc为例）</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
         
-        <div class="cd-timeline-block">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opnwrt/">opnwrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自定义指令/">自定义指令</a></li></ul>
 
-            
-            
+    </div>
+    
+  </article>
+</div>
 
-            
-            
+    
 
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>26</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2019/08/26/openwrt-tian-jia-zi-ding-ming-ling-yi-frpc-wei-li/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="OpenWrt 添加自定命令（以Frpc为例）">
-                                
-                                <span class="card-title">OpenWrt 添加自定命令（以Frpc为例）</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    OpenWrt 在使用过程中会出现需要添加自定义命令来提升效率，在一段时间摸索以后，我写了以下脚本来实现Frpc内网穿透的需求。其他Linux系统均可以借鉴，但是文件位置可能稍有不同。
-1、创建shell脚本vi frpc2.sh
-2、以下
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-26
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-user fa-fw"></i>
-                                    AragonSnow
-                                    
-                                </span>
-                            </div>
-                        </div>
+        <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2019-08-26 20:34:10" datetime="2019-08-26T12:34:10.000Z"  itemprop="datePublished">2019-08-26</time>
 
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/opnwrt/"><span class="chip bg-color">opnwrt</span></a>
-                            
-                            <a href="/tags/自定义指令/"><span class="chip bg-color">自定义指令</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
+      
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/">linux下使用crontab运行Python脚本的坑</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
         
-        <div class="cd-timeline-block">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crontab/">crontab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 
-            
-            
+    </div>
+    
+  </article>
+</div>
 
-            
-            
+    
 
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>26</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2019/08/26/linux-xia-shi-yong-crontab-yun-xing-python-jiao-ben-de-keng/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="linux下使用crontab运行Python脚本的坑">
-                                
-                                <span class="card-title">linux下使用crontab运行Python脚本的坑</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    在使用Python脚本实现DDNS功能时发现并没有定时运行,在指令后面添加 &gt;/dev/null 2&amp;&gt;1指令，发现如下报错
-00-18-01
-Traceback (most recent call last):
-  F
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-26
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-user fa-fw"></i>
-                                    AragonSnow
-                                    
-                                </span>
-                            </div>
-                        </div>
+        <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2019-08-26 20:31:10" datetime="2019-08-26T12:31:10.000Z"  itemprop="datePublished">2019-08-26</time>
 
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/python/"><span class="chip bg-color">python</span></a>
-                            
-                            <a href="/tags/crontab/"><span class="chip bg-color">crontab</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
+      
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/">Ubuntu Server 输入sudo 指令不使用密码</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
         
-        <div class="cd-timeline-block">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sudo/">sudo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/不输入密码/">不输入密码</a></li></ul>
 
-            
-            
+    </div>
+    
+  </article>
+</div>
 
-            
-            
+    
 
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>26</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2019/08/26/ubuntu-server-shu-ru-sudo-zhi-ling-bu-shi-yong-mi-ma/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Ubuntu Server 输入sudo 指令不使用密码">
-                                
-                                <span class="card-title">Ubuntu Server 输入sudo 指令不使用密码</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    sudo 指令在使用过程中需要反复输入密码，显得很麻烦，自然要取消这恼人的设定啊，哈哈哈
-sudo cp /etc/sudoers .      # 备份默认配置到当前文件夹
-sudo -i                     # 切换
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-26
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-user fa-fw"></i>
-                                    AragonSnow
-                                    
-                                </span>
-                            </div>
-                        </div>
+        <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2019-08-26 20:26:33" datetime="2019-08-26T12:26:33.000Z"  itemprop="datePublished">2019-08-26</time>
 
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/ubuntu/"><span class="chip bg-color">ubuntu</span></a>
-                            
-                            <a href="/tags/sudo/"><span class="chip bg-color">sudo</span></a>
-                            
-                            <a href="/tags/不输入密码/"><span class="chip bg-color">不输入密码</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
+      
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/">OpenWrt 挂载局域网SAMBA共享文件夹</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
         
-        <div class="cd-timeline-block">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openwrt/">openwrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/smb/">smb</a></li></ul>
 
-            
-            
+    </div>
+    
+  </article>
+</div>
 
-            
-            
+    
 
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>26</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="OpenWrt 挂载局域网SAMBA共享文件夹">
-                                
-                                <span class="card-title">OpenWrt 挂载局域网SAMBA共享文件夹</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    OpenWrt在挂载局域网共享文件夹可以有效减少磁盘空间占用，实现无限扩容的可能，在操作中踩了不少坑，所以记录下来：
-操作指令首先安装相关套件cifsmount
-opkg update         # 更新软件列表
-opkg insta
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-26
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-user fa-fw"></i>
-                                    AragonSnow
-                                    
-                                </span>
-                            </div>
-                        </div>
+        <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2019-08-26 20:19:02" datetime="2019-08-26T12:19:02.000Z"  itemprop="datePublished">2019-08-26</time>
 
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/openwrt/"><span class="chip bg-color">openwrt</span></a>
-                            
-                            <a href="/tags/smb/"><span class="chip bg-color">smb</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
+      
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/">UBUNTU+Apache2 强制开启https访问的方法</a>
+    </h3>
+  
+
+
+
+    
+  </article>
+</div>
+
+    
+
+        <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2019-08-26 20:14:08" datetime="2019-08-26T12:14:08.000Z"  itemprop="datePublished">2019-08-26</time>
+
+      
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/26/ubuntu-apache2-wang-zhan-tian-jia-yong-hu-fang-wen-yan-zheng/">Ubuntu+apache2 网站添加用户访问验证</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
         
-        <div class="cd-timeline-block">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/">apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/验证/">验证</a></li></ul>
 
-            
-            
+    </div>
+    
+  </article>
+</div>
 
-            
-            
+    
 
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>26</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="UBUNTU+Apache2 强制开启https访问的方法">
-                                
-                                <span class="card-title">UBUNTU+Apache2 强制开启https访问的方法</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现：
-1. 使能 .htaccess 文件sudo vi /etc/apache2/
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-26
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-user fa-fw"></i>
-                                    AragonSnow
-                                    
-                                </span>
-                            </div>
-                        </div>
+        <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2019-08-26 20:00:36" datetime="2019-08-26T12:00:36.000Z"  itemprop="datePublished">2019-08-26</time>
 
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
+      
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/">OpenWrt 设置静态路由实现跨网段访问</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
         
-        <div class="cd-timeline-block">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openwrt/">openwrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/跨网段访问/">跨网段访问</a></li></ul>
 
-            
-            
+    </div>
+    
+  </article>
+</div>
 
-            
-            
+    
 
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>26</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2019/08/26/ubuntu-apache2-wang-zhan-tian-jia-yong-hu-fang-wen-yan-zheng/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Ubuntu+apache2 网站添加用户访问验证">
-                                
-                                <span class="card-title">Ubuntu+apache2 网站添加用户访问验证</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    在一些比较特殊的网站需要添加用户验证的功能，下面是使用.htaccess文件的方法实现用户验证
-1. 安装apache-utilssudo apt-get update
-sudo apt-get install apache2-utils
+        <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2019-08-26 15:57:08" datetime="2019-08-26T07:57:08.000Z"  itemprop="datePublished">2019-08-26</time>
 
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-26
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-user fa-fw"></i>
-                                    AragonSnow
-                                    
-                                </span>
-                            </div>
-                        </div>
+      
 
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/apache/"><span class="chip bg-color">apache</span></a>
-                            
-                            <a href="/tags/验证/"><span class="chip bg-color">验证</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/08/26/openwrt-shi-yong-py-jiao-ben-shi-xian-ddns/">OpenWrt 使用PY脚本实现DDNS</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
         
-        <div class="cd-timeline-block">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DDNS/">DDNS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openwrt/">openwrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 
-            
-            
+    </div>
+    
+  </article>
+</div>
 
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>26</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2019/08/26/openwrt-she-zhi-jing-tai-lu-you-shi-xian-kua-wang-duan-fang-wen/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="OpenWrt 设置静态路由实现跨网段访问">
-                                
-                                <span class="card-title">OpenWrt 设置静态路由实现跨网段访问</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    原因由于软路由无线功能实在弟弟，只能使用无线路由作为AP使用，实际使用中发现光是作为旁路路由的话，如果软路由挂了（升级维护重启之类的），无线路由下挂的所有路由均会导致网关指向路由，需要重新启动wifi才能上网，如果使用智能家居设备的话非常麻
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-26
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-user fa-fw"></i>
-                                    AragonSnow
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/openwrt/"><span class="chip bg-color">openwrt</span></a>
-                            
-                            <a href="/tags/跨网段访问/"><span class="chip bg-color">跨网段访问</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>26</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2019/08/26/openwrt-shi-yong-py-jiao-ben-shi-xian-ddns/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="OpenWrt 使用PY脚本实现DDNS">
-                                
-                                <span class="card-title">OpenWrt 使用PY脚本实现DDNS</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    虽然KoolShare OpenWrt 有自带的DDNS功能，但不能实现多域名解析和对IPv6 的DDNS有问题，在找了一圈后，发现NewFuture大佬的DDNS十分好用，遂有以下记录。脚本链接：自动更新域名解析到本机IP(支持dnspo
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-26
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-user fa-fw"></i>
-                                    AragonSnow
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/openwrt/"><span class="chip bg-color">openwrt</span></a>
-                            
-                            <a href="/tags/DDNS/"><span class="chip bg-color">DDNS</span></a>
-                            
-                            <a href="/tags/python/"><span class="chip bg-color">python</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
+    
     </div>
 
-</main>
-
-
-<footer class="page-footer bg-color">
-    <div class="container row center-align">
-        <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
-
-            
-                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">3.4k</span>
-            
-
-            
-			
-                <br>
-                
-                <span id="busuanzi_container_site_pv">
-                    <i class="fa fa-heart-o"></i>
-                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
-                </span>
-                
-                
-                <span id="busuanzi_container_site_uv">
-                    <i class="fa fa-users"></i>
-                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
-                </span>
-                
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-
-
-    <a href="mailto:asd159874123@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fa fa-rss"></i>
-    </a>
+    
 </div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>AragonSnow &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
     </div>
 </footer>
 
-<div class="progress-bar"></div>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
-<!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input">
-        </div>
-        <div id="searchResult"></div>
-    </div>
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/archives/&title=Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/archives/&title=Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/archives/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Aragon's Blog&url=https://hexo.aragon.wang/archives/&via=https://hexo.aragon.wang" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/archives/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABx0lEQVR42u3aS27DMAwFwNz/0inQbWv1kVRkoxitDDuOxhtC/Lxe8Xp/r/X1+q3q09HCxcUdc9/LdUW82ix/d33/chdcXNyD3CR4/fxllZJ80h82XFzch3Hz7ZOPwcXF/R/cZF39521xFxcXd8BNts9To16pZXOuhouLO+DuKphOrm+o7+Li4ra6EtXiaR563q2Fi4t7hpskKpMS6vp+Lx3CxcW9i5u0RvKG6zwRwsXFfQ63GkPy8Ys8ufrlDi4u7kFudXhiHfhy+hWuXN/FxcXdyp1sXB3RqDZOIjQuLu5Wbq/5kScqvYGMqCCCi4v7MW61bJpsUB3mwMXFfRq3d0zJw1Z+fInauri4uMe562jXC3NJQbZwPMLFxT3IXW/fS4ryYmuh0YKLi3uEmzdZkyNLr01bHdjCxcX9NLdawuglQpO0ChcX9y5unpBUSx75aFeUGuHi4h7k5qs3UJUPYbx65yxcXNyt3F7S0muazoczcHFxT3ILbc5WobMXyC6f4uLiHuTmwStvnORPC0VVXFzch3ET+qRZG30eLi7uI7k5el5wwcXFvZfbK5ImAasa5raVRXBxcQfcyUDVro/Mj0S4uLgf5n4ByxK0exZQpdkAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-});
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
 </script>
-<!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fa fa-angle-up"></i>
-    </a>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
 </div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
-<script src="/libs/materialize/materialize.min.js"></script>
-<script src="/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/libs/aos/aos.js"></script>
-<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/matery.js"></script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
 
 
 
 
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
 
 
 </body>

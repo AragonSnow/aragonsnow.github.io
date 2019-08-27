@@ -1,362 +1,188 @@
-<!DOCTYPE HTML>
-<html lang="zh-CN">
-
-
+<!DOCTYPE html>
+<html>
 <head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
     <meta charset="utf-8">
-    <meta name="keywords" content="UBUNTU+Apache2 强制开启https访问的方法, Blog">
-    <meta name="description" content="在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现：
-1. 使能 .htaccess 文件sudo vi /etc/apache2/">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>UBUNTU+Apache2 强制开启https访问的方法 | Aragon&#39;s Blog</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    
+    
+    
+    <title>UBUNTU+Apache2 强制开启https访问的方法 | Aragon&#39;s Blog | Mark Something</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现： 1. 使能 .htaccess 文件sudo vi /etc/apache2/apache2.conf 找到以下内容 &amp;lt;Directory /var/www/&amp;gt;         Options Indexes FollowSy">
+<meta name="keywords" content="Blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UBUNTU+Apache2 强制开启https访问的方法">
+<meta property="og:url" content="https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/index.html">
+<meta property="og:site_name" content="Aragon&#39;s Blog">
+<meta property="og:description" content="在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现： 1. 使能 .htaccess 文件sudo vi /etc/apache2/apache2.conf 找到以下内容 &amp;lt;Directory /var/www/&amp;gt;         Options Indexes FollowSy">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-26T12:25:35.015Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UBUNTU+Apache2 强制开启https访问的方法">
+<meta name="twitter:description" content="在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现： 1. 使能 .htaccess 文件sudo vi /etc/apache2/apache2.conf 找到以下内容 &amp;lt;Directory /var/www/&amp;gt;         Options Indexes FollowSy">
+    
+        <link rel="alternate" type="application/atom+xml" title="Aragon&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <style type="text/css">
-        
-    </style>
+    <!-- custom head -->
+    
 
-    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
-
 <body>
+    <div id="loading" class="active"></div>
 
-<header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">Aragon's Blog</span>
-                </a>
-            </div>
-            
-
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
-<ul class="right">
-    
-    <li class="hide-on-med-and-down">
-        <a href="/" class="waves-effect waves-light">
-            
-            <i class="fa fa-home"></i>
-            
-            <span>首页</span>
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars3.githubusercontent.com/u/22835918?s=400&v=4">
         </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/tags" class="waves-effect waves-light">
-            
-            <i class="fa fa-tags"></i>
-            
-            <span>标签</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/categories" class="waves-effect waves-light">
-            
-            <i class="fa fa-bookmark"></i>
-            
-            <span>分类</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/archives" class="waves-effect waves-light">
-            
-            <i class="fa fa-archive"></i>
-            
-            <span>归档</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/about" class="waves-effect waves-light">
-            
-            <i class="fa fa-user-circle-o"></i>
-            
-            <span>关于</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
-        <a href="/friends" class="waves-effect waves-light">
-            
-            <i class="fa fa-address-book"></i>
-            
-            <span>友情链接</span>
-        </a>
-    </li>
-    
-    <li>
-        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
-        </a>
-    </li>
-</ul>
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
+        <hgroup class="introduce">
+          <h5 class="nickname">AragonSnow</h5>
+          <a href="mailto:asd159874123@gmail.com" title="asd159874123@gmail.com" class="mail">asd159874123@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
         
-        <div class="logo-name">Aragon's Blog</div>
-        <div class="logo-desc">
-            
-            Aragon&#39;s Blog
-            
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/AragonSnow/aragonsnow.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">UBUNTU+Apache2 强制开启https访问的方法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
         </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">UBUNTU+Apache2 强制开启https访问的方法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-26T12:19:02.000Z" itemprop="datePublished" class="page-time">
+  2019-08-26
+</time>
+
+
+            
+        </h5>
     </div>
 
     
 
-    <ul class="menu-list mobile-menu-list">
-        
-        <li>
-            <a href="/" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-home"></i>
-                
-                首页
-            </a>
-        </li>
-        
-        <li>
-            <a href="/tags" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-tags"></i>
-                
-                标签
-            </a>
-        </li>
-        
-        <li>
-            <a href="/categories" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-bookmark"></i>
-                
-                分类
-            </a>
-        </li>
-        
-        <li>
-            <a href="/archives" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-archive"></i>
-                
-                归档
-            </a>
-        </li>
-        
-        <li>
-            <a href="/about" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-user-circle-o"></i>
-                
-                关于
-            </a>
-        </li>
-        
-        <li>
-            <a href="/friends" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-address-book"></i>
-                
-                友情链接
-            </a>
-        </li>
-        
-        
-    </ul>
-</div>
-
-        </div>
-
-        
-    </nav>
 
 </header>
 
 
-
-
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <div class="description center-align post-title">
-                        UBUNTU+Apache2 强制开启https访问的方法
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<main class="post-container content">
-
+<div class="container body-wrap">
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-使能-htaccess-文件"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 使能 .htaccess 文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-修改-htaccess-文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 修改.htaccess 文件</span></a></li></ol>
+        </nav>
+    </aside>
 
-    #articleContent :focus {
-        outline: none;
-    }
 
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
+<article id="post-UBUNTU-Apache2-强制开启https访问的方法"
+  class="post-article article-type-post fade" itemprop="blogPost">
 
-    .toc-widget {
-        padding-left: 20px;
-    }
+    <div class="post-card">
+        <h1 class="post-card-title">UBUNTU+Apache2 强制开启https访问的方法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-26 20:19:02" datetime="2019-08-26T12:19:02.000Z"  itemprop="datePublished">2019-08-26</time>
 
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
+            
 
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
 
-    #toc-content ol {
-        padding-left: 10px;
-    }
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
 
-    #toc-content ol li {
-        padding-left: 10px;
-    }
 
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 20px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                </div>
-            </div>
-
-            <div class="post-info">
-                <div class="post-date info-break-policy">
-                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-08-26
-                </div>
-
-                
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        273
-                    </div>
-                    
-
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
-                    </div>
-                    
-                
-				
-				
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
-            </div>
         </div>
-        <hr class="clearfix">
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <p>在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现：</p>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现：</p>
 <h1 id="1-使能-htaccess-文件"><a href="#1-使能-htaccess-文件" class="headerlink" title="1. 使能 .htaccess 文件"></a>1. 使能 .htaccess 文件</h1><p><code>sudo vi /etc/apache2/apache2.conf</code></p>
 <p>找到以下内容</p>
 <pre><code>&lt;Directory /var/www/&gt;
@@ -393,398 +219,297 @@ RewriteRule  ^(.*) https://%{SERVER_NAME}$1 [L,R]   # 执行操作：跳转使�
             document.body.appendChild(img);
           });
       </script>
-            </div>
-            <hr/>
+        </div>
 
-            
-
-            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-
-<div id="article-share">
+        <blockquote class="post-copyright">
     
-    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
-    
-</div>
-
-<script src="/libs/share/js/social-share.min.js"></script>
-
-            
-
-    <div class="reprint" id="reprint-statement">
-        <p class="reprint-tip">
-            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
-            <span>转载规则</span>
-        </p>
+    <div class="content">
         
-            <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
-                    <img alt=""
-                         style="border-width:0"
-                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
-                </a>
-            </div>
-            <br/>
-            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
-                  property="dct:title" rel="dct:type">
-                    《UBUNTU+Apache2 强制开启https访问的方法》
-                </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/" property="cc:attributionName"
-               rel="cc:attributionURL">
-                AragonSnow
-            </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
-                知识共享署名 4.0 国际许可协议
-            </a>进行许可。
+<span class="post-time">
+    最后更新时间：<time datetime="2019-08-26T12:25:35.015Z" itemprop="dateUpdated">2019-08-26 20:25:35</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/" target="_blank" rel="external">https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/</a>
         
     </div>
+    
+    <footer>
+        <a href="https://hexo.aragon.wang">
+            <img src="https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" alt="AragonSnow">
+            AragonSnow
+        </a>
+    </footer>
+</blockquote>
 
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
+        
 
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/&title=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/&title=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/&via=https://hexo.aragon.wang" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">OpenWrt 挂载局域网SAMBA共享文件夹</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/08/26/ubuntu-apache2-wang-zhan-tian-jia-yong-hu-fang-wen-yan-zheng/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Ubuntu+apache2 网站添加用户访问验证</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: '',
+          clientSecret: '',
+          repo: '',
+          owner: '',
+          admin: [''],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
     </script>
+</section>
 
 
-        </div>
-    </div>
 
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
 
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '1eb157ae6d2a980d18be',
-        clientSecret: '326f26e7c78fd4e56a1376704a2cb2b8b15f1e5f',
-        repo: 'aragonsnow.github.io.gitalk',
-        owner: 'AragonSnow',
-        admin: "AragonSnow",
-        id: '2019-08-26T20-19-02',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2019/08/26/openwrt-gua-zai-ju-yu-wang-samba-gong-xiang-wen-jian-jia/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="OpenWrt 挂载局域网SAMBA共享文件夹">
-                        
-                        <span class="card-title">OpenWrt 挂载局域网SAMBA共享文件夹</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            OpenWrt在挂载局域网共享文件夹可以有效减少磁盘空间占用，实现无限扩容的可能，在操作中踩了不少坑，所以记录下来：
-操作指令首先安装相关套件cifsmount
-opkg update         # 更新软件列表
-opkg insta
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-26
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            AragonSnow
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/openwrt/" target="_blank">
-                        <span class="chip bg-color">openwrt</span>
-                    </a>
-                    
-                    <a href="/tags/smb/" target="_blank">
-                        <span class="chip bg-color">smb</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/08/26/ubuntu-apache2-wang-zhan-tian-jia-yong-hu-fang-wen-yan-zheng/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Ubuntu+apache2 网站添加用户访问验证">
-                        
-                        <span class="card-title">Ubuntu+apache2 网站添加用户访问验证</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            在一些比较特殊的网站需要添加用户验证的功能，下面是使用.htaccess文件的方法实现用户验证
-1. 安装apache-utilssudo apt-get update
-sudo apt-get install apache2-utils
-
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-26
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            AragonSnow
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/apache/" target="_blank">
-                        <span class="chip bg-color">apache</span>
-                    </a>
-                    
-                    <a href="/tags/验证/" target="_blank">
-                        <span class="chip bg-color">验证</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-    </div>
 </article>
+
+
+
 </div>
 
-
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fa fa-list"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
-            headingSelector: 'h1, h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h1, h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
+        <footer class="footer">
+    <div class="top">
         
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).slideUp(500);
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).slideDown(500);
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
-    
-
-</main>
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
 
 
-<footer class="page-footer bg-color">
-    <div class="container row center-align">
-        <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
-
+        <p>
             
-                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">3.4k</span>
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-
-            
-			
-                <br>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>AragonSnow &copy; 2018 - 2019</span>
+            <span>
                 
-                <span id="busuanzi_container_site_pv">
-                    <i class="fa fa-heart-o"></i>
-                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
-                </span>
-                
-                
-                <span id="busuanzi_container_site_uv">
-                    <i class="fa fa-users"></i>
-                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
-                </span>
-                
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-
-
-    <a href="mailto:asd159874123@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fa fa-rss"></i>
-    </a>
-</div>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
     </div>
 </footer>
 
-<div class="progress-bar"></div>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
-<!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input">
-        </div>
-        <div id="searchResult"></div>
-    </div>
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/&title=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/&title=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《UBUNTU+Apache2 强制开启https访问的方法》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/&via=https://hexo.aragon.wang" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/08/26/ubuntu-apache2-qiang-zhi-kai-qi-https-fang-wen-de-fang-fa/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADP0lEQVR42u3ay2rrUAwF0P7/T/fCHRVK4r2lFOKT5VFojaN1PFD0+PqKr+//18/PP6/fdz6/5/cz2295/pyXXdjY2Ng3YX8/vZIQ28Oa3Z8cSmLBxsbGPpW9CSIJJfmuNqUlUT38OzY2NvZHsmcFQ5L82lInfxnY2NjY2EnyyBtASeraJzlsbGzsz2QnP/Hzr5w1j5LklP/lZb00bGxs7Ldnzwa97/n5z+fb2NjY2G/GnhUYswZQXoTkLarv0YWNjY19Ertdx5kNA5KUMysb8uLkaza1wMbGxn579mzgmgTXhl6/q/LJ2NjY2J/A3qxazo7jeQHTjiuKxSBsbGzsg9h5Y+hVazT5Me2XLC9eAzY2NvZx7Nmv9DZd5YeVgPPR78V4ABsbG/todhvibFtmtpSTJ92LIQE2Njb2QezZeLVNaZvRcjvSKGYj2NjY2LdlJ2Pd4id+TE2SaDIwyBPwwzSGjY2NfVt2uwQ5axJtljVnvIsYsLGxsQ9i5y34doln2OgJRhFtQRKt7GBjY2Pflr0vPGaH0hYq7QrRxQADGxsb+yB2vi7TFiFtObEZRWwOHRsbG/vu7H1ASaqYJZs2iRbPwcbGxj6I3T6oTSd522iTlr5mFzY2NvZB7Nkod3ZMsxbSfsXn4piwsbGxb8tOhqltImlbTrPh7mzoi42NjX02uw10v7iTt7Hy1xOtB2FjY2MfxH7VQ9sWz2xVqD2UYlkHGxsb+7bsvwh91kjKl35mHf46D2NjY2MfwR7+xC9bVG1imy3xFAkMGxsb+7bsHJMPXDcDg7zVlRchD6ci2NjY2Eew8/QzC7EdFc/WgKIkh42NjX0Qe9bubxtJeWOoLYE2EWJjY2OfwW7bRvkAOA8oL2leNjDGxsbGPo79qrWYTZtpVpbk18MKDBsbG/sIdn7locwaPW3rKkmcF7UXNjY29s3ZbQLI/9u2gTbpqn0B2NjY2OexZ2Pd2dB3s6wzuwcbGxv7c9htIylPUZt7NqXFxegaGxsb+yPZmzIgbzm14OSYsLGxsbGT1cw8oBlydufDVIeNjY19HHuTVNrP7QFtloQuEhg2Njb2EezZoHdWYLQj3vZpmxiwsbGxb8j+B5yXWNxFIpx5AAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-});
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
 </script>
-<!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fa fa-angle-up"></i>
-    </a>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
 </div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
-<script src="/libs/materialize/materialize.min.js"></script>
-<script src="/libs/masonry/masonry.pkgd.min.js"></script>
-<script src="/libs/aos/aos.js"></script>
-<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-<script src="/js/matery.js"></script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
 
 
 
 
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
 
 
 </body>
