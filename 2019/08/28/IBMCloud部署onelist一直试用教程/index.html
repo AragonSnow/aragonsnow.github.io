@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Aragon&#39;s Blog">
 <meta property="og:description" content="原因  IBMCloud 仅需邮箱注册一下账号就能得到一个虚拟空间，不过会在一段时间后自动停止运行，本教程主要是为了解决停止的问题 部署具体不多讲，参考教程：OneList-最简洁的OneDrive目录索引部署教程 不停机部署完成后，只要重启就可以无限使用： 部署IBMCloud CLIsudo curl -sL https://ibm.biz/idt-installer | bash等待自动部署">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-28T07:54:53.531Z">
+<meta property="og:updated_time" content="2019-08-31T08:08:19.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IBMCloud部署onelist一直试用教程">
 <meta name="twitter:description" content="原因  IBMCloud 仅需邮箱注册一下账号就能得到一个虚拟空间，不过会在一段时间后自动停止运行，本教程主要是为了解决停止的问题 部署具体不多讲，参考教程：OneList-最简洁的OneDrive目录索引部署教程 不停机部署完成后，只要重启就可以无限使用： 部署IBMCloud CLIsudo curl -sL https://ibm.biz/idt-installer | bash等待自动部署">
@@ -210,7 +210,7 @@ echo `date +%Y-%m-%d-%H-%M-%S` &gt;&gt;  $LogFile_path
 /usr/local/bin/ibmcloud cf restart Onelist部署时程序名 &gt;&gt;  $LogFile_path  2&gt;&amp;1
 </code></pre><p>修改其中的IBMCloud账号，IBMCloud密码，Onelist部署时程序名。按Ctrl+x 保存退出。</p>
 <p>输入 <code>crontab -e</code>生成计划任务每天运行<br><br><code>01 4  *   *   *     bash /sh所在完整路径/ibmcloud.sh</code><br><br>路径需要自行修改。</p>
-<p>可以修改进化运行时间来验证脚本运行情况。</p>
+<p>可以修改进化运行时间来验证脚本运行情况。一切OK以后就可以愉快的白嫖了</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -237,7 +237,7 @@ echo `date +%Y-%m-%d-%H-%M-%S` &gt;&gt;  $LogFile_path
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-08-28T07:54:53.531Z" itemprop="dateUpdated">2019-08-28 15:54:53</time>
+    最后更新时间：<time datetime="2019-08-31T08:08:19.707Z" itemprop="dateUpdated">2019-08-31 16:08:19</time>
 </span><br>
 
 
@@ -314,7 +314,14 @@ echo `date +%Y-%m-%d-%H-%M-%S` &gt;&gt;  $LogFile_path
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/10/14/GCP最新白嫖教程/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">GCP最新白嫖教程</h4>
+      </a>
+    </div>
   
 
   

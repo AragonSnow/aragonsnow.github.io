@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hexo.aragon.wang/"/>
-  <updated>2019-08-28T07:54:53.531Z</updated>
+  <updated>2019-10-14T16:16:31.629Z</updated>
   <id>https://hexo.aragon.wang/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>GCP最新白嫖教程</title>
+    <link href="https://hexo.aragon.wang/2019/10/14/GCP%E6%9C%80%E6%96%B0%E7%99%BD%E5%AB%96%E6%95%99%E7%A8%8B/"/>
+    <id>https://hexo.aragon.wang/2019/10/14/GCP最新白嫖教程/</id>
+    <published>2019-10-14T14:13:56.000Z</published>
+    <updated>2019-10-14T16:16:31.629Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="白嫖" scheme="https://hexo.aragon.wang/categories/%E7%99%BD%E5%AB%96/"/>
+    
+    
+      <category term="白嫖" scheme="https://hexo.aragon.wang/tags/%E7%99%BD%E5%AB%96/"/>
+    
+      <category term="无限续杯" scheme="https://hexo.aragon.wang/tags/%E6%97%A0%E9%99%90%E7%BB%AD%E6%9D%AF/"/>
+    
+      <category term="GCP" scheme="https://hexo.aragon.wang/tags/GCP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>IBMCloud部署onelist一直试用教程</title>
     <link href="https://hexo.aragon.wang/2019/08/28/IBMCloud%E9%83%A8%E7%BD%B2onelist%E4%B8%80%E7%9B%B4%E8%AF%95%E7%94%A8%E6%95%99%E7%A8%8B/"/>
     <id>https://hexo.aragon.wang/2019/08/28/IBMCloud部署onelist一直试用教程/</id>
     <published>2019-08-28T07:35:04.000Z</published>
-    <updated>2019-08-28T07:54:53.531Z</updated>
+    <updated>2019-08-31T08:08:19.707Z</updated>
     
     <summary type="html">
     
