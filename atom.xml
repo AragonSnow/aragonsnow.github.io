@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hexo.aragon.wang/"/>
-  <updated>2019-12-14T13:56:08.986Z</updated>
+  <updated>2019-12-14T14:12:01.177Z</updated>
   <id>https://hexo.aragon.wang/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hexo.aragon.wang/2019/12/14/IBMCLoud-Cloud-Foundry-%E9%83%A8%E7%BD%B2Oneindex%E6%95%99%E7%A8%8B/"/>
     <id>https://hexo.aragon.wang/2019/12/14/IBMCLoud-Cloud-Foundry-部署Oneindex教程/</id>
     <published>2019-12-14T11:10:10.000Z</published>
-    <updated>2019-12-14T13:56:08.986Z</updated>
+    <updated>2019-12-14T14:12:01.177Z</updated>
     
     <summary type="html">
     
@@ -40,9 +40,9 @@
     
       <category term="白嫖" scheme="https://hexo.aragon.wang/tags/%E7%99%BD%E5%AB%96/"/>
     
-      <category term="ibmcloud" scheme="https://hexo.aragon.wang/tags/ibmcloud/"/>
-    
       <category term="oneindex" scheme="https://hexo.aragon.wang/tags/oneindex/"/>
+    
+      <category term="ibmcloud" scheme="https://hexo.aragon.wang/tags/ibmcloud/"/>
     
       <category term="cloudfoundry" scheme="https://hexo.aragon.wang/tags/cloudfoundry/"/>
     
@@ -102,9 +102,9 @@
     
       <category term="白嫖" scheme="https://hexo.aragon.wang/tags/%E7%99%BD%E5%AB%96/"/>
     
-      <category term="onelist" scheme="https://hexo.aragon.wang/tags/onelist/"/>
-    
       <category term="ibmcloud" scheme="https://hexo.aragon.wang/tags/ibmcloud/"/>
+    
+      <category term="onelist" scheme="https://hexo.aragon.wang/tags/onelist/"/>
     
   </entry>
   
