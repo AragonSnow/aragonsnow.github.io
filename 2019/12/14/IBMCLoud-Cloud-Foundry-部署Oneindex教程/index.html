@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>IBMCLoud(Cloud Foundry) 部署Oneindex教程 | Aragon&#39;s Blog | 随意转载,不保留我的信息也可以，互联网精神重在分享</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="白嫖,ibmcloud,oneindex,cloudfoundry">
+    <meta name="description" content="原因IBMCloud 使用邮箱注册即可使用 CloudFoundry 挂载 Oneindex,每月375GB流量，简单实用，白嫖方便。 准备IBMCloud 注册账号，邮箱注册即可，地址：https://cloud.ibm.com/loginOneDrive 账号，获取教程:https://saodaye.com/sharel/1951.html 部署教程1. 创建项目登陆账号成功后选择左边栏的的">
+<meta name="keywords" content="白嫖,ibmcloud,oneindex,cloudfoundry">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IBMCLoud(Cloud Foundry) 部署Oneindex教程">
+<meta property="og:url" content="https://hexo.aragon.wang/2019/12/14/IBMCLoud-Cloud-Foundry-部署Oneindex教程/index.html">
+<meta property="og:site_name" content="Aragon&#39;s Blog">
+<meta property="og:description" content="原因IBMCloud 使用邮箱注册即可使用 CloudFoundry 挂载 Oneindex,每月375GB流量，简单实用，白嫖方便。 准备IBMCloud 注册账号，邮箱注册即可，地址：https://cloud.ibm.com/loginOneDrive 账号，获取教程:https://saodaye.com/sharel/1951.html 部署教程1. 创建项目登陆账号成功后选择左边栏的的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//1.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//2.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//3.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//4.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//5.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//6.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//7.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/donwa/oneindex/files/images/install.gif)">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//8.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//9.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//10.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//11.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//12.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//13.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//14.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//15.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//16.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//17.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//18.png">
+<meta property="og:image" content="https://hexo.aragon.wang/.wang//19.png">
+<meta property="og:updated_time" content="2019-12-14T13:56:08.986Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IBMCLoud(Cloud Foundry) 部署Oneindex教程">
+<meta name="twitter:description" content="原因IBMCloud 使用邮箱注册即可使用 CloudFoundry 挂载 Oneindex,每月375GB流量，简单实用，白嫖方便。 准备IBMCloud 注册账号，邮箱注册即可，地址：https://cloud.ibm.com/loginOneDrive 账号，获取教程:https://saodaye.com/sharel/1951.html 部署教程1. 创建项目登陆账号成功后选择左边栏的的">
+<meta name="twitter:image" content="https://hexo.aragon.wang/.wang//1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Aragon&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="https://github.com/aragonsnow/aragonsnow.github.io" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars3.githubusercontent.com/u/22835918?s=400&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AragonSnow</h5>
+          <a href="mailto:asd159874123@gmail.com" title="asd159874123@gmail.com" class="mail">asd159874123@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/AragonSnow/aragonsnow.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://oneindexaragon.herokuapp.com/" target="_blank" >
+                <i class="icon icon-lg icon-pan"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">IBMCLoud(Cloud Foundry) 部署Oneindex教程</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">IBMCLoud(Cloud Foundry) 部署Oneindex教程</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-12-14T11:10:10.000Z" itemprop="datePublished" class="page-time">
+  2019-12-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/白嫖/">白嫖</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原因"><span class="post-toc-number">1.</span> <span class="post-toc-text">原因</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#部署教程"><span class="post-toc-number">3.</span> <span class="post-toc-text">部署教程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-创建项目"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">1. 创建项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-获取OneDrive口令"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2. 获取OneDrive口令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-输入口令"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">3. 输入口令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-打开网站"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">4. 打开网站</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#无限试用"><span class="post-toc-number">4.</span> <span class="post-toc-text">无限试用</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-IBMCLoud-Cloud-Foundry-部署Oneindex教程"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">IBMCLoud(Cloud Foundry) 部署Oneindex教程</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-12-14 19:10:10" datetime="2019-12-14T11:10:10.000Z"  itemprop="datePublished">2019-12-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/白嫖/">白嫖</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>IBMCloud 使用邮箱注册即可使用 CloudFoundry 挂载 Oneindex,每月375GB流量，简单实用，白嫖方便。</p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>IBMCloud 注册账号，邮箱注册即可，地址：<br><br><a href="https://cloud.ibm.com/login" target="_blank" rel="noopener">https://cloud.ibm.com/login</a><br>OneDrive 账号，获取教程:<br><a href="https://saodaye.com/sharel/1951.html" target="_blank" rel="noopener">https://saodaye.com/sharel/1951.html</a></p>
+<h1 id="部署教程"><a href="#部署教程" class="headerlink" title="部署教程"></a>部署教程</h1><h2 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1. 创建项目"></a>1. 创建项目</h2><p>登陆账号成功后选择左边栏的的Cloud Foundry打开。<br><br></p><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br>选择公共的应用程序，点击创建<br><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br>程序选择PHP,内存128M或者256M，这里可能会不出现免费选项，刷新一下就好<br><br>域一定要是”us-south.cf.appdomain.cloud”,其他的都被墙了<br><br>程序名必须使用不一样的，不然会报错。记住，这后面会用到。最后点击右侧创建<br><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br>等待一段时间以后，创建完成。点击左边的概述，再点击 启动 开始连续交付<br><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br>切换到 ”delibery pipeline“, 点击 创建 确定后创建密钥<br><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//5.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br>切换到 ”git存储和问题追踪“，存储库类型选择 克隆 ，github链接为：<br><br><a href="https://github.com/AragonSnow/oneindex-cf" target="_blank" rel="noopener">https://github.com/AragonSnow/oneindex-cf</a><br><br>取消 ”启用问题“和 ”跟踪代码更改部署“,将仓库设为私人的，防止别人看到你账号密码。<br><br>最后点击左上角完成创建<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//6.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br>这些配置完成后，可以暂时退出IBMCloud,获取口令后再来重新使用。<p></p>
+<h2 id="2-获取OneDrive口令"><a href="#2-获取OneDrive口令" class="headerlink" title="2. 获取OneDrive口令"></a>2. 获取OneDrive口令</h2><p>打开链接<a href="https://oneindex-gettoken.us-south.cf.appdomain.cloud/" target="_blank" rel="noopener">https://oneindex-gettoken.us-south.cf.appdomain.cloud/</a> 注册OneDrive APP<br><br></p><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//7.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br>如图获取到登陆使用的Secret 和 Client ID<br><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/donwa/oneindex/files/images/install.gif)" alt="]([" title="">
+                </div>
+                <div class="image-caption">]([</div>
+            </figure><br><br>返回<a href="https://oneindex-gettoken.us-south.cf.appdomain.cloud/" target="_blank" rel="noopener">https://oneindex-gettoken.us-south.cf.appdomain.cloud/</a>，输入刚刚获取到的Secret 和 Client ID，等待页面返回Access_token和Refresh_Token,并记录下来<br><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//8.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br>以上就是获取口令的过程<p></p>
+<h2 id="3-输入口令"><a href="#3-输入口令" class="headerlink" title="3. 输入口令"></a>3. 输入口令</h2><p>返回IBMcloud,打开概述，点击查看工具链，点击GIT<br><br></p><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//9.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br>需要修改三个文件，第一个：manifest.yml<br><br>点击manifest.yml文件打开，点击右边 Edit 修改成对应的项目名，比如我之前创建的Oneindex-cf-sample, 最后点击下方的Commit 按钮提交修改<br><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br>在 /web/config目录下打开base.php，点击右边 Edit<br><br>site_name 是你的网站标题<br><br>password 是你后台登陆密码<br><br>password 是你后台登陆密码<br><br>client_secret 替换 之前获取的secret<br><br>client_id 替换 之前获取的Client ID<br><br>refresh_token 替换成 获取到的Refresh_token<br><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br>在 /web/config目录下打开token.php，点击右边 Edit<br><br>access_token 替换 之前获取的access_token<br><br>refresh_token 替换成 获取到的Refresh_token<br><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br>以上即可完成配置的修改<p></p>
+<h2 id="4-打开网站"><a href="#4-打开网站" class="headerlink" title="4. 打开网站"></a>4. 打开网站</h2><p>等待5分钟左右，自动部署完成，返回点击访问网站URL即开打开网站。<br><br></p><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/.wang//19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><p></p>
+<p>以上就是IBMCloud 部署Oneindex的教程。谢谢观看，如果有问题请在博客下给我留言。</p>
+<h1 id="无限试用"><a href="#无限试用" class="headerlink" title="无限试用"></a>无限试用</h1><p>参考之前的<a href="https://hexo.aragon.wang/2019/08/28/IBMCloud%E9%83%A8%E7%BD%B2onelist%E4%B8%80%E7%9B%B4%E8%AF%95%E7%94%A8%E6%95%99%E7%A8%8B/">IBMCloud部署onelist一直试用教程</a>使用VPS定时任务实现无限试用。<br>后期我会搭建重启平台供大家来实现无主机重启。</p>
+<p>谢谢观看</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-12-14T13:56:08.986Z" itemprop="dateUpdated">2019-12-14 21:56:08</time>
+</span><br>
+
+
+        
+        有问题先baidu，Google再留言，看到有空再回复, 随意转载,不保留我的信息也可以，互联网精神重在分享
+        
+    </div>
+    
+    <footer>
+        <a href="https://hexo.aragon.wang">
+            <img src="https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" alt="AragonSnow">
+            AragonSnow
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cloudfoundry/">cloudfoundry</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ibmcloud/">ibmcloud</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oneindex/">oneindex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/白嫖/">白嫖</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/12/14/IBMCLoud-Cloud-Foundry-部署Oneindex教程/&title=《IBMCLoud(Cloud Foundry) 部署Oneindex教程》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/12/14/IBMCLoud-Cloud-Foundry-部署Oneindex教程/&title=《IBMCLoud(Cloud Foundry) 部署Oneindex教程》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/12/14/IBMCLoud-Cloud-Foundry-部署Oneindex教程/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《IBMCLoud(Cloud Foundry) 部署Oneindex教程》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/12/14/IBMCLoud-Cloud-Foundry-部署Oneindex教程/&via=https://hexo.aragon.wang" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/12/14/IBMCLoud-Cloud-Foundry-部署Oneindex教程/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/10/14/GCP最新白嫖教程/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">GCP最新白嫖教程</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: '1eb157ae6d2a980d18be',
+          clientSecret: '326f26e7c78fd4e56a1376704a2cb2b8b15f1e5f',
+          repo: 'aragonsnow.github.io.gitalk',
+          owner: 'AragonSnow',
+          admin: ['AragonSnow'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>AragonSnow &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2019/12/14/IBMCLoud-Cloud-Foundry-部署Oneindex教程/&title=《IBMCLoud(Cloud Foundry) 部署Oneindex教程》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2019/12/14/IBMCLoud-Cloud-Foundry-部署Oneindex教程/&title=《IBMCLoud(Cloud Foundry) 部署Oneindex教程》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2019/12/14/IBMCLoud-Cloud-Foundry-部署Oneindex教程/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《IBMCLoud(Cloud Foundry) 部署Oneindex教程》 — Aragon's Blog&url=https://hexo.aragon.wang/2019/12/14/IBMCLoud-Cloud-Foundry-部署Oneindex教程/&via=https://hexo.aragon.wang" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2019/12/14/IBMCLoud-Cloud-Foundry-部署Oneindex教程/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3awW7bQAwEUP//T7dA0JsbZYbU2i76dAoUR96nALvEkI9HfP36upI7z9f1Z57vf/ctz7+97cLDw8MbLf16cZultH+bPzN5oXh4eHjneO2j8806eVnJ05JP4uHh4X0ab3YnWkRZxOPh4eH9K7x2W59t+u0a8PDw8N7FS8KIPLq9Dg5mR8vxrAUPDw8v5rUNsE/4+WB/Dw8PD2/RVW9HAfI4YzNYUKwTDw8P7wAvWWKy3+YBRF5qt4Fy0X/Dw8PDW/A24exsICB/cvsP+MuT8fDw8A7wkofOCuK2vD6xk+Ph4eGd421aWW0jKm9oHcmh8fDw8A40t2YRQF7sttT86LphpgwPDw8v4O0j1LuoeVFeNM/w8PDwDvBmg1ZtI2p2XuUvPX99eHh4eHveLBrIA9n2GGgL66ikxsPDwzvAm23Tm8/Moo16YAsPDw/vhby83bU5MPIyOh9i+CFrwcPDw1vzZiNTm69MspD8uCqej4eHh3eM1y69bWu141nt68bDw8N7PW+zueeBbF5A59cPK8TDw8M7xmsX3TbP8nA2/0wRRuDh4eG9hJdvvpt4dxY3FMMKeHh4eDfxZuFsXhznJfuqXE5myvDw8PBu4rVbcBJYtFFsWy6vXhkeHh7erbx8gGnTvrq3nVb8Fg8PD+8YL78zQ+7HBWZFOR4eHt69vFm40DaoZmV6lEBfHyp4eHh4h3nJUtqmVB4Qz9pyj9m7x8PDw1vA8mv/mtpQePZC/9zBw8PDO8CbHR7tndnhsTlmVmcjHh4eXsBrxwI2m/XsMJiV+3h4eHineUmJPBspmLFnmQMeHh7eZ/Jmw1WbcDZpiX37TDw8PLy38q6XdaKR1sKiyQg8PDy8m3htTDAb2GpDiqRMXw0Q4OHh4Y14JxpgdzXMkme+ob+Hh4f3//J+A2DZ5CmL+dNbAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '草榴社區';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
