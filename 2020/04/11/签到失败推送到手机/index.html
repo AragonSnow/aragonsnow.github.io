@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-154985285-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>签到失败推送到手机 | Aragon&#39;s Blog | 随意转载,不保留我的信息也可以，互联网精神重在分享</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="qiandao,python,推送">
+    <meta name="description" content="前言qiandao平台非常好用，不过默认的方式只有邮件推送错误信息，非常不方便，所以添加了推送到手机的方式，目前只支持S酱和Bark两种。特别感谢签到群的“云淡风轻近午天”和”小赖子“大佬 提供的方法 准备修改前一定要备份数据库 修改前一定要备份数据库 修改前一定要备份数据库 项目地址https://github.com/AragonSnow/python_send2Phone 修改添加文件把se">
+<meta name="keywords" content="qiandao,python,推送">
+<meta property="og:type" content="article">
+<meta property="og:title" content="签到失败推送到手机">
+<meta property="og:url" content="https://hexo.aragon.wang/2020/04/11/签到失败推送到手机/index.html">
+<meta property="og:site_name" content="Aragon&#39;s Blog">
+<meta property="og:description" content="前言qiandao平台非常好用，不过默认的方式只有邮件推送错误信息，非常不方便，所以添加了推送到手机的方式，目前只支持S酱和Bark两种。特别感谢签到群的“云淡风轻近午天”和”小赖子“大佬 提供的方法 准备修改前一定要备份数据库 修改前一定要备份数据库 修改前一定要备份数据库 项目地址https://github.com/AragonSnow/python_send2Phone 修改添加文件把se">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2020/04/11/tHKJcQ3pNWOP1FG.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/11/ijyBvgrCR5bKuV8.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/11/owFMP1yQxLfKkvs.png">
+<meta property="og:updated_time" content="2020-04-11T11:08:09.784Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="签到失败推送到手机">
+<meta name="twitter:description" content="前言qiandao平台非常好用，不过默认的方式只有邮件推送错误信息，非常不方便，所以添加了推送到手机的方式，目前只支持S酱和Bark两种。特别感谢签到群的“云淡风轻近午天”和”小赖子“大佬 提供的方法 准备修改前一定要备份数据库 修改前一定要备份数据库 修改前一定要备份数据库 项目地址https://github.com/AragonSnow/python_send2Phone 修改添加文件把se">
+<meta name="twitter:image" content="https://i.loli.net/2020/04/11/tHKJcQ3pNWOP1FG.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Aragon&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="https://github.com/aragonsnow/aragonsnow.github.io" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars3.githubusercontent.com/u/22835918?s=400&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AragonSnow</h5>
+          <a href="mailto:asd159874123@gmail.com" title="asd159874123@gmail.com" class="mail">asd159874123@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/AragonSnow/aragonsnow.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://od.63hm.top/" target="_blank" >
+                <i class="icon icon-lg icon-pan"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">签到失败推送到手机</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">签到失败推送到手机</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-11T09:26:24.000Z" itemprop="datePublished" class="page-time">
+  2020-04-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python/">python</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#项目地址"><span class="post-toc-number">3.</span> <span class="post-toc-text">项目地址</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#修改"><span class="post-toc-number">4.</span> <span class="post-toc-text">修改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加文件"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">添加文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改-1"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">修改</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改worker-py"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">修改worker.py</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#每次错误都提示"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">每次错误都提示</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#禁用任务时提示"><span class="post-toc-number">4.3.2.</span> <span class="post-toc-text">禁用任务时提示</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考示例"><span class="post-toc-number">4.3.3.</span> <span class="post-toc-text">参考示例</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Todo"><span class="post-toc-number">5.</span> <span class="post-toc-text">Todo</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-签到失败推送到手机"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">签到失败推送到手机</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-11 17:26:24" datetime="2020-04-11T09:26:24.000Z"  itemprop="datePublished">2020-04-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python/">python</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><a href="https://github.com/binux/qiandao" target="_blank" rel="noopener">qiandao平台</a>非常好用，不过默认的方式只有邮件推送错误信息，非常不方便，所以添加了推送到手机的方式，目前只支持S酱和Bark两种。<br>特别感谢签到群的“云淡风轻近午天”和”小赖子“大佬 提供的方法</p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p><font size="5" color="red">修改前一定要备份数据库</font><br></p>
+<p><font size="5" color="red">修改前一定要备份数据库</font><br></p>
+<p><font size="5" color="red">修改前一定要备份数据库</font><br></p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/AragonSnow/python_send2Phone" target="_blank" rel="noopener">https://github.com/AragonSnow/python_send2Phone</a></p>
+<h1 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h1><h2 id="添加文件"><a href="#添加文件" class="headerlink" title="添加文件"></a>添加文件</h2><p>把send2phone.py 放到 worker.py相同路径下</p>
+<h2 id="修改-1"><a href="#修改-1" class="headerlink" title="修改"></a>修改</h2><pre><code>barklink = "https://bark.test.com/bark_key"
+skey = "SCUxxxxxxxxxxxxx"
+</code></pre><p>将send2phone.py中的变量修改成你对应的Key，不用可以不修改</p>
+<h2 id="修改worker-py"><a href="#修改worker-py" class="headerlink" title="修改worker.py"></a>修改worker.py</h2><p>“from tornado import gen”后添加”import send2phone”<br></p><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/04/11/tHKJcQ3pNWOP1FG.png" alt="1.png" title="">
+                </div>
+                <div class="image-caption">1.png</div>
+            </figure><p></p>
+<p>添加下列代码到对应位置，如果不开启在前面可以用 “#”屏蔽</p>
+<pre><code>send2phone.send2bark("test","bark") # 开启bark推送
+send2phone.send2s("test","bark")    # 开启S酱推送
+</code></pre><h3 id="每次错误都提示"><a href="#每次错误都提示" class="headerlink" title="每次错误都提示"></a>每次错误都提示</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/04/11/ijyBvgrCR5bKuV8.png" alt="2.png" title="">
+                </div>
+                <div class="image-caption">2.png</div>
+            </figure>
+<h3 id="禁用任务时提示"><a href="#禁用任务时提示" class="headerlink" title="禁用任务时提示"></a>禁用任务时提示</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/04/11/owFMP1yQxLfKkvs.png" alt="3.PNG" title="">
+                </div>
+                <div class="image-caption">3.PNG</div>
+            </figure>
+<h3 id="参考示例"><a href="#参考示例" class="headerlink" title="参考示例"></a>参考示例</h3><p>这里有我已经修改好的，可以参考一下<br><a href="https://h5.63hm.top/worker.py" target="_blank" rel="noopener">https://h5.63hm.top/worker.py</a></p>
+<h1 id="Todo"><a href="#Todo" class="headerlink" title="Todo"></a>Todo</h1><p>手动执行时不会触发失败任务，还需要查找在哪个位置</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-04-11T11:08:09.784Z" itemprop="dateUpdated">2020-04-11 19:08:09</time>
+</span><br>
+
+
+        
+        有问题先baidu，Google再留言，看到有空再回复, 随意转载,不留下我的信息也可以，互联网精神就是分享
+        
+    </div>
+    
+    <footer>
+        <a href="https://hexo.aragon.wang">
+            <img src="https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" alt="AragonSnow">
+            AragonSnow
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qiandao/">qiandao</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推送/">推送</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2020/04/11/签到失败推送到手机/&title=《签到失败推送到手机》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2020/04/11/签到失败推送到手机/&title=《签到失败推送到手机》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2020/04/11/签到失败推送到手机/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《签到失败推送到手机》 — Aragon's Blog&url=https://hexo.aragon.wang/2020/04/11/签到失败推送到手机/&via=https://hexo.aragon.wang" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2020/04/11/签到失败推送到手机/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/11/IBMCloud部署OneList-Go/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">IBMCloud部署OneList-Go</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: '1eb157ae6d2a980d18be',
+          clientSecret: '326f26e7c78fd4e56a1376704a2cb2b8b15f1e5f',
+          repo: 'aragonsnow.github.io.gitalk',
+          owner: 'AragonSnow',
+          admin: ['AragonSnow'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>AragonSnow &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2020/04/11/签到失败推送到手机/&title=《签到失败推送到手机》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2020/04/11/签到失败推送到手机/&title=《签到失败推送到手机》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2020/04/11/签到失败推送到手机/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《签到失败推送到手机》 — Aragon's Blog&url=https://hexo.aragon.wang/2020/04/11/签到失败推送到手机/&via=https://hexo.aragon.wang" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2020/04/11/签到失败推送到手机/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACxklEQVR42u3aQW7jQAwEQP//0wmw142UbnJk51A6GU4iTSnAcNDk6xVfX/+u/z8nv7/5Jv/p6sLDw8MbLf3quuJdfbNn3K8wXzMeHh7e07xTxWD2su5fxP0dfrHg4eHhfZSXfJOUhPZl5a8bDw8P76/xZlt5QtqsAQ8PD+9TvOQQXNx0dCyeBSLHshY8PDy8yf5cN8A+9flN/T08PDy8UfCabLvt0fm+Vda2uy7XiYeHh/cAr41Wk4PvLJhoW1xFwcDDw8M7yssf3IYLmxBhVjB+WDMeHh7eA7xN6LBPPtqgNhliiGogHh4e3pq3jwaSlli+fc9GBKKDNR4eHt6atzkWt5t7u/T26BwFuHh4eHhrXh465I/PeW2gnIcml0UCDw8Pb81LAtb8ILuJZdu4ISoqeHh4eA/wkorRgvOmV/5XSegcVTw8PDy8B3h5HNAOUbXN/naQCw8PD+89vHYEahNPtEf2vCRc3hkPDw/vMd6mNZU3vZKD+yzUuPwGDw8P7wHeqRGrditvxw7yiAQPDw/v/bzNMFa7Zedh7uv2imJiPDw8vEO8vIU/GwjIl7U/sl9ORuDh4eEd5W024vZzG9225eeXNhgeHh7eId5so581wPYDWK/gKv5veHh4eAteGyi0mHaJs1Dj8jCNh4eHd5TXNqjyMpC3r/IhqtnAAR4eHt57eMnQ1Sy2mJWW9rlFgoKHh4c34iVBQ3vYbZtYbahRvHQ8PDy8h3mbxyfDAYer2SbPwMPDw1vA8mszCtCGCLOw+IfRATw8PLyjvFONqOSR7VBC3k47HFjg4eHhBby8GMyC3fzObWOsCCPw8PDwHuDlnaM8Ysjj3TzgOBDj4uHh4X2IlxeMzbF7FjTj4eHh/R3eqVh29oKG4wV4eHh4j/FmTa+2ZdXeJy8Al2UGDw8P7wFe2wA7G++281Gz0oWHh4d3iPcNtV6Sl0mO3Z4AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '草榴社區';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
