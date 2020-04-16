@@ -41,7 +41,7 @@ ga('send', 'pageview');
 <meta property="og:image" content="https://i.loli.net/2020/04/11/tHKJcQ3pNWOP1FG.png">
 <meta property="og:image" content="https://i.loli.net/2020/04/11/ijyBvgrCR5bKuV8.png">
 <meta property="og:image" content="https://i.loli.net/2020/04/11/owFMP1yQxLfKkvs.png">
-<meta property="og:updated_time" content="2020-04-11T11:08:09.784Z">
+<meta property="og:updated_time" content="2020-04-16T03:08:03.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="签到失败推送到手机">
 <meta name="twitter:description" content="前言qiandao平台非常好用，不过默认的方式只有邮件推送错误信息，非常不方便，所以添加了推送到手机的方式，目前只支持S酱和Bark两种。特别感谢签到群的“云淡风轻近午天”和”小赖子“大佬 提供的方法 准备修改前一定要备份数据库 修改前一定要备份数据库 修改前一定要备份数据库 项目地址https://github.com/AragonSnow/python_send2Phone 修改添加文件把se">
@@ -180,7 +180,7 @@ ga('send', 'pageview');
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#项目地址"><span class="post-toc-number">3.</span> <span class="post-toc-text">项目地址</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#修改"><span class="post-toc-number">4.</span> <span class="post-toc-text">修改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加文件"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">添加文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改-1"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">修改</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改worker-py"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">修改worker.py</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#每次错误都提示"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">每次错误都提示</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#禁用任务时提示"><span class="post-toc-number">4.3.2.</span> <span class="post-toc-text">禁用任务时提示</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考示例"><span class="post-toc-number">4.3.3.</span> <span class="post-toc-text">参考示例</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Todo"><span class="post-toc-number">5.</span> <span class="post-toc-text">Todo</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#项目地址"><span class="post-toc-number">3.</span> <span class="post-toc-text">项目地址</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#修改"><span class="post-toc-number">4.</span> <span class="post-toc-text">修改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加文件"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">添加文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改key"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">修改key</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改worker-py"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">修改worker.py</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#每次错误都提示"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">每次错误都提示</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#禁用任务时提示"><span class="post-toc-number">4.3.2.</span> <span class="post-toc-text">禁用任务时提示</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考示例"><span class="post-toc-number">4.3.3.</span> <span class="post-toc-text">参考示例</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Todo"><span class="post-toc-number">5.</span> <span class="post-toc-text">Todo</span></a></li></ol>
         </nav>
     </aside>
 
@@ -212,7 +212,7 @@ ga('send', 'pageview');
 <p><font size="5" color="red">修改前一定要备份数据库</font><br></p>
 <h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/AragonSnow/python_send2Phone" target="_blank" rel="noopener">https://github.com/AragonSnow/python_send2Phone</a></p>
 <h1 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h1><h2 id="添加文件"><a href="#添加文件" class="headerlink" title="添加文件"></a>添加文件</h2><p>把send2phone.py 放到 worker.py相同路径下</p>
-<h2 id="修改-1"><a href="#修改-1" class="headerlink" title="修改"></a>修改</h2><pre><code>barklink = "https://bark.test.com/bark_key"
+<h2 id="修改key"><a href="#修改key" class="headerlink" title="修改key"></a>修改key</h2><pre><code>barklink = "https://bark.test.com/bark_key"
 skey = "SCUxxxxxxxxxxxxx"
 </code></pre><p>将send2phone.py中的变量修改成你对应的Key，不用可以不修改</p>
 <h2 id="修改worker-py"><a href="#修改worker-py" class="headerlink" title="修改worker.py"></a>修改worker.py</h2><p>“from tornado import gen”后添加”import send2phone”<br></p><figure class="image-bubble">
@@ -223,8 +223,8 @@ skey = "SCUxxxxxxxxxxxxx"
                 <div class="image-caption">1.png</div>
             </figure><p></p>
 <p>添加下列代码到对应位置，如果不开启在前面可以用 “#”屏蔽</p>
-<pre><code>send2phone.send2bark("test","bark") # 开启bark推送
-send2phone.send2s("test","bark")    # 开启S酱推送
+<pre><code>send2phone.send2bark("Sign Fail: {0}".format(tpl['sitename']), "Please Check") # 开启bark推送
+send2phone.send2s("Sign Fail: {0}".format(tpl['sitename']), "Please Check")    # 开启S酱推送
 </code></pre><h3 id="每次错误都提示"><a href="#每次错误都提示" class="headerlink" title="每次错误都提示"></a>每次错误都提示</h3><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -267,7 +267,7 @@ send2phone.send2s("test","bark")    # 开启S酱推送
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-04-11T11:08:09.784Z" itemprop="dateUpdated">2020-04-11 19:08:09</time>
+    最后更新时间：<time datetime="2020-04-16T03:08:03.806Z" itemprop="dateUpdated">2020-04-16 11:08:03</time>
 </span><br>
 
 
