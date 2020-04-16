@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-154985285-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>简单工具api（不定期更新） | Aragon&#39;s Blog | 随意转载,不保留我的信息也可以，互联网精神重在分享</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python,api,flask">
+    <meta name="description" content="toolapi日常使用的API功能，目前集成时间戳转换，正则匹配 这是什么?一个简单的工具API项目仓库https://github.com/AragonSnow/toolapi如果有更多api需求，可以留言给我添加 功能1. 时间戳转换（/timestamp）目前仅支持GMT+8 北京时间 1.1 参数   参数 默认值 是否必要参数 解释     t now 是 要转换成时间戳的北京时间">
+<meta name="keywords" content="python,api,flask">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单工具api（不定期更新）">
+<meta property="og:url" content="https://hexo.aragon.wang/2020/04/16/简单工具api/index.html">
+<meta property="og:site_name" content="Aragon&#39;s Blog">
+<meta property="og:description" content="toolapi日常使用的API功能，目前集成时间戳转换，正则匹配 这是什么?一个简单的工具API项目仓库https://github.com/AragonSnow/toolapi如果有更多api需求，可以留言给我添加 功能1. 时间戳转换（/timestamp）目前仅支持GMT+8 北京时间 1.1 参数   参数 默认值 是否必要参数 解释     t now 是 要转换成时间戳的北京时间">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-16T03:13:35.341Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简单工具api（不定期更新）">
+<meta name="twitter:description" content="toolapi日常使用的API功能，目前集成时间戳转换，正则匹配 这是什么?一个简单的工具API项目仓库https://github.com/AragonSnow/toolapi如果有更多api需求，可以留言给我添加 功能1. 时间戳转换（/timestamp）目前仅支持GMT+8 北京时间 1.1 参数   参数 默认值 是否必要参数 解释     t now 是 要转换成时间戳的北京时间">
+    
+        <link rel="alternate" type="application/atom+xml" title="Aragon&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="https://github.com/aragonsnow/aragonsnow.github.io" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars3.githubusercontent.com/u/22835918?s=400&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AragonSnow</h5>
+          <a href="mailto:asd159874123@gmail.com" title="asd159874123@gmail.com" class="mail">asd159874123@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/AragonSnow/aragonsnow.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://od.63hm.top/" target="_blank" >
+                <i class="icon icon-lg icon-pan"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">简单工具api（不定期更新）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">简单工具api（不定期更新）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-16T03:11:25.000Z" itemprop="datePublished" class="page-time">
+  2020-04-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python/">python</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#toolapi"><span class="post-toc-number">1.</span> <span class="post-toc-text">toolapi</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#这是什么"><span class="post-toc-number">2.</span> <span class="post-toc-text">这是什么?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#功能"><span class="post-toc-number">3.</span> <span class="post-toc-text">功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-时间戳转换（-timestamp）"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">1. 时间戳转换（/timestamp）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-参数"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">1.1 参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-返回值"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">1.2 返回值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-用例"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">1.3 用例</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-正则表达是（-regex）"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2.正则表达是（/regex）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-参数"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">2.1 参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-返回值"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">2.2 返回值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-用例"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">2.3 用例</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-简单工具api"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">简单工具api（不定期更新）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-16 11:11:25" datetime="2020-04-16T03:11:25.000Z"  itemprop="datePublished">2020-04-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python/">python</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="toolapi"><a href="#toolapi" class="headerlink" title="toolapi"></a>toolapi</h1><p>日常使用的API功能，目前集成时间戳转换，正则匹配</p>
+<h1 id="这是什么"><a href="#这是什么" class="headerlink" title="这是什么?"></a>这是什么?</h1><p>一个简单的工具API<br>项目仓库<a href="https://github.com/AragonSnow/toolapi" target="_blank" rel="noopener">https://github.com/AragonSnow/toolapi</a><br><br>如果有更多api需求，可以留言给我添加</p>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><h2 id="1-时间戳转换（-timestamp）"><a href="#1-时间戳转换（-timestamp）" class="headerlink" title="1. 时间戳转换（/timestamp）"></a>1. 时间戳转换（/timestamp）</h2><p>目前仅支持GMT+8 北京时间</p>
+<h3 id="1-1-参数"><a href="#1-1-参数" class="headerlink" title="1.1 参数"></a>1.1 参数</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:left">是否必要参数</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">t</td>
+<td style="text-align:center">now</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">要转换成时间戳的北京时间</td>
+</tr>
+<tr>
+<td style="text-align:center">ts</td>
+<td style="text-align:center">null</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">要转换成北京时间的时间戳</td>
+</tr>
+<tr>
+<td style="text-align:center">form</td>
+<td style="text-align:center">%Y-%m-%d %H:%M:%S</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">输出的时间格式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-2-返回值"><a href="#1-2-返回值" class="headerlink" title="1.2 返回值"></a>1.2 返回值</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">时间戳</td>
+<td style="text-align:left">转换的时间戳</td>
+</tr>
+<tr>
+<td style="text-align:center">时间</td>
+<td style="text-align:left">格式化输出的北京时间</td>
+</tr>
+<tr>
+<td style="text-align:center">状态</td>
+<td style="text-align:left">运行的状态, 非OK都是异常</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-3-用例"><a href="#1-3-用例" class="headerlink" title="1.3 用例"></a>1.3 用例</h3><pre><code>https://toolapi.us-south.cf.appdomain.cloud/timestamp  
+返回现在北京时间
+{
+    "时间戳": 1586917839,
+    "时间": "2020-04-15 10:30:39",
+    "状态": "OK"
+}
+</code></pre><pre><code>https://toolapi.us-south.cf.appdomain.cloud/timestamp?ts=1586921249
+如果参数带时间戳，会忽略其他参数转换成北京时间
+{
+    "时间戳": "1586921249",
+    "时间": "2020-04-15 11:27:29",
+    "状态": "OK"
+}
+</code></pre><pre><code>https://toolapi.us-south.cf.appdomain.cloud/timestamp?t=2020-04-15+11%3a00%3a09
+北京时间返回时间戳
+{
+    "时间戳": 1586919609,
+    "时间": "2020-04-15 11:00:09",
+    "状态": "OK"
+}
+</code></pre><h2 id="2-正则表达是（-regex）"><a href="#2-正则表达是（-regex）" class="headerlink" title="2.正则表达是（/regex）"></a>2.正则表达是（/regex）</h2><p>正则匹配参数并返回匹配结果</p>
+<h3 id="2-1-参数"><a href="#2-1-参数" class="headerlink" title="2.1 参数"></a>2.1 参数</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:left">是否必要参数</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">data</td>
+<td style="text-align:center">“”</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">要匹配的数据</td>
+</tr>
+<tr>
+<td style="text-align:center">p</td>
+<td style="text-align:center">“”</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">正则表达式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-2-返回值"><a href="#2-2-返回值" class="headerlink" title="2.2 返回值"></a>2.2 返回值</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">数据</td>
+<td style="text-align:left">匹配的结果</td>
+</tr>
+<tr>
+<td style="text-align:center">状态</td>
+<td style="text-align:left">运行的状态, 非OK都是异常</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-3-用例"><a href="#2-3-用例" class="headerlink" title="2.3 用例"></a>2.3 用例</h3><pre><code>https://toolapi.us-south.cf.appdomain.cloud/regex?data=%7b"code"%3a0%2c"msg"%3a"成功"%2c"data"%3a%7b"users"%3a%5b%7b"name"%3a"张三"%2c"gender"%3a"male"%2c"age"%3a12%7d%2c%7b"name"%3a"李四"%2c"gender"%3a"female"%2c"age"%3a15%7d%2c%7b"name"%3a"王五"%2c"gender"%3a"male"%2c"age"%3a22%7d%2c%7b"name"%3a"赵六"%2c"gender"%3a"male"%2c"age"%3a24%7d%5d%2c"goods"%3a%5b%7b"name"%3a"apple"%2c"price"%3a15%2c"num"%3a200%7d%2c%7b"name"%3a"pear"%2c"price"%3a18%2c"num"%3a100%7d%2c%7b"name"%3a"banana"%2c"price"%3a16%2c"num"%3a210%7d%5d%7d%7d&amp;p=name"%3a"(.%2b%3f)"
+
+测试数据：
+{"code":0,"msg":"成功","data":{"users":[{"name":"张三","gender":"male","age":12},{"name":"李四","gender":"female","age":15},{"name":"王五","gender":"male","age":22},{"name":"赵六","gender":"male","age":24}],"goods":[{"name":"apple","price":15,"num":200},{"name":"pear","price":18,"num":100},{"name":"banana","price":16,"num":210}]}}
+
+正则表达式： name":"(.+?)"
+
+返回结果：
+{
+    "数据": {
+        "1": "张三",
+        "2": "李四",
+        "3": "王五",
+        "4": "赵六",
+        "5": "apple",
+        "6": "pear",
+        "7": "banana"
+    },
+    "状态": "OK"
+}
+</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-04-16T03:13:35.341Z" itemprop="dateUpdated">2020-04-16 11:13:35</time>
+</span><br>
+
+
+        
+        有问题先baidu，Google再留言，看到有空再回复, 随意转载,不留下我的信息也可以，互联网精神就是分享
+        
+    </div>
+    
+    <footer>
+        <a href="https://hexo.aragon.wang">
+            <img src="https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" alt="AragonSnow">
+            AragonSnow
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/api/">api</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flask/">flask</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2020/04/16/简单工具api/&title=《简单工具api（不定期更新）》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2020/04/16/简单工具api/&title=《简单工具api（不定期更新）》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2020/04/16/简单工具api/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《简单工具api（不定期更新）》 — Aragon's Blog&url=https://hexo.aragon.wang/2020/04/16/简单工具api/&via=https://hexo.aragon.wang" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2020/04/16/简单工具api/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/11/签到失败推送到手机/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">签到失败推送到手机</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: '1eb157ae6d2a980d18be',
+          clientSecret: '326f26e7c78fd4e56a1376704a2cb2b8b15f1e5f',
+          repo: 'aragonsnow.github.io.gitalk',
+          owner: 'AragonSnow',
+          admin: ['AragonSnow'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>AragonSnow &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2020/04/16/简单工具api/&title=《简单工具api（不定期更新）》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2020/04/16/简单工具api/&title=《简单工具api（不定期更新）》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2020/04/16/简单工具api/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《简单工具api（不定期更新）》 — Aragon's Blog&url=https://hexo.aragon.wang/2020/04/16/简单工具api/&via=https://hexo.aragon.wang" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2020/04/16/简单工具api/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHklEQVR42u3aQZKkMAwEQP7/afYBE81WyfTEgNOnDgKMk4Paknwc8Tg/jOTOZOafzx7fGBgYGI9lnJfj0wvuXeKnmZO1YWBg7MPIp24XkTzVfiwMDAyMZEHtK9vNJQYGBsYKI+FdU9sZMDAwMPIk9q6C2ox9Wy6OgYHxQEZedf/931/pb2BgYDyKcZZjJdHNQ3O9KgwMjFcz2mbk9cauTTtXAi4GBsY+jLwc1iaWKwln/mmO2aIxMDAexWi3cW0BLrmyXvLDwMB4N2Ol+NUG3HxbWQdrDAyMbRj/icdxYM3D6+xoRXRaBAMD43WM66DWJrQrwb0t2GFgYOzAaBsAs2Zke2WlMIeBgbEbIy9+JYBZyK6rhhgYGK9mzBY6O4SRvCv/TBgYGO9mnOVo2wwrrdDi+AUGBsYGjFkC2SaZKwF6eNgCAwPjdYw8BV0p+ueNyeRZDAyMHRgrgPUCXB58czwGBsYOjLxhOQPkjc8cg4GBsQNjlr7O2LMGZxTiMTAwNmBcL2t2XGxlnuSoBwYGxm6MNr1M0tpZ2M1LbBgYGDsw7jps0RbUklZlQcXAwHg1o01ZZ0nmNxqibSEPAwPj6Yw8aWzvz8Nu2x7AwMDYk9EGvjzRXWmCFkgMDAyMuDGZzJZfv/5M9QswMDC2YcxajHn5LA/iN/9vYGBg/HlGfbihLMmtJLTF1hADA+OljHa6lYW2AfrmpiYGBsbzGP8AN0+8Krvj7kkAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '草榴社區';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
