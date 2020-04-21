@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-154985285-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>bark+腾讯问卷实现带日志的bark提醒 | Aragon&#39;s Blog | 随意转载,不保留我的信息也可以，互联网精神重在分享</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python,bark,腾讯问卷,log">
+    <meta name="description" content="前言Bark是iOS上一款优秀的轻量级通知推送软件，我日常也经常使用。看到群友说想要个日志功能，在git上提了issue作者也没有回复，估计不大可能了，所以只好自己动手丰衣足食，用Bark加腾讯问卷的形式，实现Bark带日志的功能。 准备 安装了bark的手机 注册腾讯问卷的账号 python  部署腾讯问卷新建问卷新建问卷，选择只有填空题，改一下标题，点击确定，保存">
+<meta name="keywords" content="python,bark,腾讯问卷,log">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bark+腾讯问卷实现带日志的bark提醒">
+<meta property="og:url" content="https://hexo.aragon.wang/2020/04/21/bark-腾讯问卷实现带日志的bark提醒/index.html">
+<meta property="og:site_name" content="Aragon&#39;s Blog">
+<meta property="og:description" content="前言Bark是iOS上一款优秀的轻量级通知推送软件，我日常也经常使用。看到群友说想要个日志功能，在git上提了issue作者也没有回复，估计不大可能了，所以只好自己动手丰衣足食，用Bark加腾讯问卷的形式，实现Bark带日志的功能。 准备 安装了bark的手机 注册腾讯问卷的账号 python  部署腾讯问卷新建问卷新建问卷，选择只有填空题，改一下标题，点击确定，保存">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2020/04/21/J6UXSbieVBdr9ZM.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/21/V63dLF8gbxrpAIu.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/21/CeuWB3ZA2FyUJz7.png">
+<meta property="og:updated_time" content="2020-04-21T12:55:53.179Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bark+腾讯问卷实现带日志的bark提醒">
+<meta name="twitter:description" content="前言Bark是iOS上一款优秀的轻量级通知推送软件，我日常也经常使用。看到群友说想要个日志功能，在git上提了issue作者也没有回复，估计不大可能了，所以只好自己动手丰衣足食，用Bark加腾讯问卷的形式，实现Bark带日志的功能。 准备 安装了bark的手机 注册腾讯问卷的账号 python  部署腾讯问卷新建问卷新建问卷，选择只有填空题，改一下标题，点击确定，保存">
+<meta name="twitter:image" content="https://i.loli.net/2020/04/21/J6UXSbieVBdr9ZM.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Aragon&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="https://github.com/aragonsnow/aragonsnow.github.io" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars3.githubusercontent.com/u/22835918?s=400&v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AragonSnow</h5>
+          <a href="mailto:asd159874123@gmail.com" title="asd159874123@gmail.com" class="mail">asd159874123@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/AragonSnow/aragonsnow.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://od.63hm.top/" target="_blank" >
+                <i class="icon icon-lg icon-pan"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">bark+腾讯问卷实现带日志的bark提醒</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">bark+腾讯问卷实现带日志的bark提醒</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-21T11:53:05.000Z" itemprop="datePublished" class="page-time">
+  2020-04-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python/">python</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#部署"><span class="post-toc-number">3.</span> <span class="post-toc-text">部署</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#腾讯问卷"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">腾讯问卷</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新建问卷"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">新建问卷</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#投放问卷"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">投放问卷</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取参数"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">获取参数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#发送通知"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">发送通知</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#python方法"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">python方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#效果"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">效果</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-bark-腾讯问卷实现带日志的bark提醒"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">bark+腾讯问卷实现带日志的bark提醒</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-21 19:53:05" datetime="2020-04-21T11:53:05.000Z"  itemprop="datePublished">2020-04-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python/">python</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Bark是iOS上一款优秀的轻量级通知推送软件，我日常也经常使用。看到群友说想要个日志功能，在git上提了issue作者也没有回复，估计不大可能了，所以只好自己动手丰衣足食，用Bark加腾讯问卷的形式，实现Bark带日志的功能。</p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ol>
+<li>安装了bark的手机</li>
+<li>注册腾讯问卷的账号</li>
+<li>python</li>
+</ol>
+<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><h2 id="腾讯问卷"><a href="#腾讯问卷" class="headerlink" title="腾讯问卷"></a>腾讯问卷</h2><h3 id="新建问卷"><a href="#新建问卷" class="headerlink" title="新建问卷"></a>新建问卷</h3><p>新建问卷，选择只有填空题，改一下标题，点击确定，保存<br></p><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/04/21/J6UXSbieVBdr9ZM.png" alt="01.PNG" title="">
+                </div>
+                <div class="image-caption">01.PNG</div>
+            </figure><p></p>
+<h3 id="投放问卷"><a href="#投放问卷" class="headerlink" title="投放问卷"></a>投放问卷</h3><p>点击我的问卷-选择投放问卷，再点击问卷就可以看到问卷地址了<br></p><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/04/21/V63dLF8gbxrpAIu.png" alt="02.PNG" title="">
+                </div>
+                <div class="image-caption">02.PNG</div>
+            </figure><p></p>
+<h3 id="获取参数"><a href="#获取参数" class="headerlink" title="获取参数"></a>获取参数</h3><p>打开投放的问卷链接-chrome F12打开调试台，开始搜索参数<br>搜 “question_” 就能找到 问题ID “question_q-1-cNbe”，只需要使用其中 “q-1-cNbe” 部分，每份问卷不一样<br>搜 “fillblank-” 找到 填空ID “fillblank-CzDZ” ,其中“fillblank-CzDZ”就是 填空ID<br></p><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/04/21/CeuWB3ZA2FyUJz7.png" alt="03.PNG" title="">
+                </div>
+                <div class="image-caption">03.PNG</div>
+            </figure><p></p>
+<h2 id="发送通知"><a href="#发送通知" class="headerlink" title="发送通知"></a>发送通知</h2><h3 id="python方法"><a href="#python方法" class="headerlink" title="python方法"></a>python方法</h3><p><a href="https://github.com/AragonSnow/python_send2Phone" target="_blank" rel="noopener">https://github.com/AragonSnow/python_send2Phone</a><br>使用其中的send2phone.py文件，line8-12修改成你对应的配置:<br>“链接”是问卷链接<br>“ID”在问卷的中间<br>问题ID和填空ID在上面提到，请自行往前翻<br>比如我的是这样，仅供参考，不要照抄把通知发给我</p>
+<pre><code>wj={
+    "链接":"https://wj.qq.com/s2/5917085/c5b8",
+    "ID":"5917085",
+    "问题ID":"q-1-cNbe",
+    "填空ID":"fillblank-CzDZ"
+}
+</code></pre><p>在要发送的地方调用函数 send2BarkAndWJ(标题， 内容)即可</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>手机端收到消息bark的推送。<br>历史消息只能web端查看，mobile版的是查看不了的。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-04-21T12:55:53.179Z" itemprop="dateUpdated">2020-04-21 20:55:53</time>
+</span><br>
+
+
+        
+        有问题先baidu，Google再留言，看到有空再回复, 随意转载,不留下我的信息也可以，互联网精神就是分享
+        
+    </div>
+    
+    <footer>
+        <a href="https://hexo.aragon.wang">
+            <img src="https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" alt="AragonSnow">
+            AragonSnow
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bark/">bark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log/">log</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾讯问卷/">腾讯问卷</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2020/04/21/bark-腾讯问卷实现带日志的bark提醒/&title=《bark+腾讯问卷实现带日志的bark提醒》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2020/04/21/bark-腾讯问卷实现带日志的bark提醒/&title=《bark+腾讯问卷实现带日志的bark提醒》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2020/04/21/bark-腾讯问卷实现带日志的bark提醒/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《bark+腾讯问卷实现带日志的bark提醒》 — Aragon's Blog&url=https://hexo.aragon.wang/2020/04/21/bark-腾讯问卷实现带日志的bark提醒/&via=https://hexo.aragon.wang" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2020/04/21/bark-腾讯问卷实现带日志的bark提醒/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/16/简单工具api/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">简单工具api（不定期更新）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: '1eb157ae6d2a980d18be',
+          clientSecret: '326f26e7c78fd4e56a1376704a2cb2b8b15f1e5f',
+          repo: 'aragonsnow.github.io.gitalk',
+          owner: 'AragonSnow',
+          admin: ['AragonSnow'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>AragonSnow &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.aragon.wang/2020/04/21/bark-腾讯问卷实现带日志的bark提醒/&title=《bark+腾讯问卷实现带日志的bark提醒》 — Aragon's Blog&pic=https://avatars3.githubusercontent.com/u/22835918?s=400&v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.aragon.wang/2020/04/21/bark-腾讯问卷实现带日志的bark提醒/&title=《bark+腾讯问卷实现带日志的bark提醒》 — Aragon's Blog&source=Aragon's Blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hexo.aragon.wang/2020/04/21/bark-腾讯问卷实现带日志的bark提醒/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《bark+腾讯问卷实现带日志的bark提醒》 — Aragon's Blog&url=https://hexo.aragon.wang/2020/04/21/bark-腾讯问卷实现带日志的bark提醒/&via=https://hexo.aragon.wang" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hexo.aragon.wang/2020/04/21/bark-腾讯问卷实现带日志的bark提醒/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACw0lEQVR42u3ay27jMBAEQP//T3uBPe0jkbpnRDiH0slwZInFACLVM69XfLx/H9d//fOc939He/3vrvY6ceDh4eGNhv7dkQ83P6edxGQ8394XDw8P7xjv+mbX7OtBzIae3/fGgoeHh/dR3lMP8XzTPJssPDw8vJ/Ja7fI+cM9vxoeHh7eZ3lJGNHmpe0yc/398awFDw8PL+ZtHsqf+nywvoeHh4e3qKonD+V2SWgXknwx+OJqeHh4eAd4syJTHkbMymCzjXLxxoCHh4e34LVNA9dD2e9m94vHX+PHw8PDO8BLAG2cOms+yBsRrpelmy01Hh4e3prXtj21S8hsI543HNx8xsPDwzvAa2/f3jiZrHaxyZcNPDw8vBO8zSXy8Dd/fD8VTHxR38PDw8M7wGuH1TYEzJoSVpt1PDw8vMO8pHzVsnPMpveh3lLj4eHhrXlJuFDU08oCWLIgtW1hUUqNh4eH9xAvf7q2bVjDQKG8Ah4eHt6neG0bVlLQmm2L2wavm6YrPDw8vDWvbSPYTMe+6WqzfcfDw8M7wXs2un12apLt9c204uHh4R3j7Zuukti3LXG1UTIeHh7ead4sCMjj3U3UO2u9Kv5veHh4eCPebIjt1ORR7D6GiN4Y8PDw8Ea8fYtVvmDMgo9VGo2Hh4d3gJcXq9pzNu1Z7fTdWPDw8PAe5bWv/W371Kyolse+N3fBw8PDO8zbP8rzhoBnJ6XuhsDDw8Nb8M69ue+brmYFvCh9wcPDw1vw3uUxC1Lz37YLxs2k4+Hh4R3gbR6++zaCTbkr6obAw8PDO8ZrI4nZUPLfJsWt4mp4eHh4x3j74bbb8fa3+QKGh4eH93N4T7UOzKagDZ3x8PDwfg4vH2i+Id58fzPpeHh4eMd4betVHvu20cOm8euBrAUPDw8vrUMNC2Cz2+cxxCw4fqy+h4eHh/fvmb8A6iK7YOdiFcsAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '草榴社區';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

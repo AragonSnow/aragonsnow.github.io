@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hexo.aragon.wang/"/>
-  <updated>2020-04-16T03:13:35.341Z</updated>
+  <updated>2020-04-21T12:55:53.179Z</updated>
   <id>https://hexo.aragon.wang/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bark+腾讯问卷实现带日志的bark提醒</title>
+    <link href="https://hexo.aragon.wang/2020/04/21/bark-%E8%85%BE%E8%AE%AF%E9%97%AE%E5%8D%B7%E5%AE%9E%E7%8E%B0%E5%B8%A6%E6%97%A5%E5%BF%97%E7%9A%84bark%E6%8F%90%E9%86%92/"/>
+    <id>https://hexo.aragon.wang/2020/04/21/bark-腾讯问卷实现带日志的bark提醒/</id>
+    <published>2020-04-21T11:53:05.000Z</published>
+    <updated>2020-04-21T12:55:53.179Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://hexo.aragon.wang/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://hexo.aragon.wang/tags/python/"/>
+    
+      <category term="bark" scheme="https://hexo.aragon.wang/tags/bark/"/>
+    
+      <category term="腾讯问卷" scheme="https://hexo.aragon.wang/tags/%E8%85%BE%E8%AE%AF%E9%97%AE%E5%8D%B7/"/>
+    
+      <category term="log" scheme="https://hexo.aragon.wang/tags/log/"/>
+    
+  </entry>
   
   <entry>
     <title>简单工具api（不定期更新）</title>
@@ -99,9 +131,9 @@
       <category term="白嫖" scheme="https://hexo.aragon.wang/categories/%E7%99%BD%E5%AB%96/"/>
     
     
-      <category term="ibmcloud" scheme="https://hexo.aragon.wang/tags/ibmcloud/"/>
-    
       <category term="白嫖" scheme="https://hexo.aragon.wang/tags/%E7%99%BD%E5%AB%96/"/>
+    
+      <category term="ibmcloud" scheme="https://hexo.aragon.wang/tags/ibmcloud/"/>
     
       <category term="onelist" scheme="https://hexo.aragon.wang/tags/onelist/"/>
     
@@ -129,9 +161,9 @@
       <category term="白嫖" scheme="https://hexo.aragon.wang/categories/%E7%99%BD%E5%AB%96/"/>
     
     
-      <category term="ibmcloud" scheme="https://hexo.aragon.wang/tags/ibmcloud/"/>
-    
       <category term="白嫖" scheme="https://hexo.aragon.wang/tags/%E7%99%BD%E5%AB%96/"/>
+    
+      <category term="ibmcloud" scheme="https://hexo.aragon.wang/tags/ibmcloud/"/>
     
       <category term="qiandao" scheme="https://hexo.aragon.wang/tags/qiandao/"/>
     
@@ -159,11 +191,11 @@
       <category term="白嫖" scheme="https://hexo.aragon.wang/categories/%E7%99%BD%E5%AB%96/"/>
     
     
+      <category term="白嫖" scheme="https://hexo.aragon.wang/tags/%E7%99%BD%E5%AB%96/"/>
+    
       <category term="oneindex" scheme="https://hexo.aragon.wang/tags/oneindex/"/>
     
       <category term="ibmcloud" scheme="https://hexo.aragon.wang/tags/ibmcloud/"/>
-    
-      <category term="白嫖" scheme="https://hexo.aragon.wang/tags/%E7%99%BD%E5%AB%96/"/>
     
       <category term="cloudfoundry" scheme="https://hexo.aragon.wang/tags/cloudfoundry/"/>
     
@@ -239,11 +271,11 @@
       <category term="白嫖" scheme="https://hexo.aragon.wang/categories/%E7%99%BD%E5%AB%96/"/>
     
     
-      <category term="白嫖" scheme="https://hexo.aragon.wang/tags/%E7%99%BD%E5%AB%96/"/>
-    
       <category term="OneIndex" scheme="https://hexo.aragon.wang/tags/OneIndex/"/>
     
       <category term="Heroku" scheme="https://hexo.aragon.wang/tags/Heroku/"/>
+    
+      <category term="白嫖" scheme="https://hexo.aragon.wang/tags/%E7%99%BD%E5%AB%96/"/>
     
   </entry>
   

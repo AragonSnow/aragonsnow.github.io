@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>bark+腾讯问卷实现带日志的bark提醒</title>
+      <link href="/2020/04/21/bark-%E8%85%BE%E8%AE%AF%E9%97%AE%E5%8D%B7%E5%AE%9E%E7%8E%B0%E5%B8%A6%E6%97%A5%E5%BF%97%E7%9A%84bark%E6%8F%90%E9%86%92/"/>
+      <url>/2020/04/21/bark-%E8%85%BE%E8%AE%AF%E9%97%AE%E5%8D%B7%E5%AE%9E%E7%8E%B0%E5%B8%A6%E6%97%A5%E5%BF%97%E7%9A%84bark%E6%8F%90%E9%86%92/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Bark是iOS上一款优秀的轻量级通知推送软件，我日常也经常使用。看到群友说想要个日志功能，在git上提了issue作者也没有回复，估计不大可能了，所以只好自己动手丰衣足食，用Bark加腾讯问卷的形式，实现Bark带日志的功能。</p><h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ol><li>安装了bark的手机</li><li>注册腾讯问卷的账号</li><li>python</li></ol><h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><h2 id="腾讯问卷"><a href="#腾讯问卷" class="headerlink" title="腾讯问卷"></a>腾讯问卷</h2><h3 id="新建问卷"><a href="#新建问卷" class="headerlink" title="新建问卷"></a>新建问卷</h3><p>新建问卷，选择只有填空题，改一下标题，点击确定，保存<br></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2020/04/21/J6UXSbieVBdr9ZM.png" alt="01.PNG" title="">                </div>                <div class="image-caption">01.PNG</div>            </figure><p></p><h3 id="投放问卷"><a href="#投放问卷" class="headerlink" title="投放问卷"></a>投放问卷</h3><p>点击我的问卷-选择投放问卷，再点击问卷就可以看到问卷地址了<br></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2020/04/21/V63dLF8gbxrpAIu.png" alt="02.PNG" title="">                </div>                <div class="image-caption">02.PNG</div>            </figure><p></p><h3 id="获取参数"><a href="#获取参数" class="headerlink" title="获取参数"></a>获取参数</h3><p>打开投放的问卷链接-chrome F12打开调试台，开始搜索参数<br>搜 “question_” 就能找到 问题ID “question_q-1-cNbe”，只需要使用其中 “q-1-cNbe” 部分，每份问卷不一样<br>搜 “fillblank-” 找到 填空ID “fillblank-CzDZ” ,其中“fillblank-CzDZ”就是 填空ID<br></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2020/04/21/CeuWB3ZA2FyUJz7.png" alt="03.PNG" title="">                </div>                <div class="image-caption">03.PNG</div>            </figure><p></p><h2 id="发送通知"><a href="#发送通知" class="headerlink" title="发送通知"></a>发送通知</h2><h3 id="python方法"><a href="#python方法" class="headerlink" title="python方法"></a>python方法</h3><p><a href="https://github.com/AragonSnow/python_send2Phone" target="_blank" rel="noopener">https://github.com/AragonSnow/python_send2Phone</a><br>使用其中的send2phone.py文件，line8-12修改成你对应的配置:<br>“链接”是问卷链接<br>“ID”在问卷的中间<br>问题ID和填空ID在上面提到，请自行往前翻<br>比如我的是这样，仅供参考，不要照抄把通知发给我</p><pre><code>wj={    "链接":"https://wj.qq.com/s2/5917085/c5b8",    "ID":"5917085",    "问题ID":"q-1-cNbe",    "填空ID":"fillblank-CzDZ"}</code></pre><p>在要发送的地方调用函数 send2BarkAndWJ(标题， 内容)即可</p><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>手机端收到消息bark的推送。<br>历史消息只能web端查看，mobile版的是查看不了的。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> bark </tag>
+            
+            <tag> 腾讯问卷 </tag>
+            
+            <tag> log </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>简单工具api（不定期更新）</title>
       <link href="/2020/04/16/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%85%B7api/"/>
       <url>/2020/04/16/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%85%B7api/</url>
@@ -78,9 +109,9 @@
       
         <tags>
             
-            <tag> ibmcloud </tag>
-            
             <tag> 白嫖 </tag>
+            
+            <tag> ibmcloud </tag>
             
             <tag> onelist </tag>
             
@@ -107,9 +138,9 @@
       
         <tags>
             
-            <tag> ibmcloud </tag>
-            
             <tag> 白嫖 </tag>
+            
+            <tag> ibmcloud </tag>
             
             <tag> qiandao </tag>
             
@@ -136,11 +167,11 @@
       
         <tags>
             
+            <tag> 白嫖 </tag>
+            
             <tag> oneindex </tag>
             
             <tag> ibmcloud </tag>
-            
-            <tag> 白嫖 </tag>
             
             <tag> cloudfoundry </tag>
             
@@ -205,11 +236,11 @@
       
         <tags>
             
-            <tag> 白嫖 </tag>
-            
             <tag> OneIndex </tag>
             
             <tag> Heroku </tag>
+            
+            <tag> 白嫖 </tag>
             
         </tags>
       
