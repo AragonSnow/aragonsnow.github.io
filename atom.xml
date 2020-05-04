@@ -29,7 +29,7 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
         
       
     
@@ -53,7 +53,7 @@
     <link href="https://hexo.aragon.wang/2020/04/16/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%85%B7api/"/>
     <id>https://hexo.aragon.wang/2020/04/16/简单工具api/</id>
     <published>2020-04-16T03:11:25.000Z</published>
-    <updated>2020-04-16T03:13:35.341Z</updated>
+    <updated>2020-05-04T02:51:13.567Z</updated>
     
     <summary type="html">
     
@@ -61,7 +61,7 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;h1 id=&quot;toolapi&quot;&gt;&lt;a href=&quot;#toolapi&quot; class=&quot;headerlink&quot; title=&quot;toolapi&quot;&gt;&lt;/a&gt;toolapi&lt;/h1&gt;&lt;h1 id=&quot;这是什么&quot;&gt;&lt;a href=&quot;#这是什么&quot; class=&quot;headerlink&quot;
         
       
     
@@ -91,7 +91,7 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/binux/qiandao&quot; target=&quot;_blank&quot;
         
       
     
@@ -121,7 +121,7 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;h1 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot; class=&quot;headerlink&quot; title=&quot;原因&quot;&gt;&lt;/a&gt;原因&lt;/h1&gt;&lt;p&gt;原来的&lt;a href=&quot;&quot;&gt;Onelist&lt;/a&gt;已经失效，Moeclub大佬用Go
         
       
     
@@ -130,9 +130,9 @@
       <category term="白嫖" scheme="https://hexo.aragon.wang/categories/%E7%99%BD%E5%AB%96/"/>
     
     
-      <category term="ibmcloud" scheme="https://hexo.aragon.wang/tags/ibmcloud/"/>
-    
       <category term="白嫖" scheme="https://hexo.aragon.wang/tags/%E7%99%BD%E5%AB%96/"/>
+    
+      <category term="ibmcloud" scheme="https://hexo.aragon.wang/tags/ibmcloud/"/>
     
       <category term="onelist" scheme="https://hexo.aragon.wang/tags/onelist/"/>
     
@@ -151,7 +151,7 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;h1 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot; class=&quot;headerlink&quot; title=&quot;原因&quot;&gt;&lt;/a&gt;原因&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/binux/qiandao&quot; target=&quot;_blank&quot;
         
       
     
@@ -160,11 +160,11 @@
       <category term="白嫖" scheme="https://hexo.aragon.wang/categories/%E7%99%BD%E5%AB%96/"/>
     
     
-      <category term="ibmcloud" scheme="https://hexo.aragon.wang/tags/ibmcloud/"/>
-    
       <category term="白嫖" scheme="https://hexo.aragon.wang/tags/%E7%99%BD%E5%AB%96/"/>
     
       <category term="qiandao" scheme="https://hexo.aragon.wang/tags/qiandao/"/>
+    
+      <category term="ibmcloud" scheme="https://hexo.aragon.wang/tags/ibmcloud/"/>
     
   </entry>
   
@@ -181,7 +181,7 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;h1 id=&quot;oneindex-作者已经删库了，本项目也不再维护&quot;&gt;&lt;a href=&quot;#oneindex-作者已经删库了，本项目也不再维护&quot; class=&quot;headerlink&quot; title=&quot;oneindex 作者已经删库了，本项目也不再维护&quot;&gt;&lt;/a&gt;oneindex
         
       
     
@@ -190,11 +190,11 @@
       <category term="白嫖" scheme="https://hexo.aragon.wang/categories/%E7%99%BD%E5%AB%96/"/>
     
     
-      <category term="oneindex" scheme="https://hexo.aragon.wang/tags/oneindex/"/>
+      <category term="白嫖" scheme="https://hexo.aragon.wang/tags/%E7%99%BD%E5%AB%96/"/>
     
       <category term="ibmcloud" scheme="https://hexo.aragon.wang/tags/ibmcloud/"/>
     
-      <category term="白嫖" scheme="https://hexo.aragon.wang/tags/%E7%99%BD%E5%AB%96/"/>
+      <category term="oneindex" scheme="https://hexo.aragon.wang/tags/oneindex/"/>
     
       <category term="cloudfoundry" scheme="https://hexo.aragon.wang/tags/cloudfoundry/"/>
     
@@ -213,7 +213,7 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;h1 id=&quot;GCP已经要求二验，无限续杯已经失效&quot;&gt;&lt;a href=&quot;#GCP已经要求二验，无限续杯已经失效&quot; class=&quot;headerlink&quot; title=&quot;GCP已经要求二验，无限续杯已经失效&quot;&gt;&lt;/a&gt;GCP已经要求二验，无限续杯已经失效&lt;/h1&gt;&lt;h1
         
       
     
@@ -237,7 +237,7 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;h1 id=&quot;因为Onelist作者密钥过期没有更新，Onelist已经废弃，有意的请查看此教程IBMCloud部署OneList-Go&quot;&gt;&lt;a
         
       
     
@@ -261,7 +261,7 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;h1 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot; class=&quot;headerlink&quot; title=&quot;原因&quot;&gt;&lt;/a&gt;原因&lt;/h1&gt;&lt;p&gt;  当然是能白嫖啦！！！heroku
         
       
     
@@ -270,11 +270,11 @@
       <category term="白嫖" scheme="https://hexo.aragon.wang/categories/%E7%99%BD%E5%AB%96/"/>
     
     
-      <category term="白嫖" scheme="https://hexo.aragon.wang/tags/%E7%99%BD%E5%AB%96/"/>
-    
       <category term="OneIndex" scheme="https://hexo.aragon.wang/tags/OneIndex/"/>
     
       <category term="Heroku" scheme="https://hexo.aragon.wang/tags/Heroku/"/>
+    
+      <category term="白嫖" scheme="https://hexo.aragon.wang/tags/%E7%99%BD%E5%AB%96/"/>
     
   </entry>
   
@@ -291,7 +291,8 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;p&gt;OpenWrt 添加启动任务的方式有别于其他的linux系统，在尝试过程中踩了不少坑，所以整理在此处。&lt;br&gt;正常Linux系统一般修改rc.local即可在开机时自动运行代码，即&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;vi
         
       
     
@@ -319,7 +320,8 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;p&gt;OpenWrt 在使用过程中会出现需要添加自定义命令来提升效率，在一段时间摸索以后，我写了以下脚本来实现Frpc内网穿透的需求。&lt;br&gt;其他Linux系统均可以借鉴，但是文件位置可能稍有不同。&lt;/p&gt;
+&lt;h1 id=&quot;1、创建shell脚本&quot;&gt;&lt;a
         
       
     
@@ -347,7 +349,9 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;p&gt;在使用Python脚本实现DDNS功能时发现并没有定时运行,在指令后面添加 &lt;code&gt;&amp;gt;/dev/null 2&amp;amp;&amp;gt;1&lt;/code&gt;&lt;br&gt;指令，发现如下报错&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;00-18-01
+Traceback (most recent
         
       
     
@@ -375,7 +379,9 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;p&gt;sudo 指令在使用过程中需要反复输入密码，显得很麻烦，自然要取消这恼人的设定啊，哈哈哈&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo cp /etc/sudoers .      # 备份默认配置到当前文件夹
+sudo -i                     #
         
       
     
@@ -405,7 +411,8 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;p&gt;OpenWrt在挂载局域网共享文件夹可以有效减少磁盘空间占用，实现无限扩容的可能，在操作中踩了不少坑，所以记录下来：&lt;/p&gt;
+&lt;h1 id=&quot;操作指令&quot;&gt;&lt;a href=&quot;#操作指令&quot; class=&quot;headerlink&quot;
         
       
     
@@ -433,7 +440,8 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;p&gt;在使用Let’s encrypt 申请下来的免费证书在简单设置以后，还需要进行简单设置才能实现强制HTTPS访问，以下是使用 .htaccess 的方法来实现：&lt;/p&gt;
+&lt;h1 id=&quot;1-使能-htaccess-文件&quot;&gt;&lt;a
         
       
     
@@ -463,7 +471,8 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;p&gt;在一些比较特殊的网站需要添加用户验证的功能，下面是使用.htaccess文件的方法实现用户验证&lt;/p&gt;
+&lt;h1 id=&quot;1-安装apache-utils&quot;&gt;&lt;a href=&quot;#1-安装apache-utils&quot; class=&quot;headerlink&quot; title=&quot;1.
         
       
     
@@ -491,7 +500,7 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;h1 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot; class=&quot;headerlink&quot;
         
       
     
@@ -519,7 +528,7 @@
       
         
         
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+          &lt;p&gt;虽然KoolShare OpenWrt 有自带的DDNS功能，但不能实现多域名解析和对IPv6
         
       
     

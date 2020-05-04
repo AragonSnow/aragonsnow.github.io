@@ -30,18 +30,18 @@ ga('send', 'pageview');
     
     
     <meta name="keywords" content="python,api,flask">
-    <meta name="description" content="toolapi日常使用的API功能，目前集成时间戳转换，正则匹配 这是什么?一个简单的工具API项目仓库https://github.com/AragonSnow/toolapi如果有更多api需求，可以留言给我添加 功能1. 时间戳转换（/timestamp）目前仅支持GMT+8 北京时间 1.1 参数   参数 默认值 是否必要参数 解释     t now 是 要转换成时间戳的北京时间">
+    <meta name="description" content="toolapi这是什么?一个简单的工具API项目仓库https://github.com/AragonSnow/toolapi如果有更多api需求，可以留言给我添加 功能1 时间戳转换（/timestamp）目前仅支持GMT+8 北京时间 1.1 参数   参数 默认值 是否必要参数 解释     t now 是 要转换成时间戳的北京时间   ts null 是 要转换成北京时间的时间戳   fo">
 <meta name="keywords" content="python,api,flask">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简单工具api（不定期更新）">
 <meta property="og:url" content="https://hexo.aragon.wang/2020/04/16/简单工具api/index.html">
 <meta property="og:site_name" content="Aragon&#39;s Blog">
-<meta property="og:description" content="toolapi日常使用的API功能，目前集成时间戳转换，正则匹配 这是什么?一个简单的工具API项目仓库https://github.com/AragonSnow/toolapi如果有更多api需求，可以留言给我添加 功能1. 时间戳转换（/timestamp）目前仅支持GMT+8 北京时间 1.1 参数   参数 默认值 是否必要参数 解释     t now 是 要转换成时间戳的北京时间">
+<meta property="og:description" content="toolapi这是什么?一个简单的工具API项目仓库https://github.com/AragonSnow/toolapi如果有更多api需求，可以留言给我添加 功能1 时间戳转换（/timestamp）目前仅支持GMT+8 北京时间 1.1 参数   参数 默认值 是否必要参数 解释     t now 是 要转换成时间戳的北京时间   ts null 是 要转换成北京时间的时间戳   fo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-16T03:13:35.341Z">
+<meta property="og:updated_time" content="2020-05-04T02:51:13.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单工具api（不定期更新）">
-<meta name="twitter:description" content="toolapi日常使用的API功能，目前集成时间戳转换，正则匹配 这是什么?一个简单的工具API项目仓库https://github.com/AragonSnow/toolapi如果有更多api需求，可以留言给我添加 功能1. 时间戳转换（/timestamp）目前仅支持GMT+8 北京时间 1.1 参数   参数 默认值 是否必要参数 解释     t now 是 要转换成时间戳的北京时间">
+<meta name="twitter:description" content="toolapi这是什么?一个简单的工具API项目仓库https://github.com/AragonSnow/toolapi如果有更多api需求，可以留言给我添加 功能1 时间戳转换（/timestamp）目前仅支持GMT+8 北京时间 1.1 参数   参数 默认值 是否必要参数 解释     t now 是 要转换成时间戳的北京时间   ts null 是 要转换成北京时间的时间戳   fo">
     
         <link rel="alternate" type="application/atom+xml" title="Aragon&#39;s Blog" href="/atom.xml">
     
@@ -176,7 +176,7 @@ ga('send', 'pageview');
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#toolapi"><span class="post-toc-number">1.</span> <span class="post-toc-text">toolapi</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#这是什么"><span class="post-toc-number">2.</span> <span class="post-toc-text">这是什么?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#功能"><span class="post-toc-number">3.</span> <span class="post-toc-text">功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-时间戳转换（-timestamp）"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">1. 时间戳转换（/timestamp）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-参数"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">1.1 参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-返回值"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">1.2 返回值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-用例"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">1.3 用例</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-正则表达是（-regex）"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2.正则表达是（/regex）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-参数"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">2.1 参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-返回值"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">2.2 返回值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-用例"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">2.3 用例</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#toolapi"><span class="post-toc-number">1.</span> <span class="post-toc-text">toolapi</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#这是什么"><span class="post-toc-number">2.</span> <span class="post-toc-text">这是什么?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#功能"><span class="post-toc-number">3.</span> <span class="post-toc-text">功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-时间戳转换（-timestamp）"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">1 时间戳转换（/timestamp）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-参数"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">1.1 参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-返回值"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">1.2 返回值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-用例"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">1.3 用例</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-正则表达是（-regex）"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2. 正则表达是（/regex）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-参数"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">2.1 参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-返回值"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">2.2 返回值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-用例"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">2.3 用例</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-字符串处理-string"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">3 字符串处理(string)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-字符串替换-replace"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">3.1 字符串替换(replace)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-1-1-参数"><span class="post-toc-number">3.3.1.1.</span> <span class="post-toc-text">3.1.1 参数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-1-2-返回"><span class="post-toc-number">3.3.1.2.</span> <span class="post-toc-text">3.1.2 返回</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-1-3-用例"><span class="post-toc-number">3.3.1.3.</span> <span class="post-toc-text">3.1.3  用例</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-条件-condition"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">4 条件(condition)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-1-判断-judge"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text">4.1 判断(judge)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-1-1-参数"><span class="post-toc-number">3.4.1.1.</span> <span class="post-toc-text">4.1.1 参数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-1-2-返回"><span class="post-toc-number">3.4.1.2.</span> <span class="post-toc-text">4.1.2 返回</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-1-3-用例"><span class="post-toc-number">3.4.1.3.</span> <span class="post-toc-text">4.1.3 用例</span></a></li></ol></li></ol></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -202,9 +202,8 @@ ga('send', 'pageview');
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="toolapi"><a href="#toolapi" class="headerlink" title="toolapi"></a>toolapi</h1><p>日常使用的API功能，目前集成时间戳转换，正则匹配</p>
-<h1 id="这是什么"><a href="#这是什么" class="headerlink" title="这是什么?"></a>这是什么?</h1><p>一个简单的工具API<br>项目仓库<a href="https://github.com/AragonSnow/toolapi" target="_blank" rel="noopener">https://github.com/AragonSnow/toolapi</a><br><br>如果有更多api需求，可以留言给我添加</p>
-<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><h2 id="1-时间戳转换（-timestamp）"><a href="#1-时间戳转换（-timestamp）" class="headerlink" title="1. 时间戳转换（/timestamp）"></a>1. 时间戳转换（/timestamp）</h2><p>目前仅支持GMT+8 北京时间</p>
+            <h1 id="toolapi"><a href="#toolapi" class="headerlink" title="toolapi"></a>toolapi</h1><h1 id="这是什么"><a href="#这是什么" class="headerlink" title="这是什么?"></a>这是什么?</h1><p>一个简单的工具API<br>项目仓库<a href="https://github.com/AragonSnow/toolapi" target="_blank" rel="noopener">https://github.com/AragonSnow/toolapi</a><br><br>如果有更多api需求，可以留言给我添加</p>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><h2 id="1-时间戳转换（-timestamp）"><a href="#1-时间戳转换（-timestamp）" class="headerlink" title="1 时间戳转换（/timestamp）"></a>1 时间戳转换（/timestamp）</h2><p>目前仅支持GMT+8 北京时间</p>
 <h3 id="1-1-参数"><a href="#1-1-参数" class="headerlink" title="1.1 参数"></a>1.1 参数</h3><table>
 <thead>
 <tr>
@@ -278,7 +277,7 @@ ga('send', 'pageview');
     "时间": "2020-04-15 11:00:09",
     "状态": "OK"
 }
-</code></pre><h2 id="2-正则表达是（-regex）"><a href="#2-正则表达是（-regex）" class="headerlink" title="2.正则表达是（/regex）"></a>2.正则表达是（/regex）</h2><p>正则匹配参数并返回匹配结果</p>
+</code></pre><h2 id="2-正则表达是（-regex）"><a href="#2-正则表达是（-regex）" class="headerlink" title="2. 正则表达是（/regex）"></a>2. 正则表达是（/regex）</h2><p>正则匹配参数并返回匹配结果</p>
 <h3 id="2-1-参数"><a href="#2-1-参数" class="headerlink" title="2.1 参数"></a>2.1 参数</h3><table>
 <thead>
 <tr>
@@ -341,6 +340,135 @@ ga('send', 'pageview');
     },
     "状态": "OK"
 }
+</code></pre><h2 id="3-字符串处理-string"><a href="#3-字符串处理-string" class="headerlink" title="3 字符串处理(string)"></a>3 字符串处理(string)</h2><p>目前实现字符串替换功能</p>
+<h3 id="3-1-字符串替换-replace"><a href="#3-1-字符串替换-replace" class="headerlink" title="3.1 字符串替换(replace)"></a>3.1 字符串替换(replace)</h3><h4 id="3-1-1-参数"><a href="#3-1-1-参数" class="headerlink" title="3.1.1 参数"></a>3.1.1 参数</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:left">是否必要参数</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">s</td>
+<td style="text-align:center">“”</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">要替换的数据</td>
+</tr>
+<tr>
+<td style="text-align:center">f</td>
+<td style="text-align:center">“”</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">必须是replace</td>
+</tr>
+<tr>
+<td style="text-align:center">p</td>
+<td style="text-align:center">“”</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">要替换的关键词,支持正则</td>
+</tr>
+<tr>
+<td style="text-align:center">t</td>
+<td style="text-align:center">“”</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">替换后的内容</td>
+</tr>
+<tr>
+<td style="text-align:center">r</td>
+<td style="text-align:center">“”</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">返回的内容选择是json和纯文本, 默认是返回json,json会先显示转义字符，纯文本不会</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-1-2-返回"><a href="#3-1-2-返回" class="headerlink" title="3.1.2 返回"></a>3.1.2 返回</h4><p><font color="red"> 如果r = json,返回值如下：</font><br><br>| 参数 | 解释 |<br>| :—— | :—- |<br>| 原始字符串 | 输入的内容 |<br>| 处理后字符串  |  替换后的字符串 |<br>| 状态  |  运行的状态, 非OK都是异常 |</p>
+<p><font color="red"> 如果r = text,直接返回文本</font><br></p>
+<h4 id="3-1-3-用例"><a href="#3-1-3-用例" class="headerlink" title="3.1.3  用例"></a>3.1.3  用例</h4><pre><code>返回json
+https://toolapi.us-south.cf.appdomain.cloud/string?p=%E4%BA%BA&amp;t=%E5%AD%97%E7%AC%A6%E4%B8%B2&amp;f=replace&amp;r=json&amp;s={%22text%22:%22%E6%88%91%E6%98%AF%E4%BA%BA%22}
+s = {"text":"我是人"}
+f = replace
+p = 人
+t = 字符串
+r = json   (可不用，默认)
+返回
+{
+    "原始字符串": "{\"text\":\"我是人\"}",
+    "处理后字符串": "{\"text\":\"我是字符串\"}",
+    "状态": "OK"
+}
+</code></pre><pre><code>返回文本
+https://toolapi.us-south.cf.appdomain.cloud/string?p=%E4%BA%BA&amp;t=%E5%AD%97%E7%AC%A6%E4%B8%B2&amp;f=replace&amp;r=text&amp;s={%22text%22:%22%E6%88%91%E6%98%AF%E4%BA%BA%22}
+s = {"text":"我是人"}
+f = replace
+p = 人
+t = 字符串
+r = text
+返回
+{"text":"我是字符串"}
+</code></pre><h2 id="4-条件-condition"><a href="#4-条件-condition" class="headerlink" title="4 条件(condition)"></a>4 条件(condition)</h2><h3 id="4-1-判断-judge"><a href="#4-1-判断-judge" class="headerlink" title="4.1 判断(judge)"></a>4.1 判断(judge)</h3><p>判断并返回布尔值</p>
+<h4 id="4-1-1-参数"><a href="#4-1-1-参数" class="headerlink" title="4.1.1 参数"></a>4.1.1 参数</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">默认值</th>
+<th style="text-align:left">是否必要参数</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">s</td>
+<td style="text-align:center">“”</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">输入的公式</td>
+</tr>
+<tr>
+<td style="text-align:center">f</td>
+<td style="text-align:center">“”</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">必须是judge</td>
+</tr>
+</tbody>
+</table>
+<h4 id="4-1-2-返回"><a href="#4-1-2-返回" class="headerlink" title="4.1.2 返回"></a>4.1.2 返回</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">公式</td>
+<td style="text-align:left">输入的内容</td>
+</tr>
+<tr>
+<td style="text-align:left">结果</td>
+<td style="text-align:left">判断结果</td>
+</tr>
+<tr>
+<td style="text-align:left">状态</td>
+<td style="text-align:left">运行的状态, 非OK都是异常</td>
+</tr>
+</tbody>
+</table>
+<h4 id="4-1-3-用例"><a href="#4-1-3-用例" class="headerlink" title="4.1.3 用例"></a>4.1.3 用例</h4><pre><code>https://toolapi.us-south.cf.appdomain.cloud/condition?f=judge&amp;s=1%20%3E%202
+返回：
+{
+    "公式": "1 &gt; 2",
+    "结果": false,
+    "状态": "OK"
+}
+https://toolapi.us-south.cf.appdomain.cloud/condition?f=judge&amp;s=%272%27%3E%271%27
+返回：
+{
+    "公式": "'2'&gt;'1'",
+    "结果": true,
+    "状态": "OK"
+}
+
 </code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -367,7 +495,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-04-16T03:13:35.341Z" itemprop="dateUpdated">2020-04-16 11:13:35</time>
+    最后更新时间：<time datetime="2020-05-04T02:51:13.567Z" itemprop="dateUpdated">2020-05-04 10:51:13</time>
 </span><br>
 
 
