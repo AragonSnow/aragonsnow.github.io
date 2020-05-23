@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Heroku部署离线网盘</title>
+      <link href="/2020/05/23/Heroku%E9%83%A8%E7%BD%B2%E7%A6%BB%E7%BA%BF%E7%BD%91%E7%9B%98/"/>
+      <url>/2020/05/23/Heroku%E9%83%A8%E7%BD%B2%E7%A6%BB%E7%BA%BF%E7%BD%91%E7%9B%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Heroku能灵活性极高且支持多种编程语言,借助此可以将小程序部署再上面。<a href="https://github.com/xinxin8816" target="_blank" rel="noopener">xinxin8816</a>大佬 开发了aria2 下载然后上传到网盘中。理论上Rclone支持的网盘都支持，不过推荐使用Google Drive 或者OneDrive</p><h1 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h1><p><a href="https://github.com/xinxin8816/heroku-ariang-21vianet" target="_blank" rel="noopener">https://github.com/xinxin8816/heroku-ariang-21vianet</a><br></p><font size="5" color="red">使用过多可能会被封号，请节制使用</font><h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ol><li>Heroku账号，官网地址：<a href="https://dashboard.heroku.com/" target="_blank" rel="noopener">https://dashboard.heroku.com/</a><br><br>单个项目时长大概能运行20天左右，有长期运行需求的自行添加信用卡。</li><li>Rclone配置文件, 默认你会使用Rlcone<br>windows 可以参考这篇文章<a href="https://www.lifeee.top/posts/14654.html" target="_blank" rel="noopener">Windows平台下使用 Rclone 挂载 OneDrive 为本地硬盘</a></li></ol><h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><h2 id="deploy到Heroku"><a href="#deploy到Heroku" class="headerlink" title="deploy到Heroku"></a>deploy到Heroku</h2><p>打开项目地址<a href="https://github.com/xinxin8816/heroku-ariang-21vianet" target="_blank" rel="noopener">https://github.com/xinxin8816/heroku-ariang-21vianet</a>点击Deploy to Heroku按钮,会跳转到Heroku的界面<br></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2020/05/23/BLQyHVS5qFOvrnI.png" alt="01.png" title="">                </div>                <div class="image-caption">01.png</div>            </figure><p></p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>如图，设置APP name 和 界面登录密码<br></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2020/05/23/tksnmcQgvAezRI8.png" alt="02.png" title="">                </div>                <div class="image-caption">02.png</div>            </figure><br>然后打开rclone,复制配置，这里以OD的配置为例：<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2020/05/23/CzZSDOIA7jKHRnP.png" alt="03.png" title="">                </div>                <div class="image-caption">03.png</div>            </figure><br>等待平台自动编译完成，点击View查看网站。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2020/05/23/PRD1rK7gAUzxaB3.png" alt="04.png" title="">                </div>                <div class="image-caption">04.png</div>            </figure><br>可以看到网址配置OK，输入APP secret即可进入aria2的界面。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2020/05/23/eHfaUKQdO2xB6lR.png" alt="05.png" title="">                </div>                <div class="image-caption">05.png</div>            </figure><p></p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>自己摸索。<br>值得注意的是，不要一次添加太多任务。会导致程序崩溃重启。下载完成才会上传，所以显示完成可能需要过一会才会出现再网盘中。</p><h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>节制使用，小心封号。 不要滥用公共资源。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 白嫖 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Heroku </tag>
+            
+            <tag> 白嫖 </tag>
+            
+            <tag> rclone </tag>
+            
+            <tag> aria2 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>bark+腾讯问卷实现带日志的bark提醒</title>
       <link href="/2020/04/21/bark-%E8%85%BE%E8%AE%AF%E9%97%AE%E5%8D%B7%E5%AE%9E%E7%8E%B0%E5%B8%A6%E6%97%A5%E5%BF%97%E7%9A%84bark%E6%8F%90%E9%86%92/"/>
       <url>/2020/04/21/bark-%E8%85%BE%E8%AE%AF%E9%97%AE%E5%8D%B7%E5%AE%9E%E7%8E%B0%E5%B8%A6%E6%97%A5%E5%BF%97%E7%9A%84bark%E6%8F%90%E9%86%92/</url>
