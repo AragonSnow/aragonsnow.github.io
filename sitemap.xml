@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hexo.aragon.wang/2019/10/14/GCP%E6%9C%80%E6%96%B0%E7%99%BD%E5%AB%96%E6%95%99%E7%A8%8B/</loc>
+    
+    <lastmod>2020-06-03T16:28:17.713Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hexo.aragon.wang/2020/05/23/Heroku%E9%83%A8%E7%BD%B2%E7%A6%BB%E7%BA%BF%E7%BD%91%E7%9B%98/</loc>
     
     <lastmod>2020-05-23T07:19:44.631Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://hexo.aragon.wang/2020/01/11/IBMCloud%E9%83%A8%E7%BD%B2OneList-Go/</loc>
     
     <lastmod>2020-04-11T02:45:44.433Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hexo.aragon.wang/2019/10/14/GCP%E6%9C%80%E6%96%B0%E7%99%BD%E5%AB%96%E6%95%99%E7%A8%8B/</loc>
-    
-    <lastmod>2020-03-19T07:47:39.797Z</lastmod>
     
   </url>
   
